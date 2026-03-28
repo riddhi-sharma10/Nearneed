@@ -83,7 +83,7 @@
                 android:outlineSpotShadowColor="#08000000"
                 android:gravity="center"
                 android:orientation="vertical">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_edit_icon" app:tint="#94A3B8" />
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="#94A3B8" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Front of ID" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, no light reflections." android:textColor="#94A3B8" android:textSize="12sp" />
             </LinearLayout>
@@ -100,7 +100,7 @@
                 android:outlineSpotShadowColor="#08000000"
                 android:gravity="center"
                 android:orientation="vertical">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_edit_icon" app:tint="#94A3B8" />
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="#94A3B8" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Back of ID" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, horizontally held." android:textColor="#94A3B8" android:textSize="12sp" />
             </LinearLayout>
@@ -111,7 +111,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
                 android:gravity="center_vertical">
-                <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_checkbox_unselected" app:tint="#94A3B8" />
+                <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_info_circle" app:tint="#94A3B8" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="I confirm the info on my ID is clear and readable." android:textColor="#64748B" android:textSize="12sp" />
             </LinearLayout>
 

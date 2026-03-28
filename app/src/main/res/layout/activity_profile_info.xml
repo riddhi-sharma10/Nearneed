@@ -112,7 +112,7 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_gravity="bottom|end"
-                        android:background="@drawable/bg_plus_circle"
+                        android:background="@drawable/bg_blue_circle"
                         android:src="@drawable/ic_plus_white"
                         android:padding="6dp" />
                 </FrameLayout>
@@ -179,6 +179,7 @@
                 android:inputType="textMultiLine" />
                 
             <TextView
+                android:id="@+id/tvBioCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

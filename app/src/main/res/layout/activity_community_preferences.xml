@@ -45,7 +45,7 @@
                 android:elevation="6dp"
                 android:outlineAmbientShadowColor="#0F000000"
                 android:outlineSpotShadowColor="#1A000000">
-                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_notifications_bell" app:tint="#F43F5E" android:layout_gravity="center" />
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_solid_bell" app:tint="#F43F5E" android:layout_gravity="center" />
                 </FrameLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me about nearby emergencies" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" />
@@ -64,7 +64,7 @@
                 android:elevation="6dp"
                 android:outlineAmbientShadowColor="#0F000000"
                 android:outlineSpotShadowColor="#1A000000">
-                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_messages_outline" app:tint="#F43F5E" android:layout_gravity="center" />
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_solid_sms" app:tint="#F43F5E" android:layout_gravity="center" />
                 </FrameLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me via SMS" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" />

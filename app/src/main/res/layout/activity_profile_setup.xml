@@ -72,10 +72,11 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="16dp"
                         android:background="#E2E8F0">
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_location_pin" app:tint="#1D5EF3" android:layout_gravity="center" />
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_loc_pin_small" app:tint="#1D5EF3" android:layout_gravity="center" />
                     </FrameLayout>
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUseLocation"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="16dp"
@@ -102,50 +103,48 @@
                 android:outlineSpotShadowColor="#1A000000"
                 android:gravity="center_vertical"
                 android:paddingStart="24dp">
-                <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_search" app:tint="#94A3B8" />
+                <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_search_grey" app:tint="#94A3B8" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="Or search manually" android:textColor="#94A3B8" android:textSize="14sp" />
             </LinearLayout>
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="GIG/NEED POST SCROLLING RADIUS" android:textColor="#94A3B8" android:textSize="10sp" android:textStyle="bold" android:letterSpacing="0.05" />
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/cgRadius"
+            <!-- Radius Options Styled Rows -->
+            <LinearLayout
+                android:id="@+id/opt5km"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:singleSelection="true">
-                
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5 km"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    app:chipBackgroundColor="@color/sel_chip_bg_blue"
-                    app:chipStrokeColor="@color/sel_chip_stroke_blue"
-                    app:chipStrokeWidth="1dp"
-                    android:textColor="@color/sel_chip_text_blue" />
-                    
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7 km"
-                    android:checked="true"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    app:chipBackgroundColor="@color/sel_chip_bg_blue"
-                    app:chipStrokeColor="@color/sel_chip_stroke_blue"
-                    app:chipStrokeWidth="1dp"
-                    android:textColor="@color/sel_chip_text_blue" />
-                    
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10 km"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    app:chipBackgroundColor="@color/sel_chip_bg_blue"
-                    app:chipStrokeColor="@color/sel_chip_stroke_blue"
-                    app:chipStrokeWidth="1dp"
-                    android:textColor="@color/sel_chip_text_blue" />
-            </com.google.android.material.chip.ChipGroup>
+                android:background="@drawable/bg_radius_option_unselected"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tv5kmTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5 Kilometers" android:textColor="#0F172A" android:textStyle="bold" android:textSize="16sp"/>
+                <TextView android:id="@+id/tv5kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Matches from very close neighbors." android:textColor="#94A3B8" android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/opt7km"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_radius_option_unselected"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tv7kmTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7 Kilometers" android:textColor="#0F172A" android:textStyle="bold" android:textSize="16sp"/>
+                <TextView android:id="@+id/tv7kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ideal for local neighborhood connections." android:textColor="#94A3B8" android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/opt10km"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_radius_option_unselected"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tv10kmTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10 Kilometers" android:textColor="#0F172A" android:textStyle="bold" android:textSize="16sp"/>
+                <TextView android:id="@+id/tv10kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wider reach across your locality." android:textColor="#94A3B8" android:textSize="12sp"/>
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
