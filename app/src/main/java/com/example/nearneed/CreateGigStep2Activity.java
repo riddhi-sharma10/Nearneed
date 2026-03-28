@@ -61,7 +61,14 @@ public class CreateGigStep2Activity extends AppCompatActivity {
 
         // ── Post Gig CTA ─────────────────────────────────────────────────────
         findViewById(R.id.btnPostGig).setOnClickListener(v -> {
-            startActivity(new Intent(this, GigSuccessActivity.class));
+            Intent intent = new Intent(this, LoadingActivity.class);
+            intent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, GigSuccessActivity.class.getName());
+            intent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGES, new String[] {
+                    "Broadcasting your gig...",
+                    "Notifying nearby helpers...",
+                    "Saving your post..."
+            });
+            startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
         });
