@@ -27,19 +27,12 @@ public class GigDetailActivity extends AppCompatActivity {
         sheetView.findViewById(R.id.btnSendResponse).setOnClickListener(v -> {
             dialog.dismiss();
             
-            // Show confirmation
-            Toast.makeText(this, "Applied for the gig", Toast.LENGTH_SHORT).show();
+            // Show confirmation toast
+            Toast.makeText(this, "Application Sent!", Toast.LENGTH_SHORT).show();
             
-            // Redirect to loading -> dashboard
-            Intent loadingIntent = new Intent(this, LoadingActivity.class);
-            loadingIntent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, MainActivity.class.getName());
-            loadingIntent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGES, new String[]{
-                "Sending application...",
-                "Notifying neighbor...",
-                "Securing spot...",
-                "Done!"
-            });
-            startActivity(loadingIntent);
+            // Transition to Success Popup Screen
+            Intent successIntent = new Intent(this, ApplySuccessActivity.class);
+            startActivity(successIntent);
             finish();
         });
 

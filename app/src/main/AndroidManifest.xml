@@ -24,6 +24,9 @@
         <activity
             android:name=".GigDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".ApplySuccessActivity"
+            android:exported="false" />
 
         
         <activity
