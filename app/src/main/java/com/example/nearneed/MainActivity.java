@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        View btnViewC0 = findViewById(R.id.btnViewC0);
+        if (btnViewC0 != null) {
+            btnViewC0.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, MyCommunityPostDetailActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
         fabAdd.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
