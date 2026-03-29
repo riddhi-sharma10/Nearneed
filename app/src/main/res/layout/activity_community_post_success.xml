@@ -30,14 +30,13 @@
                 android:src="@drawable/ic_close_grey" />
         </RelativeLayout>
 
-        <!-- Center content grows to fill space -->
+        <!-- Flexbox Wrapper: Centers ALL internal content vertically -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center"
-            android:paddingBottom="24dp">
+            android:gravity="center">
 
             <!-- Success icon -->
             <FrameLayout
@@ -93,35 +92,62 @@
                 android:gravity="center"
                 android:layout_gravity="center_horizontal" />
 
+            <!-- Auto redirect block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvAutoRedirect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="auto-redirect in 3s"
+                    android:textColor="#F43F5E"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <ProgressBar
+                    android:id="@+id/pbAutoRedirect"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:progress="100"
+                    android:max="100"
+                    android:progressDrawable="@drawable/bg_progress_bar_red_flat" />
+            </LinearLayout>
+
+            <!-- Bottom CTAs (Now centered with the rest of the flow) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackToFeed"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="40dp"
+                android:text="Back to Feed"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:backgroundTint="#F43F5E"
+                app:cornerRadius="16dp"
+                android:elevation="0dp" />
+
+            <TextView
+                android:id="@+id/btnViewMyPost"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="12dp"
+                android:text="View My Post"
+                android:textColor="#F43F5E"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
         </LinearLayout>
-
-        <!-- Bottom CTAs -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBackToFeed"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Back to Feed"
-            android:textColor="#FFFFFF"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            app:backgroundTint="#F43F5E"
-            app:cornerRadius="16dp"
-            android:elevation="0dp" />
-
-        <TextView
-            android:id="@+id/btnViewMyPost"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="12dp"
-            android:text="View My Post"
-            android:textColor="#F43F5E"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
