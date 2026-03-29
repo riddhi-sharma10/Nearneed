@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        FrameLayout cardMyPost = findViewById(R.id.cardMyPost);
         FrameLayout cardGig1 = findViewById(R.id.cardGig1);
         FrameLayout cardCommunity1 = findViewById(R.id.cardCommunity1);
         FrameLayout cardCommunity2 = findViewById(R.id.cardCommunity2);
@@ -56,24 +57,35 @@ public class MainActivity extends AppCompatActivity {
             
             if (idx == 0) {
                 // All
+                cardMyPost.setVisibility(View.VISIBLE);
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.VISIBLE);
                 cardCommunity2.setVisibility(View.VISIBLE);
             } else if (idx == 1) {
                 // Gigs
+                cardMyPost.setVisibility(View.GONE);
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.GONE);
                 cardCommunity2.setVisibility(View.GONE);
             } else if (idx == 2) {
                 // Community
+                cardMyPost.setVisibility(View.GONE);
                 cardGig1.setVisibility(View.GONE);
                 cardGig2.setVisibility(View.GONE);
                 cardCommunity1.setVisibility(View.VISIBLE);
                 cardCommunity2.setVisibility(View.VISIBLE);
+            } else if (idx == 4) {
+                // My Posts
+                cardMyPost.setVisibility(View.VISIBLE);
+                cardGig1.setVisibility(View.GONE);
+                cardGig2.setVisibility(View.GONE);
+                cardCommunity1.setVisibility(View.GONE);
+                cardCommunity2.setVisibility(View.GONE);
             } else {
                 // Near By
+                cardMyPost.setVisibility(View.VISIBLE); // Assuming they want their own posts nearby too
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.VISIBLE);
