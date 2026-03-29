@@ -13,6 +13,10 @@
     <string name="signup_button">Sign up</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="login_text">Login</string>
+    <string name="welcome_subtitle">Your neighborhood, connected like\nnever before.</string>
+    <string name="btn_continue_login">Continue to Login</string>
+    <string name="btn_signup_welcome">Sign Up</string>
+    <string name="txt_discover_local">DISCOVER LOCAL</string>
     <string name="txt_profile_setup">Profile Setup</string>
     <string name="txt_community_preferences">Community Preferences</string>
     <string name="txt_step_4_of_4">Step 4 of 4</string>
