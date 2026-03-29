@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFAFA"
+    tools:ignore="HardcodedText,ContentDescription,SpUsage">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Back + Title -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_back_arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Community Post"
+                    android:textColor="#101D33"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                    
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="Step 2 of 2"
+                    android:textColor="#F43F5E"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="16dp"
+                android:progress="100"
+                android:max="100"
+                android:progressDrawable="@drawable/bg_progress_bar_red_flat" />
+
+            <!-- Warning Alert Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_alert_dark_red"
+                android:orientation="horizontal"
+                android:padding="20dp">
+                
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_info_red"
+                    app:tint="#FECDD3"
+                    android:layout_marginEnd="16dp" />
+                    
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Emergency post — expires in 2 hours."
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="SMS will be sent to all nearby neighbours."
+                        android:textColor="#FECDD3"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── ADD PHOTOS ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="ADD PHOTOS"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- Photo slot 1 -->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_photo_dashed" />
+
+                    <!-- Photo slot 2 -->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_photo_dashed" />
+
+                    <!-- Photo slot 3 -->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:background="@drawable/bg_photo_dashed" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ── VOICE NOTE ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="VOICE NOTE"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_district_pill_input_white_stroke"
+                android:elevation="6dp"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:id="@+id/iconVoice"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_circle_pink"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mic_blue"
+                        app:tint="#F43F5E"
+                        android:importantForAccessibility="no" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iconVoice"
+                    android:layout_toStartOf="@id/btnStartRecording"
+                    android:layout_marginStart="14dp"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Record details"
+                        android:textColor="#101D33"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Record a voice note for better clarity"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnStartRecording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="Start"
+                    android:textColor="#F43F5E"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </RelativeLayout>
+
+            <!-- ── LOCATION ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="LOCATION"
+                android:textColor="#64748B"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <RelativeLayout
+                android:id="@+id/cardLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_district_pill_input_white_stroke"
+                android:elevation="6dp"
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivMapThumbnail"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/bg_map_vector"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_card_base"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/ivMapThumbnail"
+                    android:layout_marginEnd="12dp"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BML Munjal University"
+                        android:textColor="#101D33"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_loc_pin_small"
+                        app:drawableTint="#F43F5E"
+                        android:drawablePadding="6dp"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="20dp"
+                        android:text="Kazhean, Haryana"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="20dp"
+                        android:text="Tap to adjust pin on map"
+                        android:textColor="#64748B"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="40dp" />
+
+            <!-- CTA -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPostNow"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Post Now"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_forward_arrow"
+                app:iconGravity="textEnd"
+                app:iconTint="#FFFFFF"
+                app:backgroundTint="#F43F5E"
+                app:cornerRadius="16dp"
+                android:elevation="0dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Emergency Dialog Overlay Wrapper for XML Preview -->
+    <FrameLayout
+        android:id="@+id/overlayEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:elevation="10dp"
+        android:visibility="gone">
+        <!-- Visibility defaults to gone so the user can interact with the form normally, 
+             they can toggle this to 'visible' in Android Studio to see the popup. 
+             If Java manages it via a real Dialog, this view isn't even necessary but kept for design preview -->
+
+        <include layout="@layout/dialog_emergency_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="24dp" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
