@@ -92,6 +92,16 @@
         <activity
             android:name=".GigSuccessActivity"
             android:exported="false" />
+        <activity
+            android:name=".CommunityVolunteerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CommunityVolunteerStep2Activity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NearNeed.Transparent" />
+
     </application>
 
 </manifest>

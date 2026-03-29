@@ -458,6 +458,7 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/btnVolC1"
                             android:layout_width="wrap_content"
                             android:layout_height="32dp"
                             android:layout_below="@id/c2_meta"
@@ -473,6 +474,177 @@
 
                         <ImageView
                             android:id="@+id/card_img_2"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/bg_image_placeholder"
+                            android:scaleType="centerCrop"
+                            android:importantForAccessibility="no" />
+                    </RelativeLayout>
+                </FrameLayout>
+
+                <!-- CARD 2.5: Emergency Food Delivery (Urgent) -->
+                <FrameLayout
+                    android:id="@+id/cardCommunity2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_card_base"
+                    android:elevation="2dp"
+                    android:outlineSpotShadowColor="#E2E8F0">
+                    
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_left_border_red" />
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:layout_marginStart="4dp">
+                        
+                        <TextView
+                            android:id="@+id/c4_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_4"
+                            android:layout_marginEnd="12dp"
+                            android:text="@string/txt_urgent"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05"
+                            android:background="@drawable/bg_tag_urgent"
+                            android:paddingStart="6dp"
+                            android:paddingEnd="6dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
+
+                        <TextView
+                            android:id="@+id/c4_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_4"
+                            android:layout_marginEnd="12dp"
+                            android:layout_below="@id/c4_tag"
+                            android:layout_marginTop="4dp"
+                            android:text="Emergency food delivery for senior"
+                            android:textColor="#0F172A"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/c4_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_4"
+                            android:layout_marginEnd="12dp"
+                            android:layout_below="@id/c4_title"
+                            android:layout_marginTop="2dp"
+                            android:text="Food Support"
+                            android:textColor="#64748B"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/c4_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_4"
+                            android:layout_marginEnd="12dp"
+                            android:layout_below="@id/c4_sub"
+                            android:layout_marginTop="4dp"
+                            android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors in block 4 who are unable to leave home due to construction."
+                            android:textColor="#64748B"
+                            android:textSize="12sp"
+                            android:maxLines="3"
+                            android:ellipsize="end" />
+
+                        <!-- Progress Section -->
+                        <RelativeLayout
+                            android:id="@+id/c4_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/card_img_4"
+                            android:layout_below="@id/c4_desc"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="12dp">
+
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:max="4"
+                                android:progress="2"
+                                android:progressTint="#F43F5E"
+                                android:progressBackgroundTint="#E2E8F0" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="2/4 Volunteers"
+                                android:textColor="#475569"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_alignParentEnd="true"
+                                android:text="50%"
+                                android:textColor="#475569"
+                                android:textSize="12sp" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/c4_meta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@id/c4_progress"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="11dp"
+                                android:layout_height="11dp"
+                                android:src="@drawable/ic_loc_pin_small"
+                                app:tint="#94A3B8"
+                                android:importantForAccessibility="no" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="0.4 km  ·  5 min ago"
+                                android:textColor="#94A3B8"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnVolC2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_below="@id/c4_meta"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/txt_volunteer"
+                            android:textColor="#F43F5E"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:background="@drawable/bg_btn_light_red"
+                            android:gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/card_img_4"
                             android:layout_width="88dp"
                             android:layout_height="88dp"
                             android:layout_alignParentEnd="true"

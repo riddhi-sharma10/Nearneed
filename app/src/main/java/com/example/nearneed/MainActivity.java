@@ -20,9 +20,26 @@ public class MainActivity extends AppCompatActivity {
         
         FrameLayout cardGig1 = findViewById(R.id.cardGig1);
         FrameLayout cardCommunity1 = findViewById(R.id.cardCommunity1);
+        FrameLayout cardCommunity2 = findViewById(R.id.cardCommunity2);
         FrameLayout cardGig2 = findViewById(R.id.cardGig2);
         ChipGroup cgFilters = findViewById(R.id.cgFilters);
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
+
+        View btnVolC1 = findViewById(R.id.btnVolC1);
+        if (btnVolC1 != null) {
+            btnVolC1.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, CommunityVolunteerActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        View btnVolC2 = findViewById(R.id.btnVolC2);
+        if (btnVolC2 != null) {
+            btnVolC2.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, CommunityVolunteerActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
 
         fabAdd.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
@@ -42,21 +59,25 @@ public class MainActivity extends AppCompatActivity {
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.VISIBLE);
+                cardCommunity2.setVisibility(View.VISIBLE);
             } else if (idx == 1) {
                 // Gigs
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.GONE);
+                cardCommunity2.setVisibility(View.GONE);
             } else if (idx == 2) {
                 // Community
                 cardGig1.setVisibility(View.GONE);
                 cardGig2.setVisibility(View.GONE);
                 cardCommunity1.setVisibility(View.VISIBLE);
+                cardCommunity2.setVisibility(View.VISIBLE);
             } else {
                 // Near By
                 cardGig1.setVisibility(View.VISIBLE);
                 cardGig2.setVisibility(View.VISIBLE);
                 cardCommunity1.setVisibility(View.VISIBLE);
+                cardCommunity2.setVisibility(View.VISIBLE);
             }
         });
     }
