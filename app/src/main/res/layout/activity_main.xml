@@ -149,8 +149,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txt_community"
                         android:checkable="true"
-                        app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
-                        app:chipStrokeColor="@color/sel_dash_chip_stroke"
+                        app:chipBackgroundColor="@color/sel_dash_chip_bg_pink"
+                        app:chipStrokeColor="@color/sel_dash_chip_stroke_pink"
                         app:chipStrokeWidth="1dp"
                         android:textColor="@color/sel_dash_chip_text"
                         app:checkedIconVisible="false" />
@@ -159,19 +159,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_near_by"
-                        android:checkable="true"
-                        app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
-                        app:chipStrokeColor="@color/sel_dash_chip_stroke"
-                        app:chipStrokeWidth="1dp"
-                        android:textColor="@color/sel_dash_chip_text"
-                        app:checkedIconVisible="false" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="My Posts"
+                        android:text="@string/txt_emergency"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_pink"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke_pink"
@@ -222,17 +210,13 @@
                             android:layout_toStartOf="@+id/card_img_0"
                             android:layout_marginEnd="12dp"
                             android:text="YOUR POST"
-                            android:textColor="#FFFFFF"
-                            android:textSize="11sp"
+                            android:textColor="#F43F5E"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.05"
-                            android:background="@drawable/bg_tag_urgent"
-                            app:drawableStartCompat="@drawable/ic_dot_green"
+                            app:drawableStartCompat="@drawable/bg_dot_red"
                             android:drawablePadding="6dp"
-                            android:paddingStart="6dp"
-                            android:paddingEnd="6dp"
-                            android:paddingTop="3dp"
-                            android:paddingBottom="3dp" />
+                            android:gravity="center_vertical" />
 
                         <TextView
                             android:id="@+id/c0_title"
@@ -258,8 +242,9 @@
                             android:layout_below="@id/c0_title"
                             android:layout_marginTop="2dp"
                             android:text="@string/txt_community_project"
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
+                            android:textColor="#F43F5E"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/c0_desc"
@@ -277,41 +262,47 @@
                             android:ellipsize="end" />
 
                         <!-- Progress Section -->
-                        <RelativeLayout
+                        <LinearLayout
                             android:id="@+id/c0_progress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toStartOf="@+id/card_img_0"
                             android:layout_below="@id/c0_desc"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="12dp">
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
 
                             <ProgressBar
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="6dp"
+                                android:layout_height="4dp"
                                 android:max="4"
                                 android:progress="2"
                                 android:progressTint="#F43F5E"
                                 android:progressBackgroundTint="#E2E8F0" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="2/4 Volunteers"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
+                                android:layout_marginTop="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2/4 Volunteers"
+                                    android:textColor="#475569"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_alignParentEnd="true"
-                                android:text="50%"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="50%"
+                                    android:textColor="#F43F5E"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/c0_meta"
@@ -528,15 +519,13 @@
                             android:layout_toStartOf="@+id/card_img_2"
                             android:layout_marginEnd="12dp"
                             android:text="@string/txt_urgent"
-                            android:textColor="#FFFFFF"
-                            android:textSize="11sp"
+                            android:textColor="#F43F5E"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.05"
-                            android:background="@drawable/bg_tag_urgent"
-                            android:paddingStart="6dp"
-                            android:paddingEnd="6dp"
-                            android:paddingTop="3dp"
-                            android:paddingBottom="3dp" />
+                            app:drawableStartCompat="@drawable/bg_dot_red"
+                            android:drawablePadding="6dp"
+                            android:gravity="center_vertical" />
 
                         <TextView
                             android:id="@+id/c2_title"
@@ -562,8 +551,9 @@
                             android:layout_below="@id/c2_title"
                             android:layout_marginTop="2dp"
                             android:text="@string/txt_community_project"
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
+                            android:textColor="#F43F5E"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/c2_desc"
@@ -581,41 +571,47 @@
                             android:ellipsize="end" />
 
                         <!-- Progress Section -->
-                        <RelativeLayout
+                        <LinearLayout
                             android:id="@+id/c2_progress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toStartOf="@+id/card_img_2"
                             android:layout_below="@id/c2_desc"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="12dp">
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
 
                             <ProgressBar
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="6dp"
+                                android:layout_height="4dp"
                                 android:max="10"
                                 android:progress="7"
                                 android:progressTint="#F43F5E"
                                 android:progressBackgroundTint="#E2E8F0" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/txt_7_10_volunteers"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
+                                android:layout_marginTop="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txt_7_10_volunteers"
+                                    android:textColor="#475569"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_alignParentEnd="true"
-                                android:text="@string/txt_70_percent"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="@string/txt_70_percent"
+                                    android:textColor="#F43F5E"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/c2_meta"
@@ -699,15 +695,13 @@
                             android:layout_toStartOf="@+id/card_img_4"
                             android:layout_marginEnd="12dp"
                             android:text="@string/txt_urgent"
-                            android:textColor="#FFFFFF"
-                            android:textSize="11sp"
+                            android:textColor="#F43F5E"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.05"
-                            android:background="@drawable/bg_tag_urgent"
-                            android:paddingStart="6dp"
-                            android:paddingEnd="6dp"
-                            android:paddingTop="3dp"
-                            android:paddingBottom="3dp" />
+                            app:drawableStartCompat="@drawable/bg_dot_red"
+                            android:drawablePadding="6dp"
+                            android:gravity="center_vertical" />
 
                         <TextView
                             android:id="@+id/c4_title"
@@ -733,8 +727,9 @@
                             android:layout_below="@id/c4_title"
                             android:layout_marginTop="2dp"
                             android:text="Food Support"
-                            android:textColor="#64748B"
-                            android:textSize="12sp" />
+                            android:textColor="#F43F5E"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/c4_desc"
@@ -745,48 +740,54 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c4_sub"
                             android:layout_marginTop="4dp"
-                            android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors in block 4 who are unable to leave home due to construction."
+                            android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors in block 4."
                             android:textColor="#64748B"
                             android:textSize="12sp"
-                            android:maxLines="3"
+                            android:maxLines="2"
                             android:ellipsize="end" />
 
                         <!-- Progress Section -->
-                        <RelativeLayout
+                        <LinearLayout
                             android:id="@+id/c4_progress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toStartOf="@+id/card_img_4"
                             android:layout_below="@id/c4_desc"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="12dp">
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
 
                             <ProgressBar
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="6dp"
+                                android:layout_height="4dp"
                                 android:max="4"
                                 android:progress="2"
                                 android:progressTint="#F43F5E"
                                 android:progressBackgroundTint="#E2E8F0" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="2/4 Volunteers"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
+                                android:layout_marginTop="4dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2/4 Volunteers"
+                                    android:textColor="#475569"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_alignParentEnd="true"
-                                android:text="50%"
-                                android:textColor="#475569"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="50%"
+                                    android:textColor="#F43F5E"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/c4_meta"
@@ -809,7 +810,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="3dp"
-                                android:text="0.4 km  ·  5 min ago"
+                                android:text="2.4 km  ·  45 min ago"
                                 android:textColor="#94A3B8"
                                 android:textSize="11sp" />
                         </LinearLayout>

@@ -243,7 +243,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:checked="false" />
+                    android:checked="true"
+                    app:trackTint="@color/sel_switch_track_blue"
+                    app:thumbTint="@color/sel_switch_thumb_blue" />
             </RelativeLayout>
 
             <!-- Max counter offer -->
@@ -337,7 +339,6 @@
                 android:textColor="#94A3B8"
                 android:textSize="11sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.05" />
                 android:letterSpacing="0.05" />
 
             <com.google.android.material.chip.ChipGroup

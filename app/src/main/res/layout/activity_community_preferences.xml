@@ -31,7 +31,7 @@
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Community Preferences" android:textColor="#101D33" android:textSize="14sp" android:fontFamily="sans-serif-medium" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 4/4" android:textColor="#94A3B8" android:textSize="12sp" />
             </LinearLayout>
-            <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="8dp" android:progress="100" android:max="100" android:progressDrawable="@drawable/bg_progress_bar_blue_flat" />
+            <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="8dp" android:progress="100" android:max="100" android:progressDrawable="@drawable/bg_progress_bar_red_flat" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="Emergency Notifications" android:textColor="#101D33" android:textSize="18sp" android:fontFamily="sans-serif-black" />
 
@@ -51,7 +51,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me about nearby emergencies" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Push notification when someone needs help" android:textColor="#64748B" android:textSize="12sp" />
                 </LinearLayout>
-                <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="#F43F5E" app:trackTint="#FDA4AF" />
+                <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/sel_switch_thumb" app:trackTint="@color/sel_switch_track" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +70,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me via SMS" android:textColor="#101D33" android:textSize="14sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SMS notification to +91 99XXXXX99" android:textColor="#64748B" android:textSize="12sp" />
                 </LinearLayout>
-                <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="#F43F5E" app:trackTint="#FDA4AF" />
+                <androidx.appcompat.widget.SwitchCompat android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" app:thumbTint="@color/sel_switch_thumb" app:trackTint="@color/sel_switch_track" />
             </LinearLayout>
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="Notification Radius" android:textColor="#101D33" android:textSize="18sp" android:fontFamily="sans-serif-black" />
@@ -95,10 +95,13 @@
                 android:layout_marginTop="16dp">
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Car" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Medical" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tools" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
+                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="First Aid" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Water" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Food/Kit" android:checked="true" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Supplies" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Add Other" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="#FFFFFF" app:chipStrokeColor="#E2E8F0" app:chipStrokeWidth="1dp" android:textColor="#94A3B8"/>
+                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Shelter" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Transport" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tools" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
             </com.google.android.material.chip.ChipGroup>
 
             <Space

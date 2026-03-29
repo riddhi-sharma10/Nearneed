@@ -26,9 +26,9 @@
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="@drawable/bg_circle_light_green"
-            android:src="@drawable/ic_check_circle_green"
-            android:padding="16dp" />
+            android:src="@drawable/ic_verified_badge" 
+            app:tint="#10B981"
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"

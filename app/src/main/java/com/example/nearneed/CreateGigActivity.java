@@ -27,14 +27,14 @@ public class CreateGigActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
         // --- Negotiation toggle ---
-        SwitchCompat switchNegotiation = findViewById(R.id.switchNegotiation);
+        com.google.android.material.materialswitch.MaterialSwitch switchNegotiation = findViewById(R.id.switchNegotiation);
         cardMaxCounter   = findViewById(R.id.cardMaxCounter);
         btnCounterMinus  = findViewById(R.id.btnCounterMinus);
         btnCounterPlus   = findViewById(R.id.btnCounterPlus);
         tvCounterValue   = findViewById(R.id.tvCounterValue);
 
-        // Start disabled (switch is OFF by default)
-        setCounterEnabled(false);
+        // Start enabled (switch is ON in XML)
+        setCounterEnabled(true);
 
         switchNegotiation.setOnCheckedChangeListener((buttonView, isChecked) ->
             setCounterEnabled(isChecked)

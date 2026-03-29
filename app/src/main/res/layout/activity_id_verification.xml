@@ -58,17 +58,47 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_verified_blue_shield"
-                android:padding="16dp"
-                android:orientation="horizontal">
+                android:padding="20dp"
+                android:orientation="vertical">
                 
-                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_verified_badge" android:layout_gravity="center_vertical" />
-                
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ACCEPTED IDS" android:textColor="#1D5EF3" android:textSize="12sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aadhaar, PAN, Driving Licenses (Voter ID and Passport)" android:textColor="#101D33" android:textSize="13sp" android:fontFamily="sans-serif-medium" />
-                </LinearLayout>
+                <TextView 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="WHY SHOULD YOU VERIFY?" 
+                    android:textColor="#1D5EF3" 
+                    android:textSize="10sp" 
+                    android:textStyle="bold" 
+                    android:letterSpacing="0.05" />
+
+                <TextView 
+                    android:layout_width="match_parent" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginTop="4dp"
+                    android:text="• Build deep trust with neighbors \n• Get a verified badge on your profile \n• Access high-reward Gigs and special tasks"
+                    android:textColor="#101D33" 
+                    android:textSize="12sp" 
+                    android:lineSpacingExtra="2dp"/>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E7FF" android:layout_marginVertical="12dp" />
+
+                <TextView 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="ACCEPTED IDS" 
+                    android:textColor="#1D5EF3" 
+                    android:textSize="10sp" 
+                    android:textStyle="bold" 
+                    android:letterSpacing="0.05" />
+
+                <TextView 
+                    android:layout_width="match_parent" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginTop="4dp"
+                    android:text="Aadhaar, PAN, Driving Licenses, Voter ID, Passport" 
+                    android:textColor="#101D33" 
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- Front Side Upload -->

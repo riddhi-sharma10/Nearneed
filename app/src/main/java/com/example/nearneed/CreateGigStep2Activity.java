@@ -20,7 +20,13 @@ public class CreateGigStep2Activity extends AppCompatActivity {
 
     private TextView chipToday, chipThisWeek, chipFlexible;
     private MediaRecorder mediaRecorder;
+    private android.media.MediaPlayer mediaPlayer;
     private boolean isRecording = false;
+    private String voiceNotePath;
+
+    private android.view.View playerControls;
+    private android.widget.TextView btnStartRecording, tvVoiceTitle, tvVoiceSub;
+    private android.widget.ImageView ivVoiceStatus, btnPlayAudio, btnDeleteAudio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,15 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_create_gig_step2);
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
+
+        // UI references
+        btnStartRecording = findViewById(R.id.btnStartRecording);
+        tvVoiceTitle = findViewById(R.id.tvVoiceTitle);
+        tvVoiceSub = findViewById(R.id.tvVoiceSub);
+        ivVoiceStatus = findViewById(R.id.ivVoiceStatus);
+        playerControls = findViewById(R.id.playerControls);
+        btnPlayAudio = findViewById(R.id.btnPlayAudio);
+        btnDeleteAudio = findViewById(R.id.btnDeleteAudio);
 
         // When chips — use Material ChipGroup; keep legacy manual selection as fallback
         chipToday     = findViewById(R.id.chipWhenToday);
@@ -39,14 +54,13 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         chipFlexible.setOnClickListener(v -> selectWhen(2));
 
         // ── Voice recording ──────────────────────────────────────────────────
-        TextView btnRecord = findViewById(R.id.btnStartRecording);
-        btnRecord.setOnClickListener(v -> {
+        btnStartRecording.setOnClickListener(v -> {
             if (isRecording) {
-                stopRecording(btnRecord);
+                stopRecording();
             } else {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                         == PackageManager.PERMISSION_GRANTED) {
-                    startRecording(btnRecord);
+                    startRecording();
                 } else {
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_MIC);
@@ -54,9 +68,10 @@ public class CreateGigStep2Activity extends AppCompatActivity {
             }
         });
 
+        btnPlayAudio.setOnClickListener(v -> playVoiceNote());
+        btnDeleteAudio.setOnClickListener(v -> deleteVoiceNote());
+
         // ── Location picker ──────────────────────────────────────────────────
-        // Tapping the location card launches Google Maps "place picker" intent.
-        // Falls back gracefully if Maps is not installed.
         findViewById(R.id.cardLocation).setOnClickListener(v -> openMapPicker());
 
         // ── Post Gig CTA ─────────────────────────────────────────────────────
@@ -76,35 +91,85 @@ public class CreateGigStep2Activity extends AppCompatActivity {
 
     // ── Recording helpers ────────────────────────────────────────────────────
 
-    private void startRecording(TextView btn) {
+    private void startRecording() {
         try {
-            String outputPath = getExternalCacheDir().getAbsolutePath() + "/voice_note.3gp";
+            voiceNotePath = getExternalCacheDir().getAbsolutePath() + "/voice_note.3gp";
             mediaRecorder = new MediaRecorder();
             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-            mediaRecorder.setOutputFile(outputPath);
+            mediaRecorder.setOutputFile(voiceNotePath);
             mediaRecorder.prepare();
             mediaRecorder.start();
             isRecording = true;
-            btn.setText("⏹  Stop");
-            btn.setTextColor(0xFFEF4444);
-            Toast.makeText(this, "Recording…", Toast.LENGTH_SHORT).show();
+
+            btnStartRecording.setText("Stop");
+            btnStartRecording.setTextColor(0xFFEF4444);
+            tvVoiceTitle.setText("Recording...");
+            tvVoiceSub.setText("Keep talking or tap stop when done.");
+            ivVoiceStatus.setImageResource(R.drawable.ic_dot_green); // Show recording dot
         } catch (Exception e) {
             Toast.makeText(this, "Could not start recording.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void stopRecording(TextView btn) {
+    private void stopRecording() {
         try {
             mediaRecorder.stop();
             mediaRecorder.release();
         } catch (Exception ignored) {}
         mediaRecorder = null;
         isRecording = false;
-        btn.setText("🎙  Voice note saved");
-        btn.setTextColor(0xFF1D5EF3);
-        Toast.makeText(this, "Voice note saved!", Toast.LENGTH_SHORT).show();
+
+        // Transition to review state
+        btnStartRecording.setVisibility(android.view.View.GONE);
+        playerControls.setVisibility(android.view.View.VISIBLE);
+        tvVoiceTitle.setText("Voice note saved");
+        tvVoiceSub.setText("Listen back or delete to re-record.");
+        ivVoiceStatus.setImageResource(R.drawable.ic_mic_blue);
+    }
+
+    private void playVoiceNote() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+            return;
+        }
+
+        try {
+            mediaPlayer = new android.media.MediaPlayer();
+            mediaPlayer.setDataSource(voiceNotePath);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+            Toast.makeText(this, "Playing voice note...", Toast.LENGTH_SHORT).show();
+            mediaPlayer.setOnCompletionListener(mp -> {
+                mediaPlayer.release();
+                mediaPlayer = null;
+            });
+        } catch (Exception e) {
+            Toast.makeText(this, "Could not play audio.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void deleteVoiceNote() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+
+        java.io.File file = new java.io.File(voiceNotePath);
+        if (file.exists()) file.delete();
+
+        // Reset to initial state
+        btnStartRecording.setVisibility(android.view.View.VISIBLE);
+        btnStartRecording.setText("Start");
+        btnStartRecording.setTextColor(0xFF1D5EF3);
+        playerControls.setVisibility(android.view.View.GONE);
+        tvVoiceTitle.setText("Record details");
+        tvVoiceSub.setText("Record a 20-second voice note");
+        Toast.makeText(this, "Voice note deleted.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -115,8 +180,7 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         if (requestCode == REQUEST_MIC
                 && grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            TextView btn = findViewById(R.id.btnStartRecording);
-            startRecording(btn);
+            startRecording();
         } else {
             Toast.makeText(this, "Microphone permission needed to record.", Toast.LENGTH_SHORT).show();
         }
@@ -127,6 +191,9 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         super.onDestroy();
         if (mediaRecorder != null) {
             try { mediaRecorder.release(); } catch (Exception ignored) {}
+        }
+        if (mediaPlayer != null) {
+            try { mediaPlayer.release(); } catch (Exception ignored) {}
         }
     }
 

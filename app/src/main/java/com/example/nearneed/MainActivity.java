@@ -79,26 +79,26 @@ public class MainActivity extends AppCompatActivity {
                 cardCommunity2.setVisibility(View.GONE);
             } else if (idx == 2) {
                 // Community
+                cardMyPost.setVisibility(View.VISIBLE);
+                cardGig1.setVisibility(View.GONE);
+                cardGig2.setVisibility(View.GONE);
+                cardCommunity1.setVisibility(View.VISIBLE);
+                cardCommunity2.setVisibility(View.VISIBLE);
+            } else if (idx == 3) {
+                // Emergency (Urgent posts)
                 cardMyPost.setVisibility(View.GONE);
                 cardGig1.setVisibility(View.GONE);
                 cardGig2.setVisibility(View.GONE);
                 cardCommunity1.setVisibility(View.VISIBLE);
                 cardCommunity2.setVisibility(View.VISIBLE);
-            } else if (idx == 4) {
-                // My Posts
-                cardMyPost.setVisibility(View.VISIBLE);
-                cardGig1.setVisibility(View.GONE);
-                cardGig2.setVisibility(View.GONE);
-                cardCommunity1.setVisibility(View.GONE);
-                cardCommunity2.setVisibility(View.GONE);
-            } else {
-                // Near By
-                cardMyPost.setVisibility(View.VISIBLE); // Assuming they want their own posts nearby too
-                cardGig1.setVisibility(View.VISIBLE);
-                cardGig2.setVisibility(View.VISIBLE);
-                cardCommunity1.setVisibility(View.VISIBLE);
-                cardCommunity2.setVisibility(View.VISIBLE);
             }
         });
+        
+        // Initial filter state: show All
+        cardMyPost.setVisibility(View.VISIBLE);
+        cardGig1.setVisibility(View.VISIBLE);
+        cardGig2.setVisibility(View.VISIBLE);
+        cardCommunity1.setVisibility(View.VISIBLE);
+        cardCommunity2.setVisibility(View.VISIBLE);
     }
 }

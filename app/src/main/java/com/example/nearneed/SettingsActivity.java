@@ -14,6 +14,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         
+        findViewById(R.id.btnIDVerification).setOnClickListener(v -> {
+            Intent intent = new Intent(SettingsActivity.this, IdVerificationActivity.class);
+            startActivity(intent);
+        });
+
         if (findViewById(R.id.switchDarkMode) != null) {
             findViewById(R.id.switchDarkMode).setOnClickListener(v -> 
                 Toast.makeText(this, "Dark mode toggled", Toast.LENGTH_SHORT).show()

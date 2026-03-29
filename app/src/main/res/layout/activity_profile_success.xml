@@ -25,7 +25,7 @@
             android:padding="24dp"
             android:gravity="center_horizontal">
 
-            <!-- Green Identity Verified icon -->
+            <!-- Profile Created icon -->
             <FrameLayout
                 android:layout_width="64dp"
                 android:layout_height="64dp">
@@ -33,14 +33,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_verified_badge" 
-                    app:tint="#10B981"/> <!-- Green -->
+                    app:tint="#1D5EF3"/> <!-- Brand Blue -->
             </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Identity Verified"
+                android:text="Profile Created!"
                 android:textColor="#101D33"
                 android:textSize="24sp"
                 android:fontFamily="sans-serif-black" />
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="You're all set up! A verified badge has been added to your profile to ensure trust."
+                android:text="Your neighborhood profile is now ready to use. You can always verify your ID later from settings."
                 android:textColor="#64748B"
                 android:textSize="14sp"
                 android:gravity="center"
@@ -82,7 +82,6 @@
                     
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Abhinav Sharma" android:textColor="#101D33" android:textSize="16sp" android:textStyle="bold" />
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_verified_badge" android:layout_marginStart="6dp"/>
                     </LinearLayout>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BML Munjal Univ | Joined Oct 2024" android:textColor="#94A3B8" android:textSize="12sp" android:layout_marginTop="2dp" />
                 </LinearLayout>

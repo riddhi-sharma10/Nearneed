@@ -200,31 +200,34 @@
                 android:elevation="6dp"
                 android:padding="16dp">
 
-                <!-- Microphone icon circle -->
+                <!-- Microphone icon / Play icon -->
                 <FrameLayout
-                    android:id="@+id/iconVoice"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/iconVoiceContainer"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
                     android:background="@drawable/bg_circle_light_blue"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true">
                     <ImageView
+                        android:id="@+id/ivVoiceStatus"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_mic_blue"
-                        android:importantForAccessibility="no" />
+                        android:src="@drawable/ic_mic_blue" />
                 </FrameLayout>
 
                 <LinearLayout
+                    android:id="@+id/textContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/iconVoice"
+                    android:layout_toEndOf="@id/iconVoiceContainer"
+                    android:layout_toStartOf="@+id/actionContainer"
                     android:layout_marginStart="14dp"
                     android:layout_centerVertical="true"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvVoiceTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Record details"
@@ -233,26 +236,67 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvVoiceSub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Record a 20-second voice note for better clarity"
+                        android:text="Record a 20-second voice note"
                         android:textColor="#94A3B8"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/btnStartRecording"
+                <!-- Actions -->
+                <LinearLayout
+                    android:id="@+id/actionContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="Start"
-                    android:textColor="#1D5EF3"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/btnStartRecording"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start"
+                        android:textColor="#1D5EF3"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Play/Delete (Hidden by default) -->
+                    <LinearLayout
+                        android:id="@+id/playerControls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+                        
+                        <ImageView
+                            android:id="@+id/btnPlayAudio"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_check_circle_green"
+                            app:tint="#1D5EF3"
+                            android:padding="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+
+                        <ImageView
+                            android:id="@+id/btnDeleteAudio"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_close_grey"
+                            app:tint="#F43F5E"
+                            android:padding="4dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+                </LinearLayout>
             </RelativeLayout>
 
             <!-- ── LOCATION ── -->

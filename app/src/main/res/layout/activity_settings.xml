@@ -76,6 +76,14 @@
                 </RelativeLayout>
             </LinearLayout>
 
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="Account &amp; Security" android:textColor="#64748B" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.05" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="12dp" android:background="@drawable/bg_card_base" android:elevation="6dp" android:outlineSpotShadowColor="#E2E8F0">
+                <RelativeLayout android:id="@+id/btnIDVerification" android:layout_width="match_parent" android:layout_height="56dp" android:paddingStart="16dp" android:paddingEnd="16dp" android:background="?attr/selectableItemBackground" android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ID Verification" android:textColor="#0F172A" android:textSize="14sp" android:fontFamily="sans-serif-medium" />
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp" android:layout_alignParentEnd="true" android:src="@drawable/ic_back_arrow" android:rotation="180" app:tint="#94A3B8" />
+                </RelativeLayout>
+            </LinearLayout>
+
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="Privacy &amp; Security" android:textColor="#64748B" android:textSize="12sp" android:textStyle="bold" android:letterSpacing="0.05" />
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="12dp" android:background="@drawable/bg_card_base" android:elevation="6dp" android:outlineSpotShadowColor="#E2E8F0">
                 <RelativeLayout android:layout_width="match_parent" android:layout_height="56dp" android:paddingStart="16dp" android:paddingEnd="16dp" android:gravity="center_vertical">
