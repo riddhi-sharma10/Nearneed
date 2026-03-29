@@ -22,7 +22,8 @@ public class CreateCommunityPostActivity extends AppCompatActivity {
         MaterialButton btnContinue = findViewById(R.id.btnContinueCommunity);
         if (btnContinue != null) {
             btnContinue.setOnClickListener(v -> {
-                // Future transition to Step 2
+                startActivity(new Intent(this, CreateCommunityPostStep2Activity.class));
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out);
             });
         }
     }
