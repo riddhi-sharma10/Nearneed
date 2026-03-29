@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <!-- Top Header Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF" />
+
+    <!-- Top Header -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+        
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_arrow" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Recent Activity"
+            android:textColor="#101D33"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:clipToPadding="false"
+            android:clipChildren="false">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Completed Tasks"
+                android:textColor="#101D33"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Completed Task 1 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <View android:layout_width="4dp" android:layout_height="match_parent" android:background="@drawable/bg_left_border_blue" />
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:layout_marginStart="4dp">
+                    <TextView android:id="@+id/t1_tag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMPLETED" android:textColor="#10B981" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c1_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/t1_tag" android:layout_marginTop="4dp" android:text="@string/txt_plumbing_repair" android:textColor="#0F172A" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c1_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c1_title" android:layout_marginTop="2dp" android:text="@string/txt_price_400" android:textColor="#1D5EF3" android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c1_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/c1_price" android:layout_toStartOf="@+id/card_img_1" android:layout_marginTop="4dp" android:text="Fixed the bathroom pipe burst successfully." android:textColor="#64748B" android:textSize="12sp" android:layout_marginEnd="12dp"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c1_desc" android:layout_marginTop="12dp" android:background="#F8FAFC" android:padding="8dp">
+                        <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Received 5 star rating" android:textColor="#475569" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:id="@+id/card_img_1" android:layout_width="80dp" android:layout_height="80dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="@drawable/bg_image_placeholder" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Completed Task 2 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <View android:layout_width="4dp" android:layout_height="match_parent" android:background="@drawable/bg_left_border_red" />
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:layout_marginStart="4dp">
+                    <TextView android:id="@+id/c2_tag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMPLETED" android:textColor="#10B981" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c2_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c2_tag" android:layout_marginTop="4dp" android:text="@string/txt_garden_cleanup" android:textColor="#0F172A" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c2_sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c2_title" android:text="@string/txt_community_project" android:textColor="#64748B" android:textSize="12sp" />
+                    <TextView android:id="@+id/c2_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/c2_sub" android:layout_toStartOf="@+id/card_img_2" android:layout_marginTop="4dp" android:text="Helped clear up the community park with 9 other volunteers." android:textColor="#64748B" android:textSize="12sp" android:layout_marginEnd="12dp"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c2_desc" android:layout_marginTop="12dp" android:background="#F8FAFC" android:padding="8dp">
+                        <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Received 4 star rating" android:textColor="#475569" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:id="@+id/card_img_2" android:layout_width="80dp" android:layout_height="80dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="@drawable/bg_image_placeholder" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Completed Task 3 (Filling Gap) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <View android:layout_width="4dp" android:layout_height="match_parent" android:background="@drawable/bg_left_border_blue" />
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:layout_marginStart="4dp">
+                    <TextView android:id="@+id/t3_tag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMPLETED" android:textColor="#10B981" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c3_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/t3_tag" android:layout_marginTop="4dp" android:text="Grocery Delivery" android:textColor="#0F172A" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c3_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c3_title" android:layout_marginTop="2dp" android:text="₹150" android:textColor="#1D5EF3" android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c3_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/c3_price" android:layout_toStartOf="@+id/card_img_3" android:layout_marginTop="4dp" android:text="Delivered milk and eggs to Block C senior residents." android:textColor="#64748B" android:textSize="12sp" android:layout_marginEnd="12dp"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c3_desc" android:layout_marginTop="12dp" android:background="#F8FAFC" android:padding="8dp">
+                        <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Received 5 star rating" android:textColor="#475569" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:id="@+id/card_img_3" android:layout_width="80dp" android:layout_height="80dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="@drawable/bg_image_placeholder" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Completed Task 4 (Filling Gap) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <View android:layout_width="4dp" android:layout_height="match_parent" android:background="@drawable/bg_left_border_red" />
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:layout_marginStart="4dp">
+                    <TextView android:id="@+id/t4_tag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMPLETED" android:textColor="#10B981" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c4_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/t4_tag" android:layout_marginTop="4dp" android:text="Furniture Assembly" android:textColor="#0F172A" android:textSize="18sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/c4_sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c4_title" android:text="Voluntary Help Act" android:textColor="#64748B" android:textSize="12sp" />
+                    <TextView android:id="@+id/c4_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/c4_sub" android:layout_toStartOf="@+id/card_img_4" android:layout_marginTop="4dp" android:text="Helped assemble a study table for a student neighbor." android:textColor="#64748B" android:textSize="12sp" android:layout_marginEnd="12dp"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/c4_desc" android:layout_marginTop="12dp" android:background="#F8FAFC" android:padding="8dp">
+                        <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Received 5 star rating" android:textColor="#475569" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:id="@+id/card_img_4" android:layout_width="80dp" android:layout_height="80dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="@drawable/bg_image_placeholder" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Export History Button -->
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="Download Activity History"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:backgroundTint="#1D5EF3"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

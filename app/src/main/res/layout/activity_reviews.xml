@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <!-- Top Header Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF" />
+
+    <!-- Top Header -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+        
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_arrow" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Reviews"
+            android:textColor="#101D33"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:clipToPadding="false"
+            android:clipChildren="false">
+
+            <!-- Summary Card with Theme Gradient/Color -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_base"
+                android:elevation="6dp"
+                android:outlineSpotShadowColor="#E0F2FE"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:layout_marginBottom="32dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.8"
+                            android:textColor="#1D5EF3"
+                            android:textSize="48sp"
+                            android:fontFamily="sans-serif-black" />
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" />
+                            <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_star_yellow" app:tint="#CBD5E1" android:layout_marginStart="2dp"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="15 reviews"
+                            android:textColor="#64748B"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="#F1F5F9" />
+
+                    <!-- Rating Distribution -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <!-- 5 Stars -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+                            <TextView android:layout_width="10dp" android:layout_height="wrap_content" android:text="5" android:textSize="10sp" android:textColor="#94A3B8"/>
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:max="100"
+                                android:progress="85"
+                                android:progressTint="#1D5EF3"
+                                android:progressBackgroundTint="#F1F5F9"/>
+                        </LinearLayout>
+                        <!-- 4 Stars -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+                            <TextView android:layout_width="10dp" android:layout_height="wrap_content" android:text="4" android:textSize="10sp" android:textColor="#94A3B8"/>
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:max="100"
+                                android:progress="12"
+                                android:progressTint="#1D5EF3"
+                                android:progressBackgroundTint="#F1F5F9"/>
+                        </LinearLayout>
+                        <!-- 3 Stars -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+                            <TextView android:layout_width="10dp" android:layout_height="wrap_content" android:text="3" android:textSize="10sp" android:textColor="#94A3B8"/>
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:max="100"
+                                android:progress="3"
+                                android:progressTint="#1D5EF3"
+                                android:progressBackgroundTint="#F1F5F9"/>
+                        </LinearLayout>
+                        <!-- 2 Stars -->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                            <TextView android:layout_width="10dp" android:layout_height="wrap_content" android:text="2" android:textSize="10sp" android:textColor="#94A3B8"/>
+                            <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="8dp" android:max="100" android:progress="0" android:progressTint="#1D5EF3" android:progressBackgroundTint="#F1F5F9"/>
+                        </LinearLayout>
+                        <!-- 1 Stars -->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                            <TextView android:layout_width="10dp" android:layout_height="wrap_content" android:text="1" android:textSize="10sp" android:textColor="#94A3B8"/>
+                            <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="8dp" android:max="100" android:progress="0" android:progressTint="#1D5EF3" android:progressBackgroundTint="#F1F5F9"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recent Reviews"
+                android:textColor="#101D33"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Review 1 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp"
+                android:outlineSpotShadowColor="#E2E8F0">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/r1_avatar"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/bg_image_placeholder"
+                            android:background="@drawable/bg_circle_solid_white"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_toEndOf="@id/r1_avatar"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="14dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Priya Sharma" android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2 days ago • Plumbing Service" android:textColor="#94A3B8" android:textSize="11sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:orientation="horizontal">
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Abhinav was incredibly helpful coming over to fix the plumbing leak so quickly! Very polite and professional."
+                        android:textColor="#334155"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Review 2 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView android:layout_width="44dp" android:layout_height="44dp" android:src="@drawable/bg_image_placeholder" android:background="@drawable/bg_circle_solid_white"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="58dp" android:layout_centerVertical="true">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rohan Gupta" android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 week ago • Garden Cleanup" android:textColor="#94A3B8" android:textSize="11sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:orientation="horizontal">
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" app:tint="#CBD5E1" android:layout_marginStart="2dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="A bit late due to traffic, but did a great job cleaning up the community park with the rest of the team. Highly recommended for volunteer work."
+                        android:textColor="#334155" android:textSize="13sp" android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Review 3 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="44dp" android:layout_height="44dp" android:src="@drawable/bg_image_placeholder" android:background="@drawable/bg_circle_solid_white"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="58dp" android:layout_centerVertical="true">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sonia Menon" android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 weeks ago • Grocery Run" android:textColor="#94A3B8" android:textSize="11sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:orientation="horizontal">
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+                        android:text="Delivered the groceries exactly as requested and even helped bring them up the stairs. Absolute lifesaver for my elderly mother."
+                        android:textColor="#334155" android:textSize="13sp" android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Review 4 (Fills Gap) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_card_base"
+                android:elevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="44dp" android:layout_height="44dp" android:src="@drawable/bg_image_placeholder" android:background="@drawable/bg_circle_solid_white"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="58dp" android:layout_centerVertical="true">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Amit Verma" android:textColor="#0F172A" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 month ago • Furniture Assembly" android:textColor="#94A3B8" android:textSize="11sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:orientation="horizontal">
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" />
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp"/>
+                            <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_yellow" android:layout_marginStart="2dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+                        android:text="Helped me assemble a complex IKEA bookshelf in less than an hour. Very skillful and brought his own tools!"
+                        android:textColor="#334155" android:textSize="13sp" android:lineSpacingExtra="5dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
+                android:text="Write a Review"
+                android:textColor="#1D5EF3"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                app:backgroundTint="#E0F2FE"
+                app:cornerRadius="12dp"
+                android:elevation="0dp"
+                app:strokeColor="#1D5EF3"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

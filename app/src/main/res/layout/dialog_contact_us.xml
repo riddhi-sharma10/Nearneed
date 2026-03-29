@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/bg_bottom_sheet_top_rounded"
+    android:gravity="center_horizontal">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="#E2E8F0"
+        android:layout_marginBottom="24dp" />
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_nav_messages" 
+        app:tint="#1D5EF3"
+        android:layout_marginBottom="16dp" 
+        android:background="@drawable/bg_pill_pink_transparent"
+        android:padding="16dp"
+        app:backgroundTint="#E0F2FE"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        android:textColor="#0F172A"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="How would you like to speak with our support team?"
+        android:textColor="#64748B"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:lineSpacingExtra="4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChatSupport"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Continue with Chat"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-bold"
+            app:backgroundTint="#1D5EF3"
+            app:cornerRadius="16dp"
+            android:elevation="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCallAgent"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="Call an Agent"
+            android:textColor="#1D5EF3"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            app:backgroundTint="#EBFFFFFF"
+            app:cornerRadius="16dp"
+            android:elevation="0dp"
+            app:strokeColor="#1D5EF3"
+            app:strokeWidth="1dp" />
+            
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelContact"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:text="Cancel"
+            android:textColor="#94A3B8"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+    </LinearLayout>
+
+</LinearLayout>
