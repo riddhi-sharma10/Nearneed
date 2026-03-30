@@ -158,6 +158,8 @@
         <activity android:name=".ReviewsActivity" android:exported="false" />
         <activity android:name=".RecentActivityActivity" android:exported="false" />
         <activity android:name=".MessagesActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".GigApplicantsActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".PaymentActivity" android:exported="false" android:screenOrientation="portrait" />
 
     </application>
 

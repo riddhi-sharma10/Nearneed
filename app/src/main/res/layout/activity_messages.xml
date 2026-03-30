@@ -10,9 +10,11 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:paddingBottom="80dp"
-        android:clipToPadding="false">
+        android:fillViewport="false"
+        android:paddingBottom="90dp"
+        android:clipToPadding="false"
+        android:overScrollMode="always"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E2E2E">
+
+    <!-- This matches the "dimmed background with Choose Payment Method title" part of the image context -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Choose Payment Method"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:alpha="0.4"/>
+
+    <!-- The white Sheet starting from top with 32dp corner radius -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_bottom_sheet_top_rounded"
+        android:paddingBottom="140dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title Header inside the sheet -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:paddingHorizontal="16dp">
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_back_arrow"
+                    android:padding="12dp"
+                    app:tint="#101D33" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Payment"
+                    android:textColor="#101D33"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-black" />
+            </RelativeLayout>
+
+            <!-- Main Content Container with precise spacing -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="20dp">
+
+                <!-- ── Summary Card (Exactly like image) ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_payment_selected"
+                    android:backgroundTint="#F0F7FF"
+                    android:padding="28dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plumbing Repair" android:textColor="#101D33" android:textSize="21sp" android:textStyle="bold" android:fontFamily="sans-serif-black" />
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="14dp">
+                            <ImageView android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/bg_circle_light_blue" android:src="@drawable/bg_image_placeholder" android:scaleType="centerCrop" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rahul S." android:textColor="#64748B" android:textSize="16sp" android:layout_marginStart="12dp" android:fontFamily="sans-serif-medium" />
+                            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:layout_marginStart="6dp" android:src="@drawable/ic_verified_blue" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="250" android:textColor="#1D5EF3" android:textSize="36sp" android:fontFamily="sans-serif-black" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL AMOUNT" android:textColor="#94A3B8" android:textSize="10sp" android:letterSpacing="0.05" android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="36dp" android:layout_marginBottom="28dp" android:text="Payment Options" android:textColor="#101D33" android:textSize="20sp" android:fontFamily="sans-serif-black" />
+
+                <!-- ── Option 1: UPI ── -->
+                <LinearLayout
+                    android:id="@+id/optionUpi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_payment_selected"
+                    android:orientation="vertical"
+                    android:padding="28dp"
+                    android:layout_marginBottom="24dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="start">
+                            <FrameLayout android:layout_width="52dp" android:layout_height="52dp" android:background="@drawable/bg_circle_light_blue" android:backgroundTint="#FFFFFF">
+                                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="center" android:src="@drawable/ic_payment_wallet_blue"/>
+                            </FrameLayout>
+                            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="20dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pay via UPI" android:textColor="#101D33" android:textSize="19sp" android:textStyle="bold" android:fontFamily="sans-serif-black" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Instant, digital, traceable." android:textColor="#94A3B8" android:textSize="15sp" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ImageView android:id="@+id/radioUpi" android:layout_width="28dp" android:layout_height="28dp" android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:src="@drawable/ic_checked_blue"/>
+                    </RelativeLayout>
+                    <LinearLayout android:id="@+id/upiContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="32dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENTER UPI ID" android:textColor="#94A3B8" android:textSize="12sp" android:letterSpacing="0.05" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                        <RelativeLayout android:layout_width="match_parent" android:layout_height="60dp" android:background="@drawable/bg_input_field" android:backgroundTint="#FFFFFF">
+                            <EditText android:id="@+id/etUpiId" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toStartOf="@+id/btnVerify" android:background="@android:color/transparent" android:paddingHorizontal="20dp" android:hint="example@upi" android:hintTextColor="#CBD5E1" android:textColor="#101D33" android:textSize="16sp"/>
+                            <TextView android:id="@+id/btnVerify" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentEnd="true" android:paddingHorizontal="24dp" android:gravity="center" android:text="VERIFY" android:textColor="#1D5EF3" android:textSize="14sp" android:textStyle="bold" />
+                        </RelativeLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_gravity="center" android:layout_marginTop="24dp">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_qr_scan_blue"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Or scan QR" android:textColor="#1D5EF3" android:textSize="17sp" android:textStyle="bold" android:layout_marginStart="10dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ── Option 2: Pay in Person ── -->
+                <LinearLayout
+                    android:id="@+id/optionCash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_payment_unselected"
+                    android:orientation="vertical"
+                    android:padding="28dp"
+                    android:layout_marginBottom="24dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="start">
+                            <FrameLayout android:layout_width="52dp" android:layout_height="52dp" android:background="@drawable/bg_circle_light_blue" android:backgroundTint="#F8FAFC">
+                                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="center" android:src="@drawable/ic_cash_icon" app:tint="#64748B"/>
+                            </FrameLayout>
+                            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="20dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pay in Person" android:textColor="#101D33" android:textSize="19sp" android:textStyle="bold" android:fontFamily="sans-serif-black" />
+                                <TextView android:layout_width="240dp" android:layout_height="wrap_content" android:text="Hand over cash or UPI directly on completion." android:textColor="#94A3B8" android:textSize="15sp" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ImageView android:id="@+id/radioCash" android:layout_width="28dp" android:layout_height="28dp" android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:src="@drawable/ic_unselected_grey"/>
+                    </RelativeLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#F8FAFC" android:orientation="horizontal" android:padding="20dp" android:layout_marginTop="28dp" android:gravity="center_vertical">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/ic_info_circle" app:tint="#94A3B8"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="The app records this as your agreed method." android:textColor="#94A3B8" android:textSize="14sp" android:layout_marginStart="14dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ── Option 3: Scan Helper ── -->
+                <LinearLayout
+                    android:id="@+id/optionQr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_payment_unselected"
+                    android:orientation="vertical"
+                    android:padding="28dp"
+                    android:layout_marginBottom="40dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="start">
+                            <FrameLayout android:layout_width="52dp" android:layout_height="52dp" android:background="@drawable/bg_circle_light_blue" android:backgroundTint="#F8FAFC">
+                                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="center" android:src="@drawable/ic_qr_code_grey"/>
+                            </FrameLayout>
+                            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="20dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Scan Helper's QR Code" android:textColor="#101D33" android:textSize="19sp" android:textStyle="bold" android:fontFamily="sans-serif-black" />
+                                <TextView android:layout_width="240dp" android:layout_height="wrap_content" android:text="Ask Rahul S. to show their UPI QR code." android:textColor="#94A3B8" android:textSize="15sp" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ImageView android:id="@+id/radioQr" android:layout_width="28dp" android:layout_height="28dp" android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:src="@drawable/ic_unselected_grey"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Container stays at bottom correctly -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="56dp"
+        android:elevation="16dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmPayment"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:text="Confirm &amp; Notify Helper "
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="36dp"
+            app:backgroundTint="#1D5EF3"
+            app:icon="@drawable/ic_forward_arrow"
+            app:iconGravity="textEnd"
+            app:iconPadding="12dp"
+            android:elevation="4dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="By proceeding, you agree to our payment terms. The helper will be notified immediately of your choice."
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:lineSpacingExtra="7dp"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
