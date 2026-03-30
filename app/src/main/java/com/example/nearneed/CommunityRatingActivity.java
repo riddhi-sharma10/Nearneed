@@ -23,7 +23,9 @@ public class CommunityRatingActivity extends AppCompatActivity {
         MaterialButton btnSubmitRating = findViewById(R.id.btnSubmitRating);
         if (btnSubmitRating != null) {
             btnSubmitRating.setOnClickListener(v -> {
-                Toast.makeText(this, "Rating Submitted!", Toast.LENGTH_SHORT).show();
+                android.content.Intent intent = new android.content.Intent(CommunityRatingActivity.this, RatingSubmittedActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
             });
         }
