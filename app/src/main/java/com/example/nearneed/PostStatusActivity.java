@@ -71,9 +71,20 @@ public class PostStatusActivity extends AppCompatActivity {
         // Final Button
         MaterialButton btnFinalUpdateStatus = findViewById(R.id.btnFinalUpdateStatus);
         if (btnFinalUpdateStatus != null) {
+            android.content.SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+            if (prefs.getBoolean("isPostCompleted", false)) {
+                btnFinalUpdateStatus.setText("Completed");
+                btnFinalUpdateStatus.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10B981")));
+            }
+
             btnFinalUpdateStatus.setOnClickListener(v -> {
+                btnFinalUpdateStatus.setText("Completed");
+                btnFinalUpdateStatus.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10B981")));
+                
+                prefs.edit().putBoolean("isPostCompleted", true).apply();
+
                 Toast.makeText(this, "Status successfully updated!", Toast.LENGTH_SHORT).show();
-                finish(); // Return to previous layout to simulate closure
+                new android.os.Handler().postDelayed(() -> finish(), 800);
             });
         }
     }

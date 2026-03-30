@@ -383,6 +383,23 @@
                     app:cornerRadius="12dp"
                     android:elevation="0dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRateVolunteers"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Rate Volunteers"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_forward_arrow"
+                    app:iconGravity="textEnd"
+                    app:iconTint="#FFFFFF"
+                    app:backgroundTint="#881337"
+                    app:cornerRadius="12dp"
+                    android:elevation="0dp" />
+
             </LinearLayout>
 
             <!-- Bottom Margin space -->
