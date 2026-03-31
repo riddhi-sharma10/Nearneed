@@ -124,6 +124,7 @@
                     android:textSize="10sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/tvGigPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/lblPayment"
@@ -186,6 +187,7 @@
                 android:orientation="vertical"
                 android:paddingHorizontal="24dp">
                 <TextView
+                    android:id="@+id/tvGigTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Plumbing Repair"
@@ -193,6 +195,7 @@
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-black" />
                 <TextView
+                    android:id="@+id/tvGigDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -242,6 +245,7 @@
                 </LinearLayout>
                 
                 <TextView
+                    android:id="@+id/tvGigDistance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -407,27 +411,27 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <View android:layout_width="match_parent" android:layout_height="100dp" />
             </LinearLayout>
+            
+            <!-- Bottom Action Button -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@android:color/transparent">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnApply"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Apply for this Gig →"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:cornerRadius="28dp"
+                    app:backgroundTint="#2563EB" />
+            </RelativeLayout>
+            
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <!-- Bottom Action Button -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:padding="20dp"
-        android:background="@android:color/transparent">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnApply"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Apply for this Gig →"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            app:cornerRadius="28dp"
-            app:backgroundTint="#2563EB" />
-    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
