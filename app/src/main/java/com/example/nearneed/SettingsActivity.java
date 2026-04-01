@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -54,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        MaterialSwitch switchDarkMode = findViewById(R.id.switchDarkMode);
+        SwitchMaterial switchDarkMode = findViewById(R.id.switchDarkMode);
         if (switchDarkMode != null) {
             // Check current night mode state
             boolean isDarkMode = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;

@@ -112,7 +112,7 @@
                 </RelativeLayout>
             </FrameLayout>
 
-            <!-- Completed Task 3 (Filling Gap) -->
+            <!-- Completed Task 3 -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                 </RelativeLayout>
             </FrameLayout>
 
-            <!-- Completed Task 4 (Filling Gap) -->
+            <!-- Completed Task 4 -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,28 +154,6 @@
                 </RelativeLayout>
             </FrameLayout>
 
-            <!-- Export History Button -->
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:text="Download Activity History"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="16dp" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
-
-
-
-
-
-
-
-
-

@@ -79,13 +79,14 @@
                         android:textSize="14sp" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Push notification when someone needs help" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleX="0.8"
-                    android:scaleY="0.8"
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
                     app:thumbTint="@color/sel_switch_thumb_red"
-                    app:trackTint="@color/sel_switch_track_red" />
+                    app:trackTint="@color/sel_switch_track_red"
+                    app:useMaterialThemeColors="false" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,13 +105,14 @@
                     <TextView style="@style/AppHeading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me via SMS" android:textColor="@color/text_header" android:textSize="14sp" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SMS notification to +91 99XXXXX99" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleX="0.8"
-                    android:scaleY="0.8"
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
                     app:thumbTint="@color/sel_switch_thumb_red"
-                    app:trackTint="@color/sel_switch_track_red" />
+                    app:trackTint="@color/sel_switch_track_red"
+                    app:useMaterialThemeColors="false" />
             </LinearLayout>
 
             <TextView
