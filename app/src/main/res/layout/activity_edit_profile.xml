@@ -140,12 +140,15 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
                 android:hint="Password"
-                app:passwordToggleEnabled="true"
+                app:passwordToggleEnabled="false"
                 app:startIconDrawable="@drawable/ic_lock">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:clickable="false"
                     android:inputType="textPassword"
                     android:text="password123"
                     android:textSize="15sp" />
