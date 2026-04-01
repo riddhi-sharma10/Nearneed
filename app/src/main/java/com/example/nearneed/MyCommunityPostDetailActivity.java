@@ -17,27 +17,51 @@ public class MyCommunityPostDetailActivity extends AppCompatActivity {
         ImageButton btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
 
+        // Bind Dynamic Data
+        String title = getIntent().getStringExtra("POST_TITLE");
+        String desc = getIntent().getStringExtra("POST_DESC");
+        String category = getIntent().getStringExtra("POST_CATEGORY");
+
+        android.widget.TextView tvHeadline = findViewById(R.id.tvDetailHeadline);
+        android.widget.TextView tvDesc = findViewById(R.id.tvDetailDescription);
+        android.widget.TextView tvHeroCat = findViewById(R.id.tvHeroCategory);
+        android.widget.TextView tvPillCat = findViewById(R.id.tvDetailPillCategory);
+
+        if (title != null && tvHeadline != null) tvHeadline.setText(title);
+        if (desc != null && tvDesc != null) tvDesc.setText(desc);
+        if (category != null) {
+            if (tvHeroCat != null) tvHeroCat.setText(category);
+            if (tvPillCat != null) tvPillCat.setText(category);
+        }
+
+        // Restore Management Buttons
         MaterialButton btnViewVolunteers = findViewById(R.id.btnViewVolunteers);
         MaterialButton btnViewResponses = findViewById(R.id.btnViewResponses);
         MaterialButton btnUpdateStatus = findViewById(R.id.btnUpdateStatus);
 
-        btnViewVolunteers.setOnClickListener(v -> {
-            android.content.Intent intent = new android.content.Intent(MyCommunityPostDetailActivity.this, VolunteerManagementActivity.class);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        });
+        if (btnViewVolunteers != null) {
+            btnViewVolunteers.setOnClickListener(v -> {
+                android.content.Intent intent = new android.content.Intent(this, VolunteerManagementActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
 
-        btnViewResponses.setOnClickListener(v -> {
-            android.content.Intent intent = new android.content.Intent(MyCommunityPostDetailActivity.this, VolunteerResponsesActivity.class);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        });
+        if (btnViewResponses != null) {
+            btnViewResponses.setOnClickListener(v -> {
+                android.content.Intent intent = new android.content.Intent(this, VolunteerResponsesActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
 
-        btnUpdateStatus.setOnClickListener(v -> {
-            android.content.Intent intent = new android.content.Intent(MyCommunityPostDetailActivity.this, PostStatusActivity.class);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        });
+        if (btnUpdateStatus != null) {
+            btnUpdateStatus.setOnClickListener(v -> {
+                android.content.Intent intent = new android.content.Intent(this, PostStatusActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
     }
 
     @Override
