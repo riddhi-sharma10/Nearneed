@@ -387,23 +387,24 @@
                         style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DAYS"
+                        android:text="DATE"
                         android:textColor="@color/text_muted"
                         android:textSize="8sp"
                         android:layout_marginBottom="4dp" />
-                    <EditText
-                        android:id="@+id/etValidityDays"
+                    <TextView
+                        android:id="@+id/tvValidityDate"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:background="@drawable/bg_district_pill_input_white_stroke"
                         android:elevation="4dp"
-                        android:hint="e.g. 2"
+                        android:gravity="center"
+                        android:hint="Select date"
                         android:textColorHint="@color/text_muted"
                         android:textColor="@color/text_header"
-                        android:textSize="16sp"
-                        android:paddingHorizontal="16dp"
-                        android:gravity="center"
-                        android:inputType="number" />
+                        android:textSize="14sp"
+                        android:paddingHorizontal="12dp"
+                        android:clickable="true"
+                        android:focusable="true" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -419,19 +420,15 @@
                         android:textColor="@color/text_muted"
                         android:textSize="8sp"
                         android:layout_marginBottom="4dp" />
-                    <EditText
-                        android:id="@+id/etValidityTime"
+                    <Spinner
+                        android:id="@+id/spinnerValidityTime"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:background="@drawable/bg_district_pill_input_white_stroke"
                         android:elevation="4dp"
-                        android:hint="e.g. 18:00"
-                        android:textColorHint="@color/text_muted"
-                        android:textColor="@color/text_header"
-                        android:textSize="16sp"
-                        android:paddingHorizontal="16dp"
+                        android:paddingHorizontal="12dp"
                         android:gravity="center"
-                        android:inputType="time" />
+                        android:spinnerMode="dropdown" />
                 </LinearLayout>
 
             </LinearLayout>

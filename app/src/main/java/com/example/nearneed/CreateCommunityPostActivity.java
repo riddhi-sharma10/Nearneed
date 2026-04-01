@@ -97,5 +97,26 @@ public class CreateCommunityPostActivity extends AppCompatActivity {
                 return false;
             });
         }
+
+        // ── POST VALIDITY LOGIC ──
+        android.widget.TextView tvDate = findViewById(R.id.tvValidityDate);
+        android.widget.Spinner spinnerTime = findViewById(R.id.spinnerValidityTime);
+
+        if (tvDate != null) {
+            tvDate.setOnClickListener(v -> {
+                java.util.Calendar cal = java.util.Calendar.getInstance();
+                new android.app.DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+                    String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                    tvDate.setText(date);
+                }, cal.get(java.util.Calendar.YEAR), cal.get(java.util.Calendar.MONTH), cal.get(java.util.Calendar.DAY_OF_MONTH)).show();
+            });
+        }
+
+        if (spinnerTime != null) {
+            String[] times = {"09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM"};
+            android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerTime.setAdapter(adapter);
+        }
     }
 }
