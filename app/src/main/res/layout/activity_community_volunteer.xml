@@ -1,490 +1,487 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_background_clean"
-    tools:ignore="HardcodedText,ContentDescription,SpUsage">
+    android:background="@color/white"
+    tools:ignore="HardcodedText,ContentDescription">
+
+    <!-- App Bar -->
+    <RelativeLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_arrow"
+            app:tint="@color/text_header" />
+
+        <TextView
+            style="@style/AppHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Details"
+            android:textColor="@color/text_header"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/btnShare"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/btnOptions"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_share"
+            app:tint="@color/text_header" />
+
+        <ImageButton
+            android:id="@+id/btnOptions"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more_dots"
+            app:tint="@color/text_header" />
+
+    </RelativeLayout>
 
     <!-- Scrollable content -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomCta"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
 
-            <!-- App Bar -->
-            <RelativeLayout
+            <!-- Hero Image -->
+            <ImageView
+                android:id="@+id/ivHero"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_immersive_map" />
 
-                <ImageButton
-                    android:id="@+id/btnBack"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_back_arrow" />
-
-                <TextView
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="POST DETAIL"
-                    android:textColor="@color/text_header"
-                    android:textSize="14sp"
-                    android:letterSpacing="0.1" />
-
-                <ImageButton
-                    android:id="@+id/btnOptions"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_dropdown_small" 
-                    android:rotation="270"
-                    app:tint="@color/text_header"/>
-            </RelativeLayout>
-
-            <!-- Hero Image Block (Pink Area) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/brand_error_bg_alt"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingTop="32dp"
-                android:paddingBottom="32dp">
-
-                <!-- Placeholder for Basket Image -->
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_circle_grey_solid"
-                    android:src="@drawable/ic_check_solid_white"
-                    app:tint="@color/brand_error_solid" />
-
-                <TextView
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Food Support"
-                    android:textColor="@color/brand_error_solid"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- URGENT Banner -->
-                            <TextView
-                                style="@style/AppHeading"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-
-            <!-- Content Area -->
+            <!-- Progress Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <TextView
-                    style="@style/AppHeading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Emergency food delivery for senior"
-                    android:textColor="@color/text_header"
-                    android:textSize="22sp" />
-
-                <!-- Meta Pills Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        style="@style/AppHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_pill_pink_transparent"
-                        android:text="Food"
-                        android:textColor="@color/brand_error_solid"
-                        android:textSize="11sp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:text="5m ago"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:text="2 responses"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:text="0.4 km"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="11sp"
-                        app:drawableStartCompat="@drawable/ic_loc_pin_small"
-                        app:drawableTint="@color/text_subheadline"
-                        android:drawablePadding="4dp" />
-                </LinearLayout>
-
-                <TextView
-                    style="@style/AppDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors in block 4 who are unable to leave home due to construction."
-                    android:textColor="@color/text_subheadline"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="4dp" />
-
-                <!-- Audio Block -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_card_audio"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="16dp">
-
-                    <FrameLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/bg_circle_solid_red">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_gravity="center"
-                            android:src="@android:drawable/ic_media_play"
-                            app:tint="@color/white" />
-                    </FrameLayout>
-
-                    <!-- Dummy audio waves -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="24dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <!-- Just simulated vertical bars using views -->
-                        <View android:layout_width="2dp" android:layout_height="12dp" android:background="@color/brand_error_accent_light" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="18dp" android:background="@color/brand_error_accent" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="14dp" android:background="@color/brand_error_accent_light" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="24dp" android:background="@color/brand_error_dark" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="16dp" android:background="@color/brand_error_accent_light" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="20dp" android:background="@color/brand_error" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="12dp" android:background="@color/brand_error_accent_light" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="8dp"  android:background="@color/brand_error_bg" android:layout_marginEnd="4dp"/>
-                        <View android:layout_width="2dp" android:layout_height="4dp"  android:background="@color/brand_error_bg" />
-                    </LinearLayout>
-
-                    <TextView
-                        style="@style/AppHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0:14"
-                        android:textColor="@color/brand_error_vibrant"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <!-- Volunteers Needed Card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:background="@drawable/bg_card_outline"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        
-                        <TextView
-                            style="@style/AppHeading"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="VOLUNTEERS NEEDED"
-                            android:textColor="@color/text_subheadline"
-                            android:textSize="10sp"
-                            android:letterSpacing="0.05" />
-
-                        <TextView
-                            style="@style/AppHeading"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/bg_pill_pink_transparent"
-                            android:text="2 / 4 Filled"
-                            android:textColor="@color/brand_error_solid"
-                            android:textSize="10sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/bg_circle_solid_red"
-                            android:src="@drawable/bg_image_placeholder" />
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/bg_circle_solid_red"
-                            android:src="@drawable/bg_image_placeholder" />
-
-                         <FrameLayout
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/bg_dashed_circle_grey">
-                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+" android:textColor="@color/text_muted" android:layout_gravity="center" android:textSize="18sp"/>
-                         </FrameLayout>
-
-                         <FrameLayout
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/bg_dashed_circle_grey">
-                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+" android:textColor="@color/text_muted" android:layout_gravity="center" android:textSize="18sp"/>
-                         </FrameLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Location Block -->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp">
-                    
+                    android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/c4_location"
-                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:text="LOCATION"
+                        android:text="SLOTS AVAILABLE"
                         android:textColor="@color/text_subheadline"
-                        android:textSize="10sp"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
                         android:letterSpacing="0.05" />
-
                     <TextView
-                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="Koramangala 4th Block"
-                        android:textColor="@color/text_header"
-                        android:textSize="10sp" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_below="@id/c4_location"
-                        android:layout_marginTop="24dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/bg_map_vector"
-                        android:background="@drawable/bg_card_base"
-                        android:clipToOutline="true" />
+                        android:text="1 spot remaining"
+                        android:textColor="@color/brand_error_solid"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
-                <!-- Profile Block -->
-                <LinearLayout
+                <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
                     android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:progress="50"
+                    android:max="100"
+                    android:progressDrawable="@drawable/bg_progress_bar_red_flat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:background="@drawable/bg_card_outline"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/ivAvatar"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/bg_circle_grey_solid"
-                            android:src="@drawable/bg_image_placeholder" />
-
-                        <ImageView
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:layout_alignEnd="@id/ivAvatar"
-                            android:layout_alignBottom="@id/ivAvatar"
-                            android:src="@drawable/ic_check_solid_white"
-                            android:background="@drawable/bg_circle_solid_red"
-                            app:tint="@color/white"
-                            android:padding="2dp" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/ivAvatar"
-                            android:layout_toStartOf="@id/tvScoreContainer"
-                            android:layout_marginStart="12dp"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <TextView
-                                style="@style/AppHeading"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Priya Singh"
-                                android:textColor="@color/text_header"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                style="@style/AppDescription"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ID Verified"
-                                android:textColor="@color/brand_success"
-                                android:textSize="11sp" />
-
-                            <TextView
-                                style="@style/AppHeading"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="MEMBER SINCE OCT 2023"
-                                android:textColor="@color/text_muted"
-                                android:textSize="8sp"
-                                android:letterSpacing="0.05" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/tvScoreContainer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:background="@color/brand_warning_bg"
-                            android:paddingStart="6dp"
-                            android:paddingEnd="6dp"
-                            android:paddingTop="3dp"
-                            android:paddingBottom="3dp">
-                            <TextView
-                                style="@style/AppHeading"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="★ 4.9 Score"
-                                android:textColor="@color/brand_warning_text_alt"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                    <!-- Profile Actions -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="36dp"
-                            android:layout_marginEnd="6dp"
-                            style="@style/AppHeading"
-                            android:background="@drawable/bg_card_audio"
-                            android:gravity="center"
-                            android:text="Call"
-                            android:textColor="@color/text_header"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="36dp"
-                            android:layout_marginStart="6dp"
-                            style="@style/AppHeading"
-                            android:background="@drawable/bg_card_audio"
-                            android:gravity="center"
-                            android:text="SMS"
-                            android:textColor="@color/text_header"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:layout_marginTop="8dp"
+                    android:text="1 of 2 spots filled"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp" />
 
             </LinearLayout>
-            
-            <!-- Bottom Inline CTA Area -->
+
+            <!-- Price/Tags Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border_standard"
+                app:cardBackgroundColor="@color/brand_error_bg_alt">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="COMMUNITY"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Volunteer"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="end"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_pink_transparent"
+                                android:text="UPI"
+                                android:textColor="@color/brand_error_solid"
+                                android:textSize="9sp"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginEnd="6dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_pink_transparent"
+                                android:text="Cash"
+                                android:textColor="@color/brand_error_solid"
+                                android:textSize="9sp"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp" />
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_pill_pink_transparent"
+                            android:text="In Person"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="9sp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Main Content Area -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/surface_background_clean"
                 android:orientation="vertical"
-                android:paddingTop="32dp"
-                android:paddingBottom="48dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:padding="20dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnVolunteerSticky"
+                <TextView
+                    style="@style/AppHeading"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:text="I'll Volunteer"
-                    android:textColor="@color/white"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"
-                    app:icon="@drawable/ic_forward_arrow"
-                    app:iconGravity="textEnd"
-                    app:iconTint="@color/white"
-                    app:backgroundTint="@color/brand_error_solid"
-                    app:cornerRadius="16dp"
-                    android:elevation="0dp" />
+                    android:layout_height="wrap_content"
+                    android:text="Emergency food support"
+                    android:textColor="@color/text_header"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Need help distributing meal kits to elderly neighbors who are living alone. We have 10 kits ready but only 1 person available today."
+                    android:textColor="@color/text_subheadline"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="4dp" />
+
+                <!-- Meta Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_pink_transparent"
+                        android:text="● Food"
+                        android:textColor="@color/brand_error_solid"
+                        android:textSize="12sp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="10m ago"
+                        android:textColor="@color/text_subheadline"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@drawable/ic_bell"
+                        app:drawableTint="@color/text_subheadline"
+                        android:drawablePadding="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="2 responses"
+                        android:textColor="@color/text_subheadline"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@drawable/ic_messages_active"
+                        app:drawableTint="@color/text_subheadline"
+                        android:drawablePadding="6dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="0.8 km"
+                    android:textColor="@color/text_subheadline"
+                    android:textSize="12sp"
+                    app:drawableStartCompat="@drawable/ic_nav_map"
+                    app:drawableTint="@color/text_subheadline"
+                    android:drawablePadding="6dp" />
+
+                <!-- Audio Block -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="24dp"
+                    app:cardCornerRadius="32dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface_background_clean">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/bg_circle_blue_solid"
+                            android:padding="8dp" />
+
+                        <!-- Waves Placeholder -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="20dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="16dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="24dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="14dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="18dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_primary_light" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0:22"
+                            android:textColor="@color/text_subheadline"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Map View Placeholder -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_standard">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_map_vector" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Profile Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:cardCornerRadius="32dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_standard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/ivUser"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:src="@drawable/bg_image_placeholder"
+                                android:background="@drawable/bg_circle_grey_solid" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/ivUser"
+                                android:layout_marginStart="16dp"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ramesh Kumar"
+                                    android:textColor="@color/text_header"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="★ 4.8  •  12 tasks completed"
+                                    android:textColor="@color/text_subheadline"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/bg_pill_pink_transparent"
+                                android:text="ID Verified"
+                                android:textColor="@color/brand_error_solid"
+                                android:textSize="10sp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Member since Jan 2024"
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="See 12 reviews →"
+                                android:textColor="@color/brand_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="8dp"
+                                android:text="Call"
+                                android:textColor="@color/brand_primary"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                app:strokeColor="@color/brand_primary"
+                                app:cornerRadius="24dp"
+                                app:icon="@drawable/ic_call_outline"
+                                app:iconTint="@color/brand_primary" />
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:text="SMS"
+                                android:textColor="@color/brand_primary"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                app:strokeColor="@color/brand_primary"
+                                app:cornerRadius="24dp"
+                                app:icon="@drawable/ic_chat_outline"
+                                app:iconTint="@color/brand_primary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Sticky Bottom Button -->
+    <LinearLayout
+        android:id="@+id/bottomCta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolunteerSticky"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="I'll Volunteer"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/brand_error_solid"
+            app:cornerRadius="24dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
