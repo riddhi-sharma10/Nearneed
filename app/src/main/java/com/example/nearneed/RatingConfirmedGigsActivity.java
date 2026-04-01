@@ -19,7 +19,12 @@ public class RatingConfirmedGigsActivity extends AppCompatActivity {
 
         AppCompatButton btnBackFeed = findViewById(R.id.btn_back_feed);
         if (btnBackFeed != null) {
-            btnBackFeed.setOnClickListener(v -> finish());
+            btnBackFeed.setOnClickListener(v -> {
+                android.content.Intent intent = new android.content.Intent(this, MainActivity.class);
+                intent.setFlags(android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP | android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            });
         }
     }
 }

@@ -175,6 +175,7 @@
         <activity android:name=".MessagesActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".GigApplicantsActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".PaymentActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".PaymentConfirmedGigsActivity" android:exported="false" android:screenOrientation="portrait" />
 
         <activity android:name=".DiscoveryMapCommunityActivity" android:exported="false" android:screenOrientation="portrait" />
 

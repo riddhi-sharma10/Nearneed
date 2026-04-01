@@ -29,16 +29,22 @@ public class GigApplicantsActivity extends AppCompatActivity {
         MaterialButton btnChatRahul = findViewById(R.id.btnChatRahul);
 
         if (btnAcceptRahul != null)
-            btnAcceptRahul.setOnClickListener(v ->
-                Toast.makeText(this, "Accepted Rahul's offer of ₹250!", Toast.LENGTH_SHORT).show());
+            btnAcceptRahul.setOnClickListener(v -> {
+                startActivity(new Intent(this, PaymentActivity.class));
+            });
 
         if (btnCounterRahul != null)
             btnCounterRahul.setOnClickListener(v ->
                 Toast.makeText(this, "Sending counter offer to Rahul...", Toast.LENGTH_SHORT).show());
 
         if (btnDeclineRahul != null)
-            btnDeclineRahul.setOnClickListener(v ->
-                Toast.makeText(this, "Declined Rahul's application.", Toast.LENGTH_SHORT).show());
+            btnDeclineRahul.setOnClickListener(v -> {
+                CardView cardRahul = findViewById(R.id.cardRahul);
+                if (cardRahul != null) {
+                    cardRahul.setVisibility(View.GONE);
+                }
+                Toast.makeText(this, "Declined Rahul's application.", Toast.LENGTH_SHORT).show();
+            });
 
         if (btnChatRahul != null)
             btnChatRahul.setOnClickListener(v -> {
