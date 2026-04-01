@@ -66,12 +66,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50%"
                     android:textColor="@color/brand_error_solid"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <ProgressBar
@@ -85,13 +85,13 @@
 
             <!-- ── WHAT DO YOU NEED? ── -->
             <TextView
+                style="@style/AppHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="WHAT DO YOU NEED?"
                 android:textColor="@color/text_subheadline"
                 android:textSize="10sp"
-                android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
             <EditText
@@ -114,13 +114,13 @@
 
             <!-- ── TELL YOUR NEIGHBOURS MORE ── -->
             <TextView
+                style="@style/AppHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="TELL YOUR NEIGHBOURS MORE"
                 android:textColor="@color/text_subheadline"
                 android:textSize="10sp"
-                android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
             <EditText
@@ -143,13 +143,13 @@
 
             <!-- ── URGENCY ── -->
             <TextView
+                style="@style/AppHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="URGENCY"
                 android:textColor="@color/text_subheadline"
                 android:textSize="10sp"
-                android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
             <LinearLayout
@@ -177,15 +177,16 @@
                         android:background="@drawable/bg_dot_green" />
 
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Normal"
                         android:textColor="@color/text_header"
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
                         
                     <TextView
+                        style="@style/AppDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="48h expiry"
@@ -213,15 +214,16 @@
                         android:background="@drawable/bg_dot_orange" />
 
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Urgent"
                         android:textColor="@color/brand_warning_text"
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
                         
                     <TextView
+                        style="@style/AppDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6h expiry"
@@ -248,15 +250,16 @@
                         android:background="@drawable/bg_dot_red" />
 
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Emergency"
                         android:textColor="@color/text_header"
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
                         
                     <TextView
+                        style="@style/AppDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2h expiry"
@@ -286,6 +289,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/AppDescription"
                     android:text="Emergency will send SMS to all neighbours in your radius, even on silent."
                     android:textColor="@color/brand_error_text"
                     android:textSize="12sp"
@@ -294,13 +298,13 @@
 
             <!-- ── CATEGORY ── -->
             <TextView
+                style="@style/AppHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="CATEGORY"
                 android:textColor="@color/text_subheadline"
                 android:textSize="10sp"
-                android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
             <com.google.android.material.chip.ChipGroup
@@ -404,12 +408,12 @@
                     android:gravity="start">
 
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="VOLUNTEERS"
                         android:textColor="@color/text_subheadline"
                         android:textSize="10sp"
-                        android:textStyle="bold"
                         android:letterSpacing="0.05" />
 
                     <LinearLayout
@@ -433,12 +437,12 @@
 
                         <TextView
                             android:id="@+id/tvVolCount"
+                            style="@style/AppHeading"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
-                            android:textStyle="bold"
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="16dp" />
 
@@ -465,12 +469,12 @@
                     android:gravity="end">
                     
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SET MAXIMUM"
                         android:textColor="@color/text_muted"
                         android:textSize="8sp"
-                        android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:layout_marginBottom="4dp" />
 
@@ -511,23 +515,23 @@
                         android:layout_marginEnd="8dp" />
                         
                     <TextView
+                        style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="EXPIRES IN 6 HOURS"
                         android:textColor="@color/brand_warning_text"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp" />
                 </LinearLayout>
                 
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="Change"
                     android:textColor="@color/brand_warning_text_alt"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:textSize="11sp" />
             </RelativeLayout>
 
             <Space
