@@ -230,8 +230,8 @@
                     
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
                         android:layout_marginStart="4dp">
                         
                         <TextView
@@ -257,7 +257,9 @@
                             android:layout_marginTop="4dp"
                             android:text="@string/txt_backyard_cleanup"
                             android:textColor="@color/text_header"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
 
                         <TextView
                             android:id="@+id/c0_sub"
@@ -271,7 +273,7 @@
                             android:layout_marginTop="2dp"
                             android:text="@string/txt_community_project"
                             android:textColor="@color/brand_error_text"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/c0_desc"
@@ -332,35 +334,16 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/c0_meta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_toStartOf="@+id/card_img_0"
-                            android:layout_below="@id/c0_progress"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="12dp"
-                            android:text="@string/txt_just_now"
-                            android:textColor="@color/text_subheadline"
-                            android:textSize="11sp"
-                            android:gravity="center_vertical"
-                            android:drawablePadding="4dp"
-                            app:drawableStartCompat="@drawable/ic_loc_pin_small"
-                            app:tint="@color/text_subheadline" />
-
-                        <TextView
                             android:id="@+id/btnViewC0"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:minHeight="48dp"
-                            android:layout_below="@id/c0_meta"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
                             android:text="@string/txt_view_post"
                             android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
-                            android:paddingStart="24dp"
-                            android:paddingEnd="24dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
                             android:background="@drawable/bg_btn_light_red"
                             android:gravity="center"
                             android:clickable="true"
@@ -368,14 +351,14 @@
 
                         <ImageView
                             android:id="@+id/card_img_0"
-                            android:layout_width="88dp"
-                            android:layout_height="88dp"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
-                    </RelativeLayout>
+                    </RelativeLayout>fn
                 </FrameLayout>
 
 
@@ -396,8 +379,8 @@
                     
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
                         android:layout_marginStart="4dp">
                         
                         <TextView
@@ -411,9 +394,7 @@
                             android:text="● YOUR POST"
                             android:textColor="@color/brand_primary"
                             android:textSize="12sp"
-                            android:letterSpacing="0.05"
-                            app:drawableStartCompat="@drawable/bg_dot_red"
-                            android:drawablePadding="4dp" />
+                            android:letterSpacing="0.05" />
 
                         <TextView
                             android:id="@+id/c1_title"
@@ -427,7 +408,9 @@
                             android:layout_marginTop="4dp"
                             android:text="@string/txt_plumbing_repair"
                             android:textColor="@color/text_header"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
 
                         <TextView
                             android:id="@+id/c1_price"
@@ -479,11 +462,9 @@
                             android:id="@+id/btnApplyGig1"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:minHeight="48dp"
-                            android:layout_below="@id/c1_meta"
-                            android:layout_marginTop="12dp"
-                            android:text="@string/signup_button"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
+                            android:text="View post"
                             android:textColor="@color/brand_primary_dark"
                             android:textSize="12sp"
                             android:paddingStart="24dp"
@@ -495,15 +476,15 @@
 
                         <ImageView
                             android:id="@+id/card_img_1"
-                            android:layout_width="88dp"
-                            android:layout_height="88dp"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
 
-                    </RelativeLayout>
+                    </RelativeLayout>fnut>
                 </FrameLayout>
                 
                 <!-- CARD 2: Garden Clean-up (Urgent) -->
@@ -520,11 +501,10 @@
                         android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_left_border_red" />
-                    
-                    <RelativeLayout
+                                       <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
                         android:layout_marginStart="4dp">
                         
                         <TextView
@@ -555,7 +535,9 @@
                             android:layout_marginTop="4dp"
                             android:text="@string/txt_garden_cleanup"
                             android:textColor="@color/text_header"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
 
                         <TextView
                             android:id="@+id/c2_sub"
@@ -569,7 +551,7 @@
                             android:layout_marginTop="2dp"
                             android:text="@string/txt_community_project"
                             android:textColor="@color/brand_error_solid"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/c2_desc"
@@ -629,40 +611,12 @@
                             </RelativeLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/c2_meta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_below="@id/c2_progress"
-                            android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="11dp"
-                                android:layout_height="11dp"
-                                android:src="@drawable/ic_loc_pin_small"
-                                app:tint="@color/text_muted"
-                                android:importantForAccessibility="no" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="3dp"
-                                android:text="1.1 km  ·  15 min ago"
-                                android:textColor="@color/text_muted"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-
                         <TextView
                             android:id="@+id/btnVolC1"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:minHeight="48dp"
-                            android:layout_below="@id/c2_meta"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
                             android:text="@string/txt_volunteer"
                             android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
@@ -675,14 +629,14 @@
 
                         <ImageView
                             android:id="@+id/card_img_2"
-                            android:layout_width="88dp"
-                            android:layout_height="88dp"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
-                    </RelativeLayout>
+                    </RelativeLayout>fnout>
                 </FrameLayout>
 
                 <!-- CARD 2.5: Emergency Food Delivery (Urgent) -->
@@ -699,11 +653,10 @@
                         android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_left_border_red" />
-                    
-                    <RelativeLayout
+                                       <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
                         android:layout_marginStart="4dp">
                         
                         <TextView
@@ -734,7 +687,9 @@
                             android:layout_marginTop="4dp"
                             android:text="Emergency food delivery for senior"
                             android:textColor="@color/text_header"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
 
                         <TextView
                             android:id="@+id/c4_sub"
@@ -748,7 +703,7 @@
                             android:layout_marginTop="2dp"
                             android:text="Food Support"
                             android:textColor="@color/brand_error_solid"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/c4_desc"
@@ -760,7 +715,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c4_sub"
                             android:layout_marginTop="4dp"
-                            android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors in block 4."
+                            android:text="Need 4 volunteers to help distribute meal kits to elderly neighbors."
                             android:textColor="@color/text_subheadline"
                             android:textSize="12sp"
                             android:maxLines="2"
@@ -809,57 +764,34 @@
                             </RelativeLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/c4_meta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_below="@id/c4_progress"
-                            android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="11dp"
-                                android:layout_height="11dp"
-                                android:src="@drawable/ic_loc_pin_small"
-                                app:tint="@color/text_muted"
-                                android:importantForAccessibility="no" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="3dp"
-                                android:text="2.4 km  ·  45 min ago"
-                                android:textColor="@color/text_muted"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-
                         <TextView
                             android:id="@+id/btnVolC2"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
-                            android:layout_below="@id/c4_meta"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
                             android:text="@string/txt_volunteer"
-                            android:textColor="@color/brand_error_solid"
+                            android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:background="@drawable/bg_btn_light_red"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <ImageView
                             android:id="@+id/card_img_4"
-                            android:layout_width="88dp"
-                            android:layout_height="88dp"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/bg_image_placeholder"
+                            android:src="@drawable/img_community_service"
                             android:scaleType="centerCrop"
-                            android:importantForAccessibility="no" />
-                    </RelativeLayout>
+                            android:importantForAccessibility="no"
+                            android:clipToOutline="true"
+                            android:background="@drawable/bg_image_placeholder" />
+                    </RelativeLayout>fnout>
                 </FrameLayout>
                 
                 <!-- CARD 3: Groceries Delivery -->
@@ -876,11 +808,10 @@
                         android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_left_border_blue" />
-                    
-                    <RelativeLayout
+                                      <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
+                        android:layout_height="match_parent"
+                        android:padding="20dp"
                         android:layout_marginStart="4dp">
                         
                         <TextView
@@ -910,7 +841,9 @@
                             android:layout_marginTop="4dp"
                             android:text="@string/txt_groceries_delivery"
                             android:textColor="@color/text_header"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
 
                         <TextView
                             android:id="@+id/c3_price"
@@ -942,58 +875,33 @@
                             android:maxLines="2"
                             android:ellipsize="end" />
 
-                        <LinearLayout
-                            android:id="@+id/c3_meta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_below="@id/c3_desc"
-                            android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="11dp"
-                                android:layout_height="11dp"
-                                android:src="@drawable/ic_loc_pin_small"
-                                app:tint="@color/text_muted"
-                                android:importantForAccessibility="no" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="3dp"
-                                android:text="0.7 km  ·  8 min ago"
-                                android:textColor="@color/text_muted"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-
                         <TextView
                             android:id="@+id/btnApplyGig2"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
-                            android:layout_below="@id/c3_meta"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"
                             android:text="Apply"
                             android:textColor="@color/brand_primary"
                             android:textSize="12sp"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:background="@drawable/bg_btn_light_blue"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <ImageView
                             android:id="@+id/card_img_3"
-                            android:layout_width="88dp"
-                            android:layout_height="88dp"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
 
-                    </RelativeLayout>
+                    </RelativeLayout>fnyout>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
