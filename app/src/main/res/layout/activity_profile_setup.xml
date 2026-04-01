@@ -92,7 +92,7 @@
                         android:paddingStart="24dp"
                         android:paddingEnd="24dp">
                         <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_search_grey" app:tint="@color/text_muted" />
-                        <EditText
+                        <AutoCompleteTextView
                             android:id="@+id/etSearchLocation"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -104,6 +104,7 @@
                             android:textSize="14sp"
                             android:imeOptions="actionSearch"
                             android:inputType="textPostalAddress"
+                            android:completionThreshold="1"
                             android:maxLines="1" />
                     </LinearLayout>
 
@@ -123,6 +124,7 @@
                                 android:textSize="10sp"
                                 android:letterSpacing="0.05" />
                             <TextView
+                                android:id="@+id/tvDetectedLocation"
                                 style="@style/AppHeading"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -137,7 +139,20 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="12dp"
                         android:background="@color/border_standard">
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_loc_pin_small" app:tint="@color/brand_primary" android:layout_gravity="center" />
+                        <ProgressBar
+                            android:id="@+id/pbLocationDetecting"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:indeterminateTint="@color/brand_primary" />
+                        <ImageView
+                            android:id="@+id/ivLocationPin"
+                            android:layout_width="16dp" 
+                            android:layout_height="16dp" 
+                            android:src="@drawable/ic_loc_pin_small" 
+                            app:tint="@color/brand_primary" 
+                            android:layout_gravity="center" />
                     </FrameLayout>
 
                     <com.google.android.material.button.MaterialButton
@@ -162,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginHorizontal="24dp"
-                android:text="GIG/NEED POST SCROLLING RADIUS"
+                android:text="GIG/ COMMUNITY POST SCROLLING RADIUS"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp"
                 android:letterSpacing="0.05" />

@@ -2,8 +2,14 @@ package com.example.nearneed;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,12 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileSetupActivity extends AppCompatActivity {
 
     private ImageButton btnBack;
     private MaterialButton btnContinue;
     private MaterialButton btnUseLocation;
-    private android.widget.EditText etSearchLocation;
+    private AutoCompleteTextView etSearchLocation;
+    private ProgressBar pbLocationDetecting;
+    private ImageView ivLocationPin;
+    private TextView tvDetectedLocation;
 
     // Radius options grouping
     private LinearLayout opt5km, opt7km, opt10km;
@@ -40,6 +52,11 @@ public class ProfileSetupActivity extends AppCompatActivity {
         btnContinue = findViewById(R.id.btnContinue);
         btnUseLocation = findViewById(R.id.btnUseLocation);
         etSearchLocation = findViewById(R.id.etSearchLocation);
+        pbLocationDetecting = findViewById(R.id.pbLocationDetecting);
+        ivLocationPin = findViewById(R.id.ivLocationPin);
+        tvDetectedLocation = findViewById(R.id.tvDetectedLocation); 
+        
+        setupSearchSuggestions();
 
         opt5km = findViewById(R.id.opt5km);
         opt7km = findViewById(R.id.opt7km);
@@ -66,13 +83,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
         });
 
         btnUseLocation.setOnClickListener(v -> {
-            btnUseLocation.setText("Location Confirmed");
-            btnUseLocation.setEnabled(false);
-            btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
-            btnUseLocation.setIcon(null); // Remove icon if any
-            Toast.makeText(this, "Location set to BML Munjal University", Toast.LENGTH_SHORT).show();
-            // Clear search if location confirmed
-            etSearchLocation.setText("");
+            simulateLocationDetection();
         });
 
         // Search action logic
@@ -109,6 +120,43 @@ public class ProfileSetupActivity extends AppCompatActivity {
         } else if (radius == 10) {
             setOptionState(opt10km, tv10kmTitle, tv10kmDesc, true);
         }
+    }
+
+    private void setupSearchSuggestions() {
+        String[] mockLocations = {
+            "BML Munjal University, Kaphera",
+            "MGF Metropolitan Mall, Gurugram",
+            "Indira Gandhi International Airport, Delhi",
+            "Cyber Hub, Gurugram",
+            "Connaught Place, New Delhi",
+            "Ambience Mall, Gurugram",
+            "Kingdom of Dreams, Gurugram",
+            "Huda City Centre, Gurugram"
+        };
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, mockLocations);
+        etSearchLocation.setAdapter(adapter);
+    }
+
+    private void simulateLocationDetection() {
+        btnUseLocation.setEnabled(false);
+        btnUseLocation.setText("Detecting...");
+        pbLocationDetecting.setVisibility(View.VISIBLE);
+        ivLocationPin.setVisibility(View.GONE);
+
+        // Simulate network delay for location detection
+        new Handler().postDelayed(() -> {
+            pbLocationDetecting.setVisibility(View.GONE);
+            ivLocationPin.setVisibility(View.VISIBLE);
+            
+            btnUseLocation.setText("Location Confirmed");
+            btnUseLocation.setEnabled(false);
+            btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
+            
+            Toast.makeText(this, "Location detected successfully!", Toast.LENGTH_SHORT).show();
+            etSearchLocation.setText("");
+        }, 2000); // 2 second delay
     }
 
     private void setOptionState(LinearLayout container, TextView title, TextView desc, boolean isSelected) {
