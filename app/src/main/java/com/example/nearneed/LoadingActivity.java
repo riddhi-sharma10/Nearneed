@@ -22,6 +22,7 @@ public class LoadingActivity extends AppCompatActivity {
     private Handler handler = new Handler(Looper.getMainLooper());
     private String[] statusMessages;
     private long durationMs = 3000; // Default 3 seconds for splash
+    private String mTargetClassName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class LoadingActivity extends AppCompatActivity {
             targetClassNameRaw = getIntent().getStringExtra("TARGET_CLASS");
         }
         
-        final String targetClassName = targetClassNameRaw;
+        mTargetClassName = targetClassNameRaw;
 
         if (statusMessages == null) {
             if (singleMessage != null) {
@@ -79,11 +80,10 @@ public class LoadingActivity extends AppCompatActivity {
             }
 
             // After completion, transition to target
-            final String targetToLaunch = targetClassName;
             handler.postDelayed(() -> {
                 try {
-                    // Default target is OtpEnterActivity (Splash -> Login)
-                    String finalTarget = (targetToLaunch != null) ? targetToLaunch : WelcomeActivity.class.getName();
+                    // Default target is WelcomeActivity (Splash -> Startup)
+                    String finalTarget = (mTargetClassName != null) ? mTargetClassName : WelcomeActivity.class.getName();
                     Class<?> targetClass = Class.forName(finalTarget);
                     Intent nextIntent = new Intent(LoadingActivity.this, targetClass);
                     

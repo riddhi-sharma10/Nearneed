@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/apk/res/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface_background"
@@ -27,7 +26,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Payment Status"
+            android:text="@string/txt_pay_status_title"
             android:textColor="@color/text_body_dark"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -70,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Payment confirmed."
+                android:text="@string/txt_pay_confirmed"
                 android:textColor="@color/text_body_dark"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -79,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="₹250 sent to Rahul S."
+                android:text="@string/txt_pay_sent_to"
                 android:textColor="@color/text_body_light"
                 android:textSize="16sp" />
 
@@ -88,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:letterSpacing="0.1"
-                android:text="TRANSACTION ID TXN9823410"
+                android:text="@string/txt_pay_txn_id"
                 android:textColor="@color/text_hint"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -114,7 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save receipt"
+                    android:text="@string/txt_pay_save_receipt"
                     android:textColor="@color/text_body_dark"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -154,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Status"
+                    android:text="@string/txt_pay_status_label"
                     android:textColor="@color/text_body_light"
                     android:textSize="14sp" />
 
@@ -174,7 +173,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Successful"
+                        android:text="@string/txt_pay_success"
                         android:textColor="@color/brand_success_solid"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -192,7 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Recipient"
+                    android:text="@string/txt_pay_recipient_label"
                     android:textColor="@color/text_body_light"
                     android:textSize="14sp" />
 
@@ -212,7 +211,7 @@
                 android:layout_height="56dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/bg_btn_solid_blue"
-                android:text="Rate Rahul S. →"
+                android:text="@string/txt_pay_rate_button"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -224,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="I'll rate later"
+                android:text="@string/txt_pay_rate_later"
                 android:textColor="@color/text_subheadline"
                 android:textSize="16sp"
                 android:textStyle="bold" />

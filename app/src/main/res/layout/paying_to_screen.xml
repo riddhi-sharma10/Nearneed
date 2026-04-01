@@ -51,15 +51,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
+                    <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:background="@drawable/bg_logo_blue_rect"
-                        android:gravity="center"
-                        android:text="NN"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:src="@drawable/ic_logo" />
 
                     <TextView
                         android:layout_width="wrap_content"

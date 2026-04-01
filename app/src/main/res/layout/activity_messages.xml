@@ -275,45 +275,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom App Navigation System -->
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAlignmentMode="center"
-        app:fabCradleMargin="8dp"
-        app:fabCradleRoundedCornerRadius="16dp"
-        app:hideOnScroll="false"
-        app:backgroundTint="@color/white">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            style="@style/Widget.MaterialComponents.BottomNavigationView"
-            android:id="@+id/bottomNavView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            app:menu="@menu/bottom_nav_menu_messages"
-            app:itemIconTint="@color/sel_bottom_nav_color"
-            app:itemTextColor="@color/sel_bottom_nav_color"
-            app:itemRippleColor="@color/brand_info_light"
-            app:labelVisibilityMode="labeled" />
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:importantForAccessibility="no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backgroundTint="@color/brand_primary"
-        app:tint="@color/white"
-        app:srcCompat="@drawable/ic_plus_white"
-        app:cornerRadius="28dp"
-        app:layout_anchor="@id/bottomAppBar"
-        android:layout_marginBottom="16dp"
-        android:outlineAmbientShadowColor="@color/brand_primary"
-        android:outlineSpotShadowColor="@color/brand_primary"
-        android:elevation="8dp" />
+    <!-- Universal Navigation System -->
+    <include layout="@layout/layout_universal_navbar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

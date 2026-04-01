@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Applicants"
+            android:text="@string/txt_applicants_title"
             android:textColor="@color/text_header"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Plumbing Repair - Kitchen Sink"
+                android:text="@string/txt_demo_gig_title"
                 android:textColor="@color/text_header"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -91,7 +91,7 @@
                 android:background="@drawable/bg_btn_light_blue"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
-                android:text="8 Applicants"
+                android:text="@string/txt_demo_applicant_count"
                 android:textColor="@color/brand_primary"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Posted 2 hours ago • Koramangala, Block 4"
+                android:text="@string/txt_demo_posted_time"
                 android:textColor="@color/text_subheadline"
                 android:textSize="14sp"
                 app:layout_constraintTop_toBottomOf="@id/tvGigTitle" />
@@ -128,7 +128,7 @@
                     android:id="@+id/tvBudgetLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Budget: "
+                    android:text="@string/txt_budget_label"
                     android:textColor="@color/text_subheadline"
                     android:textSize="14sp" />
 
@@ -136,7 +136,7 @@
                     android:id="@+id/tvBudgetAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="₹500 - ₹800"
+                    android:text="@string/txt_demo_budget_range"
                     android:textColor="@color/text_header"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -161,19 +161,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="All Applicants" />
+            android:text="@string/txt_all_applicants" />
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Highly Rated" />
+            android:text="@string/txt_highly_rated" />
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verified Only" />
+            android:text="@string/txt_verified_only" />
     </com.google.android.material.chip.ChipGroup>
 
     <!-- Applicants List -->
@@ -239,7 +239,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="Rahul Sharma"
+                        android:text="@string/txt_demo_rahul"
                         android:textColor="@color/text_header"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -254,7 +254,7 @@
                         android:layout_marginTop="2dp"
                         android:drawablePadding="4dp"
                         android:gravity="center_vertical"
-                        android:text="4.9 (124 reviews)"
+                        android:text="@string/txt_demo_rating"
                         android:textColor="@color/text_subheadline"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_star_rating"
@@ -265,7 +265,7 @@
                         android:id="@+id/tvStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pro Handyman"
+                        android:text="@string/txt_demo_pro"
                         android:textColor="@color/brand_primary"
                         android:textSize="12sp"
                         android:textStyle="bold"
@@ -296,7 +296,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="₹250"
+                                android:text="@string/txt_demo_bid"
                                 android:textColor="@color/text_body_dark"
                                 android:textSize="24sp"
                                 android:textStyle="bold" />
@@ -305,7 +305,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:text="₹300"
+                                android:text="@string/txt_demo_strike"
                                 android:textColor="@color/text_hint"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -319,7 +319,7 @@
                             android:drawablePadding="4dp"
                             android:paddingHorizontal="12dp"
                             android:paddingVertical="6dp"
-                            android:text="Prefers UPI"
+                            android:text="@string/txt_prefers_upi"
                             android:textColor="@color/text_body_light"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -333,7 +333,7 @@
                         android:layout_marginTop="12dp"
                         android:background="@color/surface_background"
                         android:padding="12dp"
-                        android:text="I have 5 years of experience in kitchen plumbing. Can fix this within 30 mins. Available this evening."
+                        android:text="@string/txt_demo_bid_msg"
                         android:textColor="@color/text_subheadline"
                         android:textSize="14sp"
                         app:layout_constraintTop_toBottomOf="@id/rlBidInfo" />
@@ -352,7 +352,7 @@
                             android:layout_height="48dp"
                             android:layout_marginEnd="8dp"
                             android:layout_weight="1"
-                            android:text="View Profile"
+                            android:text="@string/txt_view_profile"
                             android:textAllCaps="false"
                             android:textColor="@color/text_header"
                             app:cornerRadius="16dp"
@@ -363,7 +363,7 @@
                             android:layout_width="0dp"
                             android:layout_height="48dp"
                             android:layout_weight="1"
-                            android:text="Accept Bid"
+                            android:text="@string/txt_accept_bid"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             app:backgroundTint="@color/brand_primary"

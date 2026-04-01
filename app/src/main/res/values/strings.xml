@@ -141,4 +141,38 @@
     <string name="txt_community">Community</string>
     <string name="txt_verified">Verified</string>
     <string name="txt_emergency">Emergency</string>
+    <string name="txt_emergency_post_title">Emergency Post?</string>
+    <string name="txt_emergency_post_desc">This will notify all neighbours via push notification and SMS immediately.</string>
+    <string name="txt_btn_post_now">Yes, Post Now</string>
+    <string name="txt_btn_cancel">Cancel</string>
+
+    <string name="txt_pay_status_title">Payment Status</string>
+    <string name="txt_pay_confirmed">Payment confirmed.</string>
+    <string name="txt_pay_sent_to">₹250 sent to Rahul S.</string>
+    <string name="txt_pay_txn_id">TRANSACTION ID TXN9823410</string>
+    <string name="txt_pay_save_receipt">Save receipt</string>
+    <string name="txt_pay_status_label">Status</string>
+    <string name="txt_pay_success">Successful</string>
+    <string name="txt_pay_recipient_label">Recipient</string>
+    <string name="txt_pay_rate_button">Rate Rahul S. →</string>
+    <string name="txt_pay_rate_later">I\'ll rate later</string>
+    <string name="txt_applicants_title">Applicants</string>
+    <string name="txt_demo_gig_title">Plumbing Repair - Kitchen Sink</string>
+    <string name="txt_demo_applicant_count">8 Applicants</string>
+    <string name="txt_demo_posted_time">Posted 2 hours ago • Koramangala, Block 4</string>
+    <string name="txt_budget_label">Your Budget: </string>
+    <string name="txt_demo_budget_range">₹500 - ₹800</string>
+    <string name="txt_all_applicants">All Applicants</string>
+    <string name="txt_highly_rated">Highly Rated</string>
+    <string name="txt_verified_only">Verified Only</string>
+    <string name="txt_demo_rahul">Rahul Sharma</string>
+    <string name="txt_demo_rating">4.9 (124 reviews)</string>
+    <string name="txt_demo_pro">Pro Handyman</string>
+    <string name="txt_demo_bid">₹250</string>
+    <string name="txt_demo_strike">₹300</string>
+    <string name="txt_prefers_upi">Prefers UPI</string>
+    <string name="txt_demo_bid_msg">I have 5 years of experience in kitchen plumbing. Can fix this within 30 mins. Available this evening.</string>
+    <string name="txt_view_profile">View Profile</string>
+    <string name="txt_accept_bid">Accept Bid</string>
 </resources>
+

@@ -21,6 +21,7 @@ public class MessagesActivity extends AppCompatActivity {
         // We only need to wire up the click listener here.
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavView);
         if (bottomNav != null) {
+            bottomNav.setSelectedItemId(R.id.nav_messages);
             bottomNav.setOnItemSelectedListener(item -> {
                 int itemId = item.getItemId();
                 if (itemId == R.id.nav_home) {

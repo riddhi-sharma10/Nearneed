@@ -68,7 +68,7 @@ public class DiscoveryMapActivity extends AppCompatActivity {
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     return true;
                 } else if (itemId == R.id.nav_profile) {
-                    startActivity(new Intent(this, SettingsActivity.class));
+                    startActivity(new Intent(this, UserProfileActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     return true;
                 }
