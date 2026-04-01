@@ -1,27 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NearNeed" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Brand Colors -->
-        <item name="colorPrimary">@color/brand_primary</item>
-        <item name="android:windowBackground">@color/surface_background</item>
-
-        <!-- Global Widget Styles -->
-        <item name="switchStyle">@style/Widget.NearNeed.Switch</item>
-        <item name="materialSwitchStyle">@style/Widget.NearNeed.Switch</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.NearNeed" parent="Base.Theme.NearNeed" />
-
-    <style name="Widget.NearNeed.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
-        <item name="thumbTint">@color/sel_switch_thumb</item>
-        <item name="trackTint">@color/sel_switch_track</item>
-        <item name="useMaterialThemeColors">false</item>
-    </style>
-
-    <style name="ShapeAppearance.App.Circle" parent="ShapeAppearance.Material3.MediumComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
 
     <style name="Theme.NearNeed.Transparent" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
@@ -32,4 +16,13 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.MaterialComponents.FloatingActionButton.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearance.App.Circle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

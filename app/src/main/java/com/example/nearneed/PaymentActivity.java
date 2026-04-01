@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -45,10 +46,23 @@ public class PaymentActivity extends AppCompatActivity {
         optionQr.setOnClickListener(v   -> updateSelection(SELECTED_QR));
 
         btnConfirmPayment.setOnClickListener(v -> {
-            String method = selectedOption == SELECTED_UPI  ? "UPI" :
-                            selectedOption == SELECTED_CASH ? "Pay in Person" : "QR Code";
-            Toast.makeText(this, "Order confirmed with " + method, Toast.LENGTH_SHORT).show();
+            showPaymentPopup();
         });
+    }
+
+    private void showPaymentPopup() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialogTheme);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_razorpay_payment, null);
+        
+        dialogView.findViewById(R.id.btnClosePopup).setOnClickListener(v -> bottomSheetDialog.dismiss());
+        dialogView.findViewById(R.id.btnPayPopup).setOnClickListener(v -> {
+            Toast.makeText(this, "Payment initialization...", Toast.LENGTH_SHORT).show();
+            bottomSheetDialog.dismiss();
+            finish(); // Proceed to next screen
+        });
+        
+        bottomSheetDialog.setContentView(dialogView);
+        bottomSheetDialog.show();
     }
 
     private void updateSelection(int option) {

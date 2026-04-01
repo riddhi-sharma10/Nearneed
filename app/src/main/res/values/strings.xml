@@ -194,5 +194,9 @@
     <string name="txt_demo_bid_msg">I have 5 years of experience in kitchen plumbing. Can fix this within 30 mins. Available this evening.</string>
     <string name="txt_view_profile">View Profile</string>
     <string name="txt_accept_bid">Accept Bid</string>
+    <string name="txt_settings">Settings</string>
+    <string name="txt_profile_image">Profile Image</string>
+    <string name="txt_user_name">Abhinav Oberoi</string>
+    <string name="txt_user_location">Downtown, NY</string>
 </resources>
 

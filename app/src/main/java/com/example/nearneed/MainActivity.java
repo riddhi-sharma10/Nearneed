@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout cardCommunity2 = findViewById(R.id.cardCommunity2);
         FrameLayout cardGig2 = findViewById(R.id.cardGig2);
         ChipGroup cgFilters = findViewById(R.id.cgFilters);
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
+        MaterialButton fabAdd = findViewById(R.id.fabAdd);
         View notificationPopup = findViewById(R.id.notificationPopup);
         android.widget.ImageView ivNotifications = findViewById(R.id.ivNotifications);
         ivNotifications.setOnClickListener(v -> {
