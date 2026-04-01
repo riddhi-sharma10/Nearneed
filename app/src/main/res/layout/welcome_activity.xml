@@ -1,195 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_background">
+    android:background="@color/white"
+    android:padding="24dp">
 
-    <ScrollView
+    <!-- Top Branding Section (Re-aligned to Top-Left) -->
+    <LinearLayout
+        android:id="@+id/llTopBranding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="NearNeed"
+            android:textColor="@color/brand_primary"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="-0.03" />
+
+    </LinearLayout>
+
+    <!-- Header Section -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Great things\nhappen locally."
+        android:textColor="@color/text_header"
+        android:textSize="28sp"
+        android:lineHeight="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llTopBranding" />
+
+    <TextView
+        android:id="@+id/tvSubHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your neighbor is here to help.\nJoin a safe &amp; verified community."
+        android:textColor="@color/text_subheadline"
+        android:textSize="13sp"
+        android:alpha="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+    <!-- Dedicated Slideshow Window -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSlideshow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/border_standard"
+        app:strokeWidth="1.5dp"
+        app:layout_constraintBottom_toTopOf="@id/cardHelpers"
+        app:layout_constraintTop_toBottomOf="@id/tvSubHeader">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpSlideshow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="12dp"
+                android:alpha="0.7"
+                android:background="@drawable/bg_pill_pink_transparent"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="Community Gallery"
+                android:textColor="@color/brand_primary"
+                android:textSize="8sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Community Helper Card (In Place of Establish connections) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardHelpers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/border_standard"
+        app:strokeWidth="1dp"
+        app:layout_constraintBottom_toTopOf="@id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="32dp"
-            android:paddingBottom="32dp">
-
-            <ImageView
-                android:id="@+id/ivBgHouse"
-                android:layout_width="90dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="-35dp"
-                android:layout_marginTop="120dp"
-                android:alpha="0.2"
-                android:contentDescription="@null"
-                android:scaleType="fitStart"
-                android:src="@drawable/ic_bg_house"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
-                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="-0.03"
-                android:text="@string/app_name"
+                android:background="@drawable/bg_pill_blue_transparent"
+                android:text="● COMMUNITY STATUS"
+                android:textColor="@color/brand_primary"
+                android:textSize="9sp"
+                android:letterSpacing="0.05"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Find helpers nearby"
                 android:textColor="@color/text_header"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@string/welcome_subtitle"
+                android:layout_marginTop="2dp"
+                android:text="Join 10,000+ local helpers today"
                 android:textColor="@color/text_subheadline"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+                android:textSize="11sp" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvMainImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="12dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:id="@+id/ivNeighborhood"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_neighborhood" />
+    <!-- Buttons -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="12dp"
+        android:text="SIGN UP"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.02"
+        app:backgroundTint="@color/brand_primary"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bg_gradient_overlay" />
-            </androidx.cardview.widget.CardView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="12dp"
+        android:text="LOG IN"
+        android:textColor="@color/brand_primary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.02"
+        app:backgroundTint="@color/white"
+        app:strokeColor="@color/brand_primary"
+        app:strokeWidth="1.5dp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivBgTree"
-                android:layout_width="116dp"
-                android:layout_height="200dp"
-                android:layout_marginEnd="-32dp"
-                android:alpha="0.2"
-                android:contentDescription="@null"
-                android:scaleType="fitEnd"
-                android:src="@drawable/ic_bg_tree"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvMainImage" />
-
-            <LinearLayout
-                android:id="@+id/llButtons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvMainImage">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginBottom="16dp"
-                    android:letterSpacing="0.02"
-                    android:text="@string/btn_continue_login"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/brand_primary"
-                    app:cornerRadius="16dp"
-                    app:elevation="4dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnSignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:letterSpacing="0.02"
-                    android:text="@string/btn_signup_welcome"
-                    android:textAllCaps="false"
-                    android:textColor="@color/brand_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="16dp"
-                    app:strokeColor="@color/border_standard"
-                    app:strokeWidth="1dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:alpha="0.6"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llButtons"
-                app:layout_constraintVertical_bias="1.0">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:letterSpacing="0.15"
-                    android:text="@string/txt_discover_local"
-                    android:textColor="@color/text_header"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/ivFooterIcons"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_footer_icons" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
