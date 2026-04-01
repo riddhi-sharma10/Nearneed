@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="12dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +131,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/brand_primary"
-                    app:cornerRadius="12dp"
+                    app:cornerRadius="16dp"
                     app:elevation="4dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -145,7 +145,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/white"
-                    app:cornerRadius="12dp"
+                    app:cornerRadius="16dp"
                     app:strokeColor="@color/border_standard"
                     app:strokeWidth="1dp" />
             </LinearLayout>
@@ -185,6 +185,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 

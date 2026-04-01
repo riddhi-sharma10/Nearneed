@@ -133,10 +133,12 @@
             android:textAllCaps="false"
             android:textSize="16sp"
             app:backgroundTint="@color/brand_error_solid"
-            app:cornerRadius="12dp"
+            app:cornerRadius="16dp"
             android:elevation="0dp" />
     </LinearLayout>
 </LinearLayout>
+
+
 
 
 

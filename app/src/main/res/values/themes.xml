@@ -1,11 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NearNeed" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="android:windowBackground">@color/surface_background</item>
+
+        <!-- Global Widget Styles -->
+        <item name="switchStyle">@style/Widget.NearNeed.Switch</item>
+        <item name="materialSwitchStyle">@style/Widget.NearNeed.Switch</item>
     </style>
 
     <style name="Theme.NearNeed" parent="Base.Theme.NearNeed" />
+
+    <style name="Widget.NearNeed.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/sel_switch_thumb</item>
+        <item name="trackTint">@color/sel_switch_track</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
 
     <style name="Theme.NearNeed.Transparent" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>

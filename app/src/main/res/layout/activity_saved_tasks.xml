@@ -84,11 +84,13 @@
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="12dp" />
+                app:cornerRadius="16dp" />
 
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+
+
 
 
 

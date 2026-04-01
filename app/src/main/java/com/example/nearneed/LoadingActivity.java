@@ -83,7 +83,7 @@ public class LoadingActivity extends AppCompatActivity {
             handler.postDelayed(() -> {
                 try {
                     // Default target is OtpEnterActivity (Splash -> Login)
-                    String finalTarget = (targetToLaunch != null) ? targetToLaunch : OtpEnterActivity.class.getName();
+                    String finalTarget = (targetToLaunch != null) ? targetToLaunch : WelcomeActivity.class.getName();
                     Class<?> targetClass = Class.forName(finalTarget);
                     Intent nextIntent = new Intent(LoadingActivity.this, targetClass);
                     

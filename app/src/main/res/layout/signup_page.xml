@@ -83,10 +83,10 @@
                 android:layout_marginBottom="16dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxBackgroundMode="outline"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
                 app:boxStrokeColor="@color/border_standard"
                 app:boxStrokeWidth="1dp"
                 app:hintEnabled="false">
@@ -118,10 +118,10 @@
                 android:layout_marginBottom="16dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxBackgroundMode="outline"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
                 app:boxStrokeColor="@color/border_standard"
                 app:boxStrokeWidth="1dp"
                 app:hintEnabled="false">
@@ -152,10 +152,10 @@
                 android:layout_height="wrap_content"
                 app:boxBackgroundColor="@color/white"
                 app:boxBackgroundMode="outline"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
                 app:boxStrokeColor="@color/border_standard"
                 app:boxStrokeWidth="1dp"
                 app:hintEnabled="false"
@@ -194,7 +194,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="12dp" />
+                app:cornerRadius="16dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -227,6 +227,8 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
+
+
 
 
 

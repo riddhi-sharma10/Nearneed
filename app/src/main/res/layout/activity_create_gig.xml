@@ -244,8 +244,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:checked="true"
-                    app:trackTint="@color/sel_switch_track_blue"
-                    app:thumbTint="@color/sel_switch_thumb_blue" />
+                    app:trackTint="@color/sel_switch_track"
+                    app:thumbTint="@color/sel_switch_thumb" />
             </RelativeLayout>
 
             <!-- Max counter offer -->
@@ -714,6 +714,8 @@
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 

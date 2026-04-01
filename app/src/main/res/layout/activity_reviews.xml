@@ -365,7 +365,7 @@
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-medium"
                 app:backgroundTint="@color/brand_info_light"
-                app:cornerRadius="12dp"
+                app:cornerRadius="16dp"
                 android:elevation="0dp"
                 app:strokeColor="@color/brand_primary"
                 app:strokeWidth="1dp" />
@@ -373,6 +373,8 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+
+
 
 
 

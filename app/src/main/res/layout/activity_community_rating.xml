@@ -233,7 +233,7 @@
                     android:layout_height="120dp"
                     android:layout_marginTop="12dp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeColor="@color/brand_error_bg"
                     app:strokeWidth="1dp">
@@ -262,7 +262,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/brand_error_solid"
-                    app:cornerRadius="12dp" />
+                    app:cornerRadius="16dp" />
 
                 <!-- Skip Button -->
                 <TextView
@@ -282,6 +282,8 @@
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 

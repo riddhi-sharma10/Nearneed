@@ -123,7 +123,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:backgroundTint="@color/brand_error_solid"
-                app:cornerRadius="12dp" />
+                app:cornerRadius="16dp" />
 
         </LinearLayout>
     </ScrollView>
@@ -169,6 +169,8 @@
         app:tint="@color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 
 

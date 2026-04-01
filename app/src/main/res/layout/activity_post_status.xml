@@ -67,7 +67,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:strokeColor="@color/brand_error_bg"
@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
                     app:cardBackgroundColor="@color/white"
                     app:strokeColor="@color/divider_soft"
@@ -166,7 +166,7 @@
                             android:textSize="14sp"
                             android:textStyle="bold"
                             app:backgroundTint="@color/brand_error_solid"
-                            app:cornerRadius="8dp"
+                            app:cornerRadius="16dp"
                             android:elevation="0dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -182,7 +182,7 @@
                             app:backgroundTint="@color/white"
                             app:strokeColor="@color/border_standard"
                             app:strokeWidth="1dp"
-                            app:cornerRadius="8dp"
+                            app:cornerRadius="16dp"
                             android:elevation="0dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -253,7 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:strokeColor="@color/divider_soft"
@@ -313,7 +313,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:strokeColor="@color/divider_soft"
@@ -376,7 +376,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:strokeColor="@color/divider_soft"
@@ -455,7 +455,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/text_header"
-                    app:cornerRadius="12dp"
+                    app:cornerRadius="16dp"
                     android:elevation="0dp" />
 
                 <TextView
@@ -472,6 +472,8 @@
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
