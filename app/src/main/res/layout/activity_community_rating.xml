@@ -89,6 +89,7 @@
                 android:textSize="22sp" />
 
             <TextView
+                style="@style/AppDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -155,6 +156,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_pill_pink_transparent"
@@ -165,10 +167,10 @@
                     android:paddingBottom="8dp"
                     android:text="Good work"
                     android:textColor="@color/brand_error_vibrant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp" />
 
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -180,8 +182,7 @@
                     android:paddingBottom="8dp"
                     android:text="Minor delays"
                     android:textColor="@color/brand_error_vibrant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -192,6 +193,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_pill_pink_transparent"
@@ -202,8 +204,7 @@
                     android:paddingBottom="8dp"
                     android:text="Friendly"
                     android:textColor="@color/brand_error_vibrant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- Comment Box -->
@@ -216,12 +217,12 @@
                 android:paddingEnd="24dp">
 
                 <TextView
+                    style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Leave a comment (optional)"
                     android:textColor="@color/text_header"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -247,6 +248,7 @@
                 <!-- Submit Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSubmitRating"
+                    style="@style/AppHeading"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginTop="24dp"
@@ -255,7 +257,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:backgroundTint="@color/brand_error_solid"
                     app:cornerRadius="16dp" />
 
