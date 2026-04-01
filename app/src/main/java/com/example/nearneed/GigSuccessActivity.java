@@ -22,9 +22,10 @@ public class GigSuccessActivity extends AppCompatActivity {
     }
 
     private void goHome() {
-        Intent intent = new Intent(this, MainActivity.class);
-        // Clears the entire Create Post back-stack (CreatePost → CreateGig → Step2 → Success)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Intent intent = new Intent(this, LoadingActivity.class);
+        intent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, MainActivity.class.getName());
+        intent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGE, "Updating Dashboard...");
+        intent.putExtra(LoadingActivity.EXTRA_DURATION_MS, 1500L); // Shorter duration for simple navigation
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();

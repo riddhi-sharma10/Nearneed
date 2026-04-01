@@ -26,10 +26,9 @@ public class ApplySuccessActivity extends AppCompatActivity {
                 // Prepare transition to loading screen
                 Intent intent = new Intent(ApplySuccessActivity.this, LoadingActivity.class);
                 // Passing the target class back to Dashboard
-                intent.putExtra("TARGET_CLASS", MainActivity.class.getName());
-                intent.putExtra("STATUS_MESSAGE", "Finalizing Application...");
-                // Setting 3 seconds as the user's specific request
-                intent.putExtra("DURATION_MS", 3000L); 
+                intent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, MainActivity.class.getName());
+                intent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGE, "Finalizing Application...");
+                intent.putExtra(LoadingActivity.EXTRA_DURATION_MS, 3000L); 
                 startActivity(intent);
                 finish();
             }
