@@ -60,8 +60,12 @@
                 android:foreground="?attr/selectableItemBackground">
 
                 <FrameLayout
+                    android:id="@+id/profileImageContainer"
                     android:layout_width="100dp"
-                    android:layout_height="100dp">
+                    android:layout_height="100dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
                     <ImageView
                         android:id="@+id/ivProfilePicture"
                         android:layout_width="match_parent"
@@ -79,13 +83,16 @@
                         android:padding="6dp" />
                 </FrameLayout>
                 <TextView
+                    android:id="@+id/btnChangePhoto"
                     style="@style/AppHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Change Profile Photo"
                     android:textColor="@color/brand_primary"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
             <!-- Account Settings Group -->
@@ -182,10 +189,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:chipSpacingVertical="8dp">
-                
+
+                <!-- Static Test Chips -->
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/mock_househelp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:text="House Help"
                     app:chipBackgroundColor="@color/white"
                     app:chipStrokeColor="@color/brand_primary"
@@ -195,8 +204,9 @@
                     app:closeIconTint="@color/brand_primary" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/mock_plumbing"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:text="Plumbing"
                     app:chipBackgroundColor="@color/white"
                     app:chipStrokeColor="@color/brand_primary"
@@ -204,7 +214,7 @@
                     android:textColor="@color/brand_primary"
                     app:closeIconVisible="true"
                     app:closeIconTint="@color/brand_primary" />
-
+                
                 <com.google.android.material.chip.Chip
                     android:id="@+id/btnAddService"
                     android:layout_width="wrap_content"

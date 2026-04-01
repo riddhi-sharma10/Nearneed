@@ -15,8 +15,27 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
+        com.google.android.material.textfield.TextInputEditText etNewPassword = findViewById(R.id.etNewPassword);
+        com.google.android.material.textfield.TextInputEditText etConfirmPassword = findViewById(R.id.etConfirmPassword);
+        com.google.android.material.textfield.TextInputLayout tilConfirmPassword = findViewById(R.id.tilConfirmPassword);
+
         MaterialButton btnSavePassword = findViewById(R.id.btnSavePassword);
         btnSavePassword.setOnClickListener(v -> {
+            String newPass = etNewPassword.getText().toString();
+            String confirmPass = etConfirmPassword.getText().toString();
+
+            if (newPass.isEmpty()) {
+                etNewPassword.setError("Password cannot be empty");
+                return;
+            }
+
+            if (!newPass.equals(confirmPass)) {
+                tilConfirmPassword.setError("Passwords do not match");
+                return;
+            } else {
+                tilConfirmPassword.setError(null);
+            }
+
             // Logic to update password would go here.
             Toast.makeText(this, "Password updated successfully!", Toast.LENGTH_SHORT).show();
             
