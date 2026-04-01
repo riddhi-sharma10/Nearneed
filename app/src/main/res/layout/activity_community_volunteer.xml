@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@id/bottomCta"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar">
 
         <LinearLayout
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_immersive_map" />
+                android:src="@drawable/img_community_service" />
 
             <!-- Progress Section -->
             <LinearLayout
@@ -165,42 +165,48 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
                         android:gravity="end"
                         android:orientation="vertical">
-                        <LinearLayout
+                        
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:strokeWidth="1dp"
+                            app:strokeColor="@color/brand_error_bg"
+                            android:layout_marginBottom="8dp">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/bg_pill_pink_transparent"
                                 android:text="UPI"
                                 android:textColor="@color/brand_error_solid"
-                                android:textSize="9sp"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="2dp"
-                                android:layout_marginEnd="6dp" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:strokeWidth="1dp"
+                            app:strokeColor="@color/brand_error_bg">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/bg_pill_pink_transparent"
                                 android:text="Cash"
                                 android:textColor="@color/brand_error_solid"
-                                android:textSize="9sp"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="2dp" />
-                        </LinearLayout>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/bg_pill_pink_transparent"
-                            android:text="In Person"
-                            android:textColor="@color/brand_error_solid"
-                            android:textSize="9sp"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="4dp" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp" />
+                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -288,7 +294,7 @@
                     android:layout_marginTop="24dp"
                     app:cardCornerRadius="32dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/surface_background_clean">
+                    app:cardBackgroundColor="@color/brand_error_bg_alt">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -297,11 +303,20 @@
                         android:orientation="horizontal"
                         android:paddingHorizontal="12dp">
 
-                        <ImageView
+                        <FrameLayout
                             android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/bg_circle_blue_solid"
-                            android:padding="8dp" />
+                            android:layout_height="40dp">
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_circle_solid_white" />
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_media_play"
+                                app:tint="@color/brand_error_solid" />
+                        </FrameLayout>
 
                         <!-- Waves Placeholder -->
                         <LinearLayout
@@ -311,20 +326,20 @@
                             android:layout_marginHorizontal="12dp"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
-                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="20dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="16dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="24dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="14dp" android:background="@color/brand_primary" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="18dp" android:background="@color/brand_primary_light" android:layout_marginEnd="3dp"/>
-                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_primary_light" />
+                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_error_accent" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="20dp" android:background="@color/brand_error_accent" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="16dp" android:background="@color/brand_error_solid" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="24dp" android:background="@color/brand_error_solid" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="14dp" android:background="@color/brand_error_solid" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="18dp" android:background="@color/brand_error_accent" android:layout_marginEnd="3dp"/>
+                            <View android:layout_width="3dp" android:layout_height="12dp" android:background="@color/brand_error_accent" />
                         </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0:22"
-                            android:textColor="@color/text_subheadline"
+                            android:textColor="@color/brand_error_solid"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -332,18 +347,22 @@
 
                 <!-- Map View Placeholder -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardMapPreview"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:layout_marginTop="24dp"
                     app:cardCornerRadius="24dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/border_standard">
+                    app:strokeColor="@color/border_standard"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/bg_map_vector" />
+                        android:src="@drawable/img_immersive_map" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Profile Card -->
@@ -446,7 +465,7 @@
                                 android:layout_height="48dp"
                                 android:layout_weight="1"
                                 android:layout_marginStart="8dp"
-                                android:text="SMS"
+                                android:text="Msg"
                                 android:textColor="@color/brand_primary"
                                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                                 app:strokeColor="@color/brand_primary"
@@ -457,31 +476,27 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- I'll Volunteer Button -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="32dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVolunteerSticky"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="I'll Volunteer"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/brand_error_solid"
+                        app:cornerRadius="24dp" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <!-- Sticky Bottom Button -->
-    <LinearLayout
-        android:id="@+id/bottomCta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnVolunteerSticky"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="I'll Volunteer"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/brand_error_solid"
-            app:cornerRadius="24dp" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

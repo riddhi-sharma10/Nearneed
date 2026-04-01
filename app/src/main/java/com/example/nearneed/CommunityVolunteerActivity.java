@@ -17,6 +17,12 @@ public class CommunityVolunteerActivity extends AppCompatActivity {
             btnBack.setOnClickListener(v -> finish());
         }
 
+        // Map preview redirects to full map view
+        findViewById(R.id.cardMapPreview).setOnClickListener(v -> {
+            startActivity(new Intent(this, DiscoveryMapActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+
         // "I'll Volunteer" bottom CTA launches Step 2 Activity
         findViewById(R.id.btnVolunteerSticky).setOnClickListener(v -> {
             android.content.Intent intent = new android.content.Intent(CommunityVolunteerActivity.this, CommunityVolunteerStep2Activity.class);
