@@ -17,6 +17,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import android.util.TypedValue;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -146,6 +148,24 @@ public class EditProfileActivity extends AppCompatActivity {
         
         chipOthers.setOnCheckedChangeListener((v, isChecked) -> {
             tilOtherService.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (isChecked) {
+                etOtherService.requestFocus();
+            }
+        });
+
+        etOtherService.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_DONE || 
+                (event != null && event.getKeyCode() == android.view.KeyEvent.KEYCODE_ENTER)) {
+                String newService = etOtherService.getText().toString().trim();
+                if (!newService.isEmpty()) {
+                    addChoiceChipToDialog(cgAllServices, newService);
+                    etOtherService.setText("");
+                    tilOtherService.setVisibility(View.GONE);
+                    chipOthers.setChecked(false);
+                }
+                return true;
+            }
+            return false;
         });
 
         dialogView.findViewById(R.id.btnAddSelected).setOnClickListener(v -> {
@@ -154,14 +174,7 @@ public class EditProfileActivity extends AppCompatActivity {
             
             for (int i = 0; i < cgAllServices.getChildCount(); i++) {
                 Chip chip = (Chip) cgAllServices.getChildAt(i);
-                if (chip.getId() == R.id.chipOthers) {
-                    if (chip.isChecked()) {
-                        String otherText = etOtherService.getText().toString().trim();
-                        if (!otherText.isEmpty()) {
-                            addNewServiceChip(parentGroup, otherText);
-                        }
-                    }
-                } else if (chip.isChecked()) {
+                if (chip.getId() != R.id.chipOthers && chip.isChecked()) {
                     addNewServiceChip(parentGroup, chip.getText().toString());
                 }
             }
@@ -178,6 +191,46 @@ public class EditProfileActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    private void addChoiceChipToDialog(ChipGroup group, String text) {
+        // Check for duplicates
+        for (int i = 0; i < group.getChildCount(); i++) {
+            Chip existing = (Chip) group.getChildAt(i);
+            if (existing.getText().toString().equalsIgnoreCase(text)) {
+                existing.setChecked(true);
+                return;
+            }
+        }
+
+        Chip chip = new Chip(this);
+        chip.setText(text);
+        chip.setCheckable(true);
+        chip.setClickable(true);
+        
+        float density = getResources().getDisplayMetrics().density;
+        chip.setChipMinHeight(48 * density);
+        chip.setChipCornerRadius(24 * density);
+        
+        chip.setChipBackgroundColor(ContextCompat.getColorStateList(this, R.color.sel_chip_bg_blue));
+        chip.setChipStrokeColor(ContextCompat.getColorStateList(this, R.color.sel_chip_stroke_blue));
+        chip.setChipStrokeWidth(density * 1.0f);
+        
+        chip.setTextAppearanceResource(com.google.android.material.R.style.TextAppearance_MaterialComponents_Chip);
+        chip.setTextColor(ContextCompat.getColorStateList(this, R.color.sel_chip_text_blue));
+        chip.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14);
+        
+        // Exact padding to match Choice design
+        chip.setChipStartPadding(12 * density);
+        chip.setChipEndPadding(12 * density);
+        chip.setTextStartPadding(4 * density);
+        chip.setTextEndPadding(4 * density);
+
+        chip.setChecked(true);
+
+        // Add before "+ Others"
+        View others = group.findViewById(R.id.chipOthers);
+        group.addView(chip, group.indexOfChild(others));
+    }
+
     private void addNewServiceChip(ChipGroup parent, String serviceName) {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
@@ -191,15 +244,19 @@ public class EditProfileActivity extends AppCompatActivity {
         chip.setCloseIconVisible(true);
         chip.setChipBackgroundColorResource(R.color.white);
         chip.setChipStrokeColorResource(R.color.brand_primary);
-        chip.setChipStrokeWidth(1);
+        chip.setChipStrokeWidth(getResources().getDisplayMetrics().density * 1);
         chip.setTextColor(getResources().getColor(R.color.brand_primary));
         chip.setCloseIconTintResource(R.color.brand_primary);
-        // Overwrite height to 48dp for consistency with Preferences
-        android.view.ViewGroup.LayoutParams params = new android.view.ViewGroup.LayoutParams(
-            android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-            (int) (48 * getResources().getDisplayMetrics().density)
-        );
-        chip.setLayoutParams(params);
+
+        float density = getResources().getDisplayMetrics().density;
+        chip.setChipMinHeight(48 * density);
+        chip.setChipCornerRadius(24 * density);
+        chip.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14);
+        
+        chip.setChipStartPadding(12 * density);
+        chip.setChipEndPadding(12 * density);
+        chip.setTextStartPadding(4 * density);
+        chip.setTextEndPadding(4 * density);
         chip.setGravity(android.view.Gravity.CENTER);
         
         chip.setOnCloseIconClickListener(v -> parent.removeView(chip));

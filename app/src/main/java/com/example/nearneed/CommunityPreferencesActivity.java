@@ -74,10 +74,33 @@ public class CommunityPreferencesActivity extends AppCompatActivity {
 
         btnEnter.setOnClickListener(v -> {
             if (validateSelections()) {
+                saveSkills();
                 Intent intent = new Intent(this, IdVerificationActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void saveSkills() {
+        android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPrefs", MODE_PRIVATE);
+        String currentCsv = prefs.getString("user_offers_csv", "");
+        
+        java.util.Set<String> allSkills = new java.util.LinkedHashSet<>();
+        if (!currentCsv.isEmpty()) {
+            for (String s : currentCsv.split(",")) {
+                allSkills.add(s.trim());
+            }
+        }
+        
+        for (int i = 0; i < cgSkills.getChildCount(); i++) {
+            Chip chip = (Chip) cgSkills.getChildAt(i);
+            if (chip.isChecked()) {
+                allSkills.add(chip.getText().toString());
+            }
+        }
+        
+        String finalCsv = android.text.TextUtils.join(",", allSkills);
+        prefs.edit().putString("user_offers_csv", finalCsv).apply();
     }
 
     private void addNewChip(ChipGroup chipGroup, String text, int bgColorId, int strokeColorId, int textColorId) {
@@ -103,17 +126,17 @@ public class CommunityPreferencesActivity extends AppCompatActivity {
         // Clean appearance matching Choice style
         chip.setChipBackgroundColor(ContextCompat.getColorStateList(this, bgColorId));
         chip.setChipStrokeColor(ContextCompat.getColorStateList(this, strokeColorId));
-        chip.setChipStrokeWidth(density * 0.8f);
+        chip.setChipStrokeWidth(density * 1.0f);
         
         // Text styling
         chip.setTextAppearanceResource(com.google.android.material.R.style.TextAppearance_MaterialComponents_Chip);
         chip.setTextColor(ContextCompat.getColorStateList(this, textColorId));
         chip.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         
-        chip.setChipStartPadding(8 * density);
-        chip.setChipEndPadding(8 * density);
-        chip.setTextStartPadding(8 * density);
-        chip.setTextEndPadding(8 * density);
+        chip.setChipStartPadding(12 * density);
+        chip.setChipEndPadding(12 * density);
+        chip.setTextStartPadding(4 * density);
+        chip.setTextEndPadding(4 * density);
 
         chip.setChecked(true);
 

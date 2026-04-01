@@ -79,17 +79,13 @@
                         android:textSize="14sp" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Push notification when someone needs help" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
-                <com.google.android.material.materialswitch.MaterialSwitch
+                <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleX="0.75"
-                    android:scaleY="0.75"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     app:thumbTint="@color/sel_switch_thumb_red"
-                    app:trackTint="@color/sel_switch_track_red"
-                    app:trackOutlineWidth="1dp"
-                    app:trackOutlineColor="#FFFFFF"
-                    app:trackOutlineTint="#FFFFFF"
-                    app:useMaterialThemeColors="false" />
+                    app:trackTint="@color/sel_switch_track_red" />
             </LinearLayout>
 
             <LinearLayout
@@ -108,17 +104,13 @@
                     <TextView style="@style/AppHeading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify me via SMS" android:textColor="@color/text_header" android:textSize="14sp" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SMS notification to +91 99XXXXX99" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
-                <com.google.android.material.materialswitch.MaterialSwitch
+                <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleX="0.75"
-                    android:scaleY="0.75"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     app:thumbTint="@color/sel_switch_thumb_red"
-                    app:trackTint="@color/sel_switch_track_red"
-                    app:trackOutlineWidth="1dp"
-                    app:trackOutlineColor="#FFFFFF"
-                    app:trackOutlineTint="#FFFFFF"
-                    app:useMaterialThemeColors="false" />
+                    app:trackTint="@color/sel_switch_track_red" />
             </LinearLayout>
 
             <TextView
