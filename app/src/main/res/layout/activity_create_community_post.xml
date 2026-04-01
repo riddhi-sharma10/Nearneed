@@ -420,15 +420,20 @@
                         android:textColor="@color/text_muted"
                         android:textSize="8sp"
                         android:layout_marginBottom="4dp" />
-                    <Spinner
-                        android:id="@+id/spinnerValidityTime"
+                    <TextView
+                        android:id="@+id/tvValidityTime"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:background="@drawable/bg_district_pill_input_white_stroke"
                         android:elevation="4dp"
-                        android:paddingHorizontal="12dp"
                         android:gravity="center"
-                        android:spinnerMode="dropdown" />
+                        android:hint="00:00:00 AM"
+                        android:textColorHint="@color/text_muted"
+                        android:textColor="@color/text_header"
+                        android:textSize="14sp"
+                        android:paddingHorizontal="12dp"
+                        android:clickable="true"
+                        android:focusable="true" />
                 </LinearLayout>
 
             </LinearLayout>

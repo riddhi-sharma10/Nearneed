@@ -100,7 +100,7 @@ public class CreateCommunityPostActivity extends AppCompatActivity {
 
         // ── POST VALIDITY LOGIC ──
         android.widget.TextView tvDate = findViewById(R.id.tvValidityDate);
-        android.widget.Spinner spinnerTime = findViewById(R.id.spinnerValidityTime);
+        android.widget.TextView tvTime = findViewById(R.id.tvValidityTime);
 
         if (tvDate != null) {
             tvDate.setOnClickListener(v -> {
@@ -112,11 +112,22 @@ public class CreateCommunityPostActivity extends AppCompatActivity {
             });
         }
 
-        if (spinnerTime != null) {
-            String[] times = {"09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM"};
-            android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinnerTime.setAdapter(adapter);
+        if (tvTime != null) {
+            tvTime.setOnClickListener(v -> {
+                java.util.Calendar cal = java.util.Calendar.getInstance();
+                int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
+                int minute = cal.get(java.util.Calendar.MINUTE);
+                
+                android.app.TimePickerDialog timePicker = new android.app.TimePickerDialog(this, 
+                    android.app.AlertDialog.THEME_HOLO_LIGHT, // Spinner style
+                    (view, selectedHour, selectedMin) -> {
+                        String ampm = selectedHour < 12 ? "AM" : "PM";
+                        int h = selectedHour > 12 ? selectedHour - 12 : (selectedHour == 0 ? 12 : selectedHour);
+                        String formattedTime = String.format("%02d:%02d:00 %s", h, selectedMin, ampm);
+                        tvTime.setText(formattedTime);
+                    }, hour, minute, false);
+                timePicker.show();
+            });
         }
     }
 }
