@@ -14,10 +14,16 @@ public class CreatePostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
+
+        // Link navigation bar to respective pages
+        NavbarHelper.setup(this, -1);
         
         // Handle closing the Create Post activity
         View fabAdd = findViewById(R.id.fabAdd);
-        if (fabAdd != null) fabAdd.setOnClickListener(v -> finish());
+        if (fabAdd != null) fabAdd.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
         
         // Card click listeners
         findViewById(R.id.cardGigPost).setOnClickListener(v -> {
