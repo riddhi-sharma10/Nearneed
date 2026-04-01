@@ -11,10 +11,11 @@
     <RelativeLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="80dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:background="@color/white">
+        android:paddingTop="16dp"
+        android:background="?attr/colorSurface">
         <ImageButton 
             android:id="@+id/btnBack" 
             android:layout_width="40dp" 
@@ -22,13 +23,14 @@
             android:layout_centerVertical="true" 
             android:background="?attr/selectableItemBackgroundBorderless" 
             android:src="@drawable/ic_back_arrow"
-                android:contentDescription="@string/back_description" />
+            android:contentDescription="@string/back_description"
+            app:tint="?attr/colorOnSurface" />
         <TextView 
             android:layout_width="wrap_content" 
             android:layout_height="wrap_content" 
             android:layout_centerInParent="true" 
             android:text="@string/txt_settings" 
-            android:textColor="@color/text_header" 
+            android:textColor="?attr/colorOnSurface" 
             android:textSize="18sp" 
             android:textStyle="bold" />
     </RelativeLayout>
@@ -43,52 +45,6 @@
             android:orientation="vertical" 
             android:padding="24dp">
 
-            <!-- Profile Header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="32dp">
-                
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    app:cardCornerRadius="32dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_standard"
-                    app:strokeWidth="1dp">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/bg_image_placeholder"
-                        android:scaleType="centerCrop"
-                android:contentDescription="@string/txt_profile_image" />
-                </com.google.android.material.card.MaterialCardView>
-                    
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txt_user_name"
-                        android:textColor="@color/text_header"
-                        android:textSize="20sp"
-                        android:fontFamily="sans-serif-bold" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txt_user_location"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="13sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-            </LinearLayout>
 
             <TextView 
                 android:layout_width="wrap_content" 
@@ -105,6 +61,7 @@
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:strokeColor="@color/border_standard"
                 app:strokeWidth="1dp">
 
@@ -126,11 +83,12 @@
                             android:textColor="@color/text_header" 
                             android:textSize="14sp" 
                             android:fontFamily="sans-serif-medium" />
-                        <com.google.android.material.switchmaterial.SwitchMaterial
+                        <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/switchPush"
                             android:layout_width="wrap_content" 
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:checked="true"
                             app:thumbTint="@color/sel_switch_thumb"
                             app:trackTint="@color/sel_switch_track" />
@@ -155,11 +113,12 @@
                             android:textColor="@color/text_header" 
                             android:textSize="14sp" 
                             android:fontFamily="sans-serif-medium" />
-                        <com.google.android.material.switchmaterial.SwitchMaterial
+                        <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/switchEmail"
                             android:layout_width="wrap_content" 
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:checked="false"
                             app:thumbTint="@color/sel_switch_thumb"
                             app:trackTint="@color/sel_switch_track" />
@@ -184,6 +143,7 @@
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:strokeColor="@color/border_standard"
                 app:strokeWidth="1dp">
 
@@ -205,11 +165,12 @@
                             android:textColor="@color/text_header" 
                             android:textSize="14sp" 
                             android:fontFamily="sans-serif-medium" />
-                        <com.google.android.material.switchmaterial.SwitchMaterial
+                        <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/switchDarkMode"
                             android:layout_width="wrap_content" 
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:checked="false"
                             app:thumbTint="@color/sel_switch_thumb"
                             app:trackTint="@color/sel_switch_track" />
@@ -264,6 +225,7 @@
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:strokeColor="@color/border_standard"
                 app:strokeWidth="1dp">
 
@@ -272,33 +234,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout 
-                        android:layout_width="match_parent" 
-                        android:layout_height="56dp" 
-                        android:paddingStart="16dp" 
-                        android:paddingEnd="16dp" 
-                        android:gravity="center_vertical">
-                        <TextView 
-                            android:layout_width="wrap_content" 
-                            android:layout_height="wrap_content" 
-                            android:text="Incognito Mode" 
-                            android:textColor="@color/text_header" 
-                            android:textSize="14sp" 
-                            android:fontFamily="sans-serif-medium" />
-                        <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:id="@+id/switchIncognito"
-                            android:layout_width="wrap_content" 
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            app:thumbTint="@color/sel_switch_thumb"
-                            app:trackTint="@color/sel_switch_track" />
-                    </RelativeLayout>
-
-                    <View 
-                        android:layout_width="match_parent" 
-                        android:layout_height="1dp" 
-                        android:background="@color/divider_soft" 
-                        android:layout_marginStart="16dp"/>
 
                     <RelativeLayout 
                         android:id="@+id/btnIDVerification" 
@@ -316,13 +251,14 @@
                             android:textSize="14sp" 
                             android:fontFamily="sans-serif-medium" />
                         <TextView 
+                            android:id="@+id/tvVerificationStatus"
                             android:layout_width="wrap_content" 
                             android:layout_height="wrap_content" 
                             android:layout_alignParentEnd="true" 
-                            android:text="Verified" 
-                            android:textColor="@color/brand_primary" 
+                            android:text="Not Verified" 
+                            android:textColor="@color/text_muted" 
                             android:textSize="12sp" 
-                            android:fontFamily="sans-serif-bold" />
+                            android:fontFamily="sans-serif-medium" />
                     </RelativeLayout>
 
                     <View 

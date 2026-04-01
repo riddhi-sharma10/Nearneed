@@ -6,8 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.button.MaterialButton;
 
 public class JobsActivity extends AppCompatActivity {
 
@@ -25,38 +24,37 @@ public class JobsActivity extends AppCompatActivity {
         });
 
         // Middle FAB
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
-        fabAdd.setOnClickListener(v -> {
-            navigateToCreatePost();
-        });
-
-        // Bottom Navigation
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavView);
-        if (bottomNav != null) {
-            // Highlight map or messages if appropriate, but since this is a new "Jobs" view,
-            // we'll just handle clicks to other sections.
-            bottomNav.setOnItemSelectedListener(item -> {
-                int itemId = item.getItemId();
-                if (itemId == R.id.nav_home) {
-                    startActivity(new Intent(this, MainActivity.class));
-                    finish();
-                    return true;
-                } else if (itemId == R.id.nav_map) {
-                    startActivity(new Intent(this, DiscoveryMapActivity.class));
-                    finish();
-                    return true;
-                } else if (itemId == R.id.nav_messages) {
-                    startActivity(new Intent(this, MessagesActivity.class));
-                    finish();
-                    return true;
-                } else if (itemId == R.id.nav_profile) {
-                    startActivity(new Intent(this, UserProfileActivity.class));
-                    finish();
-                    return true;
-                }
-                return true;
+        MaterialButton fabAdd = findViewById(R.id.fabAdd);
+        if (fabAdd != null) {
+            fabAdd.setOnClickListener(v -> {
+                navigateToCreatePost();
             });
         }
+
+        // Bottom Navigation
+        View navHome = findViewById(R.id.navHome);
+        if (navHome != null) navHome.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        });
+
+        View navMap = findViewById(R.id.navMap);
+        if (navMap != null) navMap.setOnClickListener(v -> {
+            startActivity(new Intent(this, DiscoveryMapActivity.class));
+            finish();
+        });
+
+        View navMessages = findViewById(R.id.navMessages);
+        if (navMessages != null) navMessages.setOnClickListener(v -> {
+            startActivity(new Intent(this, MessagesActivity.class));
+            finish();
+        });
+
+        View navProfile = findViewById(R.id.navProfile);
+        if (navProfile != null) navProfile.setOnClickListener(v -> {
+            startActivity(new Intent(this, UserProfileActivity.class));
+            finish();
+        });
     }
 
     private void navigateToCreatePost() {

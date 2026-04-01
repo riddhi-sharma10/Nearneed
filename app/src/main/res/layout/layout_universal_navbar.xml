@@ -38,7 +38,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_nav_home"
-                    app:tint="@color/brand_primary"
+                    app:tint="@color/text_muted"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:id="@+id/tvNavHome"
@@ -48,7 +48,7 @@
                     android:text="@string/txt_home"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/brand_primary" />
+                    android:textColor="@color/text_muted" />
             </LinearLayout>
 
             <!-- Map -->
@@ -131,7 +131,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_nav_profile"
-                    app:tint="@color/text_muted"
+                    app:tint="@color/brand_primary"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:id="@+id/tvNavProfile"
@@ -141,7 +141,8 @@
                     android:text="Profile"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/text_muted" />
+                    android:textColor="@color/brand_primary"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>

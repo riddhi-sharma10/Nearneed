@@ -110,6 +110,7 @@
                 android:background="@drawable/bg_btn_solid_blue"
                 app:backgroundTint="@color/brand_primary" />
 
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Universal Navigation System -->

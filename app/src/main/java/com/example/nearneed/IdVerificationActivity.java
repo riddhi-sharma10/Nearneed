@@ -2,6 +2,7 @@ package com.example.nearneed;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,10 @@ public class IdVerificationActivity extends AppCompatActivity {
         btnSkip = findViewById(R.id.btnSkip);
         cardUploadFront = findViewById(R.id.cardUploadFront);
         cardUploadBack = findViewById(R.id.cardUploadBack);
+        
+        if (getIntent().getBooleanExtra("HIDE_SKIP", false)) {
+            btnSkip.setVisibility(View.GONE);
+        }
 
         // Initial state: submit button disabled/dimmed
         btnSubmit.setEnabled(false);

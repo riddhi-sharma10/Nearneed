@@ -8,9 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.view.View;
 
 public class GigApplicantsActivity extends AppCompatActivity {
 
@@ -59,37 +58,32 @@ public class GigApplicantsActivity extends AppCompatActivity {
                 Toast.makeText(this, "View Anika R.'s application", Toast.LENGTH_SHORT).show());
 
         // ── Bottom Navigation ─────────────────────────────────────────────────
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavView);
-        if (bottomNav != null) {
-            bottomNav.setOnItemSelectedListener(item -> {
-                int id = item.getItemId();
-                if (id == R.id.nav_home) {
-                    startActivity(new Intent(this, MainActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
-                    return true;
-                } else if (id == R.id.nav_map) {
-                    startActivity(new Intent(this, DiscoveryMapActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
-                    return true;
-                } else if (id == R.id.nav_messages) {
-                    startActivity(new Intent(this, MessagesActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
-                    return true;
-                } else if (id == R.id.nav_profile) {
-                    startActivity(new Intent(this, UserProfileActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
-                    return true;
-                }
-                return true;
-            });
-        }
+        View navHome = findViewById(R.id.navHome);
+        if (navHome != null) navHome.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        });
+
+        View navMap = findViewById(R.id.navMap);
+        if (navMap != null) navMap.setOnClickListener(v -> {
+            startActivity(new Intent(this, DiscoveryMapActivity.class));
+            finish();
+        });
+
+        View navMessages = findViewById(R.id.navMessages);
+        if (navMessages != null) navMessages.setOnClickListener(v -> {
+            startActivity(new Intent(this, MessagesActivity.class));
+            finish();
+        });
+
+        View navProfile = findViewById(R.id.navProfile);
+        if (navProfile != null) navProfile.setOnClickListener(v -> {
+            startActivity(new Intent(this, UserProfileActivity.class));
+            finish();
+        });
 
         // ── FAB ───────────────────────────────────────────────────────────────
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
+        MaterialButton fabAdd = findViewById(R.id.fabAdd);
         if (fabAdd != null)
             fabAdd.setOnClickListener(v -> {
                 startActivity(new Intent(this, CreatePostActivity.class));

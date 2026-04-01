@@ -31,7 +31,7 @@
     <color name="brand_success_bg">#A7F3D0</color>
     <color name="brand_error">#EF4444</color>
     <color name="community_red">#EF4444</color>
-    <color name="brand_error_solid">#F43F5E</color>
+    <color name="brand_error_solid">#EF4444</color>
     <color name="brand_error_vibrant">#E11D48</color>
     <color name="brand_error_dark">#DC2626</color>
     <color name="brand_error_text">#BE123C</color>
