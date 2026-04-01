@@ -38,18 +38,14 @@ public class OtpEnterActivity extends AppCompatActivity {
                 return;
             }
 
+            boolean isSignup = getIntent().getBooleanExtra("IS_SIGNUP", false);
+            
             Intent loadingIntent = new Intent(this, LoadingActivity.class);
             loadingIntent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, OtpVerifyActivity.class.getName());
             loadingIntent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGE, "Sending OTP...");
             loadingIntent.putExtra(LoadingActivity.EXTRA_DURATION_MS, 1200L);
-            
-            // Pass the phone number through the chain
-            Intent finalIntent = new Intent(this, OtpVerifyActivity.class);
-            finalIntent.putExtra("PHONE_NUMBER", phone);
-            
-            // Note: Since LoadingActivity only supports transition to a class without passing complex intents by default, 
-            // the phone number passed here might be lost in the current generic LoadingActivity. 
-            // I should update LoadingActivity to pass extras forward.
+            loadingIntent.putExtra("IS_SIGNUP", isSignup);
+            loadingIntent.putExtra("PHONE_NUMBER", phone);
             
             startActivity(loadingIntent);
             finish();

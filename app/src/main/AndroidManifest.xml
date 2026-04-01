@@ -40,6 +40,14 @@
         </activity>
 
         <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ProfileInfoActivity"
             android:exported="false" />
 

@@ -53,10 +53,19 @@ public class OtpVerifyActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> onBackPressed());
 
         btnVerify.setOnClickListener(v -> {
-            // Check if OTP is fully entered in a real app
-            // Redirect to Profile Setup (Step 1)
-            Intent intent = new Intent(this, ProfileInfoActivity.class);
+            boolean isSignup = getIntent().getBooleanExtra("IS_SIGNUP", false);
+            Intent intent;
+            if (isSignup) {
+                // Redirect to Profile Setup (Step 1)
+                intent = new Intent(this, ProfileInfoActivity.class);
+            } else {
+                // Redirect to Dashboard (Login flow)
+                intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
             startActivity(intent);
+            if (!isSignup) finishAffinity();
+            else finish();
         });
 
         btnResend.setOnClickListener(v -> {
