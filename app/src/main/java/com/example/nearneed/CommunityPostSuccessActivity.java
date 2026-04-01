@@ -19,7 +19,11 @@ public class CommunityPostSuccessActivity extends AppCompatActivity {
         findViewById(R.id.btnClose).setOnClickListener(v -> navigateToMain());
         
         findViewById(R.id.btnViewMyPost).setOnClickListener(v -> {
-            // Potential future: start MyCommunityPostDetailActivity
+            Intent detailIntent = new Intent(this, MyCommunityPostDetailActivity.class);
+            if (getIntent().getExtras() != null) {
+                detailIntent.putExtras(getIntent().getExtras());
+            }
+            startActivity(detailIntent);
             finish();
         });
     }
