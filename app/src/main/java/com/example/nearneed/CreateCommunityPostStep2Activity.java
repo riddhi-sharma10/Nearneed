@@ -225,7 +225,19 @@ public class CreateCommunityPostStep2Activity extends AppCompatActivity {
     }
 
     private void navigateToSuccess() {
-        startActivity(new Intent(this, CommunityPostSuccessActivity.class));
+        // Save post data for dashboard display
+        android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPosts", MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("LATEST_POST_TITLE", getIntent().getStringExtra("POST_TITLE"));
+        editor.putString("LATEST_POST_DESC", getIntent().getStringExtra("POST_DESC"));
+        editor.putString("LATEST_POST_CATEGORY", getIntent().getStringExtra("POST_CATEGORY"));
+        editor.apply();
+
+        Intent intent = new Intent(this, CommunityPostSuccessActivity.class);
+        if (getIntent().getExtras() != null) {
+            intent.putExtras(getIntent().getExtras());
+        }
+        startActivity(intent);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out);
         finish();
     }
