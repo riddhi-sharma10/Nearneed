@@ -2,6 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface_background">
@@ -21,33 +23,18 @@
 
             <!-- Top Header -->
             <RelativeLayout
+                android:id="@+id/headerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp">
                 
                 <ImageView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/bg_image_placeholder"
-                    android:background="@drawable/bg_circle_light_blue"
-                    android:padding="2dp"
-                    android:scaleType="centerCrop"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:elevation="8dp"
-                    android:outlineAmbientShadowColor="@color/text_muted" />
-
-                <ImageView
                     android:id="@+id/ivLogo"
                     android:importantForAccessibility="no"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_toEndOf="@id/ivProfile"
-                    android:layout_marginStart="12dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_logo" />
 
@@ -62,22 +49,24 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Current Location"
-                        android:textColor="@color/text_muted"
+                        android:text="@string/txt_current_location"
+                        android:textColor="@color/text_subheadline"
                         android:textSize="11sp"
                         android:fontFamily="sans-serif-medium"
                         android:letterSpacing="0.05" />
                         
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:minHeight="48dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
                         android:layout_marginTop="2dp"
                         android:background="?attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:padding="4dp">
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp">
                         
                         <ImageView
                             android:layout_width="14dp"
@@ -90,7 +79,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
-                            android:text="Downtown, NY"
+                            android:text="@string/txt_downtown_ny"
                             android:textColor="@color/text_header"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -107,11 +96,16 @@
                 <ImageView
                     android:id="@+id/ivNotifications"
                     android:importantForAccessibility="no"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_bell_dot" />
+                    android:src="@drawable/ic_bell_dot"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="center"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true" />
             </RelativeLayout>
 
             <!-- Filter Chips -->
@@ -185,7 +179,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nearby"
+                        android:text="@string/txt_nearby"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke"
@@ -197,7 +191,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Posts"
+                        android:text="@string/txt_my_posts"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke"
@@ -247,14 +241,15 @@
                             android:layout_alignParentStart="true"
                             android:layout_toStartOf="@+id/card_img_0"
                             android:layout_marginEnd="12dp"
-                            android:text="● YOUR POST"
-                            android:textColor="@color/brand_error_solid"
+                            android:text="@string/txt_your_post"
+                            android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.05"
                             app:drawableStartCompat="@drawable/bg_dot_red"
                             android:drawablePadding="6dp"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"
+                            android:importantForAccessibility="no" />
 
                         <TextView
                             android:id="@+id/c0_title"
@@ -265,7 +260,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c0_tag"
                             android:layout_marginTop="4dp"
-                            android:text="Backyard Clean-up"
+                            android:text="@string/txt_backyard_cleanup"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -280,7 +275,7 @@
                             android:layout_below="@id/c0_title"
                             android:layout_marginTop="2dp"
                             android:text="@string/txt_community_project"
-                            android:textColor="@color/brand_error_solid"
+                            android:textColor="@color/brand_error_text"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
@@ -293,7 +288,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c0_sub"
                             android:layout_marginTop="4dp"
-                            android:text="Need a few neighbors to help clear dry leaves and branches before the rains."
+                            android:text="@string/txt_c0_desc"
                             android:textColor="@color/text_subheadline"
                             android:textSize="12sp"
                             android:maxLines="2"
@@ -326,7 +321,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="2/4 Volunteers"
+                                    android:text="@string/txt_2_of_4_volunteers"
                                     android:textColor="@color/text_subheadline"
                                     android:textSize="11sp"
                                     android:textStyle="bold" />
@@ -342,46 +337,40 @@
                             </RelativeLayout>
                         </LinearLayout>
 
-                        <LinearLayout
+                        <TextView
                             android:id="@+id/c0_meta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_0"
                             android:layout_below="@id/c0_progress"
                             android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="11dp"
-                                android:layout_height="11dp"
-                                android:src="@drawable/ic_loc_pin_small"
-                                app:tint="@color/text_muted"
-                                android:importantForAccessibility="no" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="3dp"
-                                android:text="Just now"
-                                android:textColor="@color/text_muted"
-                                android:textSize="11sp" />
-                        </LinearLayout>
+                            android:layout_marginEnd="12dp"
+                            android:text="@string/txt_just_now"
+                            android:textColor="@color/text_subheadline"
+                            android:textSize="11sp"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="4dp"
+                            app:drawableStartCompat="@drawable/ic_loc_pin_small"
+                            app:tint="@color/text_subheadline" />
 
                         <TextView
                             android:id="@+id/btnViewC0"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
+                            android:layout_height="48dp"
+                            android:minHeight="48dp"
                             android:layout_below="@id/c0_meta"
                             android:layout_marginTop="12dp"
-                            android:text="View Post"
-                            android:textColor="@color/brand_error_solid"
+                            android:text="@string/txt_view_post"
+                            android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:background="@drawable/bg_btn_light_red"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <ImageView
                             android:id="@+id/card_img_0"
@@ -475,46 +464,40 @@
                             android:maxLines="2"
                             android:ellipsize="end" />
 
-                        <LinearLayout
+                        <TextView
                             android:id="@+id/c1_meta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@+id/card_img_1"
                             android:layout_below="@id/c1_desc"
                             android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="11dp"
-                                android:layout_height="11dp"
-                                android:src="@drawable/ic_loc_pin_small"
-                                app:tint="@color/text_muted"
-                                android:importantForAccessibility="no" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="3dp"
-                                android:text="0.3 km  ·  2 min ago"
-                                android:textColor="@color/text_muted"
-                                android:textSize="11sp" />
-                        </LinearLayout>
+                            android:layout_marginEnd="12dp"
+                            android:text="0.3 km  ·  2 min ago"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp"
+                            android:gravity="center_vertical"
+                            android:drawablePadding="4dp"
+                            app:drawableStartCompat="@drawable/ic_loc_pin_small"
+                            app:tint="@color/text_muted" />
 
                         <TextView
                             android:id="@+id/btnApplyGig1"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
+                            android:layout_height="48dp"
+                            android:minHeight="48dp"
                             android:layout_below="@id/c1_meta"
                             android:layout_marginTop="12dp"
-                            android:text="Apply"
-                            android:textColor="@color/brand_primary"
+                            android:text="@string/signup_button"
+                            android:textColor="@color/brand_primary_dark"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:background="@drawable/bg_btn_light_blue"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <ImageView
                             android:id="@+id/card_img_1"
@@ -681,17 +664,20 @@
                         <TextView
                             android:id="@+id/btnVolC1"
                             android:layout_width="wrap_content"
-                            android:layout_height="32dp"
+                            android:layout_height="48dp"
+                            android:minHeight="48dp"
                             android:layout_below="@id/c2_meta"
                             android:layout_marginTop="12dp"
                             android:text="@string/txt_volunteer"
-                            android:textColor="@color/brand_error_solid"
+                            android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:background="@drawable/bg_btn_light_red"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <ImageView
                             android:id="@+id/card_img_2"
@@ -812,7 +798,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="2/4 Volunteers"
+                                    android:text="@string/txt_2_of_4_volunteers"
                                     android:textColor="@color/text_subheadline"
                                     android:textSize="11sp"
                                     android:textStyle="bold" />
@@ -1019,6 +1005,113 @@
 
     <!-- Universal Navigation System -->
     <include layout="@layout/layout_universal_navbar" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    
+    <!-- Floating Notifications Popup with rounded edges -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/notificationPopup"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="16dp"
+        android:visibility="gone"
+        app:strokeWidth="0dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingBottom="16dp"
+                android:paddingHorizontal="24dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    android:textColor="@color/text_header"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-black" />
+                    
+                <ImageView
+                    android:id="@+id/btnClosePopup"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/text_muted"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+            </RelativeLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/border_standard" android:layout_marginHorizontal="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="12dp">
+
+                <!-- UNREAD STATE: Tinted background -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F0F9FF"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="top">
+                    <View android:layout_width="6dp" android:layout_height="6dp" android:background="@drawable/bg_dot_red" android:layout_marginTop="5dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Emergency Task" android:textColor="@color/text_header" android:textStyle="bold" android:textSize="14sp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Immediate grocery help needed at Sector 14" android:textColor="@color/brand_error_solid" android:textSize="13sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- READ STATE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="top">
+                    <View android:layout_width="6dp" android:layout_height="6dp" android:visibility="invisible" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Welcome to NearNeed" android:textColor="@color/text_muted" android:textStyle="bold" android:textSize="14sp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Feel free to check out community projects" android:textColor="@color/text_muted" android:textSize="13sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View all"
+                android:textColor="@color/brand_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingVertical="12dp"
+                android:background="#F8FAFC"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

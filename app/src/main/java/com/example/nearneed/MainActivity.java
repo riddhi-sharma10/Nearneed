@@ -7,9 +7,7 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.chip.ChipGroup;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,12 +24,21 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout cardGig2 = findViewById(R.id.cardGig2);
         ChipGroup cgFilters = findViewById(R.id.cgFilters);
         FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
-        View ivProfile = findViewById(R.id.ivProfile);
-
-        ivProfile.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        View notificationPopup = findViewById(R.id.notificationPopup);
+        android.widget.ImageView ivNotifications = findViewById(R.id.ivNotifications);
+        ivNotifications.setOnClickListener(v -> {
+            ivNotifications.setImageResource(R.drawable.ic_bell);
+            if (notificationPopup.getVisibility() == View.VISIBLE) {
+                notificationPopup.setVisibility(View.GONE);
+            } else {
+                notificationPopup.setVisibility(View.VISIBLE);
+            }
         });
+
+        View btnClosePopup = findViewById(R.id.btnClosePopup);
+        if (btnClosePopup != null) {
+            btnClosePopup.setOnClickListener(v -> notificationPopup.setVisibility(View.GONE));
+        }
 
         View btnVolC1 = findViewById(R.id.btnVolC1);
         if (btnVolC1 != null) {
@@ -84,35 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // ── Bottom Navigation ────────────────────────────────────────────────
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavView);
-        if (bottomNav != null) {
-            bottomNav.setSelectedItemId(R.id.nav_home);
-            bottomNav.setOnItemSelectedListener(item -> {
-                int itemId = item.getItemId();
-                if (itemId == R.id.nav_home) {
-                    return true; // already here
-                } else if (itemId == R.id.nav_map) {
-                    startActivity(new Intent(MainActivity.this, DiscoveryMapActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    return true;
-                } else if (itemId == R.id.nav_messages) {
-                    startActivity(new Intent(MainActivity.this, MessagesActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    finish();
-                    return true;
-                } else if (itemId == R.id.nav_profile) {
-                    startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    return true;
-                }
-                return true;
-            });
-        }
-
-        fabAdd.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        });
+        NavbarHelper.setup(this, NavbarHelper.TAB_HOME);
 
         cgFilters.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (checkedIds.isEmpty()) return;

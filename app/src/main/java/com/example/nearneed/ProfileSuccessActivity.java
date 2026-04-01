@@ -17,10 +17,8 @@ public class ProfileSuccessActivity extends AppCompatActivity {
         MaterialButton btnDone = findViewById(R.id.btnDone);
 
         btnDone.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LoadingActivity.class);
-            intent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, MainActivity.class.getName());
-            intent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGE, "Setting up your home...");
-            intent.putExtra(LoadingActivity.EXTRA_DURATION_MS, 2000L);
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finishAffinity();
         });

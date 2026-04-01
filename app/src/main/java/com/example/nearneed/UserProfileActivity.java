@@ -7,8 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class UserProfileActivity extends AppCompatActivity {
 
     @Override
@@ -16,31 +14,7 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavView);
-        if (bottomNav != null) {
-            bottomNav.getMenu().findItem(R.id.nav_profile).setChecked(true);
-            bottomNav.post(() -> {
-                bottomNav.setSelectedItemId(R.id.nav_profile);
-            });
-        }
-
-        bottomNav.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.nav_home) {
-                startActivity(new Intent(UserProfileActivity.this, MainActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                finish();
-                return true;
-            } else if (itemId == R.id.nav_messages) {
-                startActivity(new Intent(UserProfileActivity.this, MessagesActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                finish();
-                return true;
-            } else if (itemId == R.id.nav_profile) {
-                return true;
-            }
-            return false;
-        });
+        NavbarHelper.setup(this, NavbarHelper.TAB_PROFILE);
 
         findViewById(R.id.btnEditProfile).setOnClickListener(v -> 
             startActivity(new Intent(UserProfileActivity.this, EditProfileActivity.class))

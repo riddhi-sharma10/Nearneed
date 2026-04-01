@@ -40,14 +40,11 @@ public class OtpEnterActivity extends AppCompatActivity {
 
             boolean isSignup = getIntent().getBooleanExtra("IS_SIGNUP", false);
             
-            Intent loadingIntent = new Intent(this, LoadingActivity.class);
-            loadingIntent.putExtra(LoadingActivity.EXTRA_TARGET_CLASS, OtpVerifyActivity.class.getName());
-            loadingIntent.putExtra(LoadingActivity.EXTRA_STATUS_MESSAGE, "Sending OTP...");
-            loadingIntent.putExtra(LoadingActivity.EXTRA_DURATION_MS, 1200L);
-            loadingIntent.putExtra("IS_SIGNUP", isSignup);
-            loadingIntent.putExtra("PHONE_NUMBER", phone);
+            Intent intent = new Intent(this, OtpVerifyActivity.class);
+            intent.putExtra("IS_SIGNUP", isSignup);
+            intent.putExtra("PHONE_NUMBER", phone);
             
-            startActivity(loadingIntent);
+            startActivity(intent);
             finish();
         });
     }

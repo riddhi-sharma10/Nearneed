@@ -16,6 +16,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
     private ImageButton btnBack;
     private MaterialButton btnContinue;
     private MaterialButton btnUseLocation;
+    private android.widget.EditText etSearchLocation;
 
     // Radius options grouping
     private LinearLayout opt5km, opt7km, opt10km;
@@ -38,6 +39,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnContinue = findViewById(R.id.btnContinue);
         btnUseLocation = findViewById(R.id.btnUseLocation);
+        etSearchLocation = findViewById(R.id.etSearchLocation);
 
         opt5km = findViewById(R.id.opt5km);
         opt7km = findViewById(R.id.opt7km);
@@ -64,7 +66,25 @@ public class ProfileSetupActivity extends AppCompatActivity {
         });
 
         btnUseLocation.setOnClickListener(v -> {
-            Toast.makeText(this, getString(R.string.txt_detecting_gps_location), Toast.LENGTH_SHORT).show();
+            btnUseLocation.setText("Location Confirmed");
+            btnUseLocation.setEnabled(false);
+            btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
+            btnUseLocation.setIcon(null); // Remove icon if any
+            Toast.makeText(this, "Location set to BML Munjal University", Toast.LENGTH_SHORT).show();
+            // Clear search if location confirmed
+            etSearchLocation.setText("");
+        });
+
+        // Search action logic
+        etSearchLocation.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH) {
+                String query = etSearchLocation.getText().toString().trim();
+                if (!query.isEmpty()) {
+                    Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+            return false;
         });
 
         // Mutually exclusive single selection logic (radio button behavior)

@@ -7,8 +7,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DiscoveryMapActivity extends AppCompatActivity {
 
@@ -57,38 +55,12 @@ public class DiscoveryMapActivity extends AppCompatActivity {
     }
 
     private void setupNavigation() {
-        BottomNavigationView nav = findViewById(R.id.bottomNavView);
-        if (nav != null) {
-            nav.setSelectedItemId(R.id.nav_map);
+        NavbarHelper.setup(this, NavbarHelper.TAB_MAP);
 
-            nav.setOnItemSelectedListener(item -> {
-                int itemId = item.getItemId();
-                if (itemId == R.id.nav_home) {
-                    finish(); // Return to Feed
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    return true;
-                } else if (itemId == R.id.nav_profile) {
-                    startActivity(new Intent(this, UserProfileActivity.class));
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                    return true;
-                }
-                return true;
-            });
-        }
-
-        // Floating FAB on map
+        // Floating FAB on map canvas
         View fabAddMap = findViewById(R.id.fabAddFloating);
         if (fabAddMap != null) {
             fabAddMap.setOnClickListener(v -> {
-                startActivity(new Intent(this, CreatePostActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            });
-        }
-
-        // Bottom Bar FAB
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
-        if (fabAdd != null) {
-            fabAdd.setOnClickListener(v -> {
                 startActivity(new Intent(this, CreatePostActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });

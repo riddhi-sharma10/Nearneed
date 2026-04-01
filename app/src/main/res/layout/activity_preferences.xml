@@ -42,7 +42,7 @@
                 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="House Help"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" android:checked="true"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Plumbing"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
@@ -51,7 +51,7 @@
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cleaning"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" android:checked="true"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cooking"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
@@ -74,9 +74,32 @@
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Babysitting"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tech Support"
+                    android:id="@+id/chipOtherNeed"
+                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Other"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
             </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilOtherNeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etOtherNeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="What else do you need?"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40dp" android:text="What tasks can you offer?" android:textColor="@color/text_header" android:textSize="24sp" android:fontFamily="sans-serif-black" android:letterSpacing="-0.02" />
 
@@ -90,7 +113,7 @@
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Plumbing"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" android:checked="true"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Electrical"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
@@ -99,10 +122,10 @@
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cooking"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" android:checked="true"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tech Support"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" android:checked="true"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Car Wash"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
@@ -116,9 +139,32 @@
                     android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tutor"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Delivery"
+                    android:id="@+id/chipOtherOffer"
+                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Other"
                     style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
             </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilOtherOffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etOtherOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="What else can you offer?"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Space
                 android:layout_width="match_parent"

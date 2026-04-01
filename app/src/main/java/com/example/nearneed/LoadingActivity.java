@@ -4,6 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -44,6 +50,10 @@ public class LoadingActivity extends AppCompatActivity {
         }
         
         mTargetClassName = targetClassNameRaw;
+        
+        ImageView ivLogo = findViewById(R.id.ivLoadingLogo);
+        startLogoPopupAnimation(ivLogo);
+        startPulseAnimation();
 
         if (statusMessages == null) {
             if (singleMessage != null) {
@@ -103,6 +113,65 @@ public class LoadingActivity extends AppCompatActivity {
             }, 500);
 
         }).start();
+    }
+
+    private void startPulseAnimation() {
+        View ripple1 = findViewById(R.id.ripple1);
+        View ripple2 = findViewById(R.id.ripple2);
+
+        // First wave pulse
+        setupPulse(ripple1, 0);
+        // Second wave pulse (1s offset)
+        setupPulse(ripple2, 1200);
+    }
+
+    private void setupPulse(View view, long delay) {
+        // Core Animation: Scale outwards while fading
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 0.35f, 1.3f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 0.35f, 1.3f);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0.8f, 0f);
+
+        scaleX.setRepeatCount(ValueAnimator.INFINITE);
+        scaleY.setRepeatCount(ValueAnimator.INFINITE);
+        alpha.setRepeatCount(ValueAnimator.INFINITE);
+
+        AnimatorSet pulseSet = new AnimatorSet();
+        pulseSet.playTogether(scaleX, scaleY, alpha);
+        pulseSet.setDuration(2400); // Pulse duration
+        pulseSet.setStartDelay(delay);
+        pulseSet.start();
+    }
+
+    private void startLogoPopupAnimation(View logo) {
+        if (logo == null) return;
+        
+        // Initial state before popping
+        logo.setScaleX(0f);
+        logo.setScaleY(0f);
+        logo.setAlpha(0f);
+
+        // Core Popup Animation
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(logo, "scaleX", 0f, 1.15f, 1.0f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(logo, "scaleY", 0f, 1.15f, 1.0f);
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(logo, "alpha", 0f, 1.0f);
+
+        AnimatorSet popupSet = new AnimatorSet();
+        popupSet.playTogether(scaleX, scaleY, alpha);
+        popupSet.setDuration(1200);
+        popupSet.setInterpolator(new OvershootInterpolator(1.8f));
+        popupSet.start();
+
+        // Subtle continuous pulse after pop
+        ObjectAnimator pulseX = ObjectAnimator.ofFloat(logo, "scaleX", 1.0f, 1.06f, 1.0f);
+        ObjectAnimator pulseY = ObjectAnimator.ofFloat(logo, "scaleY", 1.0f, 1.06f, 1.0f);
+        pulseX.setRepeatCount(ValueAnimator.INFINITE);
+        pulseY.setRepeatCount(ValueAnimator.INFINITE);
+        
+        AnimatorSet subtlePulseSet = new AnimatorSet();
+        subtlePulseSet.playTogether(pulseX, pulseY);
+        subtlePulseSet.setDuration(3500);
+        subtlePulseSet.setStartDelay(1200);
+        subtlePulseSet.start();
     }
 
     private void updateStatusText(int progress) {

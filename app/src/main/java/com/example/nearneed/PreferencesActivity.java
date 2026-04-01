@@ -46,25 +46,77 @@ public class PreferencesActivity extends AppCompatActivity {
         put("Car Wash", "car");
     }};
 
+    private com.google.android.material.chip.Chip chipOtherNeed, chipOtherOffer;
+    private com.google.android.material.textfield.TextInputLayout tilOtherNeed, tilOtherOffer;
+    private android.widget.EditText etOtherNeed, etOtherOffer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
+        initViews();
+        setupListeners();
+    }
+
+    private void initViews() {
         btnBack = findViewById(R.id.btnBack);
         btnEnter = findViewById(R.id.btnEnter);
         cgNeeds = findViewById(R.id.cgNeeds);
         cgOffers = findViewById(R.id.cgOffers);
 
-        setupListeners();
+        chipOtherNeed = findViewById(R.id.chipOtherNeed);
+        tilOtherNeed = findViewById(R.id.tilOtherNeed);
+        etOtherNeed = findViewById(R.id.etOtherNeed);
+
+        chipOtherOffer = findViewById(R.id.chipOtherOffer);
+        tilOtherOffer = findViewById(R.id.tilOtherOffer);
+        etOtherOffer = findViewById(R.id.etOtherOffer);
     }
 
     private void setupListeners() {
         btnBack.setOnClickListener(v -> onBackPressed());
 
-        btnEnter.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CommunityPreferencesActivity.class);
-            startActivity(intent);
+        // Handle "Other" toggles
+        chipOtherNeed.setOnCheckedChangeListener((bv, isChecked) -> {
+            tilOtherNeed.setVisibility(isChecked ? android.view.View.VISIBLE : android.view.View.GONE);
         });
+
+        chipOtherOffer.setOnCheckedChangeListener((bv, isChecked) -> {
+            tilOtherOffer.setVisibility(isChecked ? android.view.View.VISIBLE : android.view.View.GONE);
+        });
+
+        btnEnter.setOnClickListener(v -> {
+            if (validateSelections()) {
+                Intent intent = new Intent(this, CommunityPreferencesActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private boolean validateSelections() {
+        // Validate Needs
+        if (cgNeeds.getCheckedChipIds().size() == 0) {
+            Toast.makeText(this, "Please select at least one thing you need", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (chipOtherNeed.isChecked() && etOtherNeed.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Please specify your custom need", Toast.LENGTH_SHORT).show();
+            etOtherNeed.requestFocus();
+            return false;
+        }
+
+        // Validate Offers
+        if (cgOffers.getCheckedChipIds().size() == 0) {
+            Toast.makeText(this, "Please select at least one task you can offer", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (chipOtherOffer.isChecked() && etOtherOffer.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Please specify your custom task", Toast.LENGTH_SHORT).show();
+            etOtherOffer.requestFocus();
+            return false;
+        }
+
+        return true;
     }
 }
