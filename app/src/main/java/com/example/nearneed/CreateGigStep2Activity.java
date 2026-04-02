@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,26 @@ public class CreateGigStep2Activity extends AppCompatActivity {
     private android.widget.TextView btnStartRecording, tvVoiceTitle, tvVoiceSub;
     private android.widget.ImageView ivVoiceStatus, btnPlayAudio, btnDeleteAudio;
 
+    private int photoCount = 0;
+    private android.widget.ImageView[] photoSlots;
+    private final ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+            registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(3), uris -> {
+                if (uris != null && !uris.isEmpty()) {
+                    photoCount = 0;
+                    for (int i = 0; i < photoSlots.length; i++) {
+                        if (i < uris.size()) {
+                            photoSlots[i].setVisibility(android.view.View.VISIBLE);
+                            photoSlots[i].setImageURI(uris.get(i));
+                            photoCount++;
+                        } else {
+                            photoSlots[i].setVisibility(android.view.View.GONE);
+                        }
+                    }
+                    // Hide ADD button if max reached
+                    findViewById(R.id.btnAddPhoto).setVisibility(photoCount >= 3 ? android.view.View.GONE : android.view.View.VISIBLE);
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +67,23 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         btnPlayAudio = findViewById(R.id.btnPlayAudio);
         btnDeleteAudio = findViewById(R.id.btnDeleteAudio);
 
-        // When chips — use Material ChipGroup; keep legacy manual selection as fallback
+        photoSlots = new android.widget.ImageView[]{
+                findViewById(R.id.ivPhoto1),
+                findViewById(R.id.ivPhoto2),
+                findViewById(R.id.ivPhoto3)
+        };
+
+        findViewById(R.id.btnAddPhoto).setOnClickListener(v -> {
+            if (photoCount < 3) {
+                pickMedia.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                        .build());
+            } else {
+                Toast.makeText(this, "Maximum 3 photos allowed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // When chips
         chipToday     = findViewById(R.id.chipWhenToday);
         chipThisWeek  = findViewById(R.id.chipWhenThisWeek);
         chipFlexible  = findViewById(R.id.chipWhenFlexible);
@@ -104,7 +143,7 @@ public class CreateGigStep2Activity extends AppCompatActivity {
             isRecording = true;
 
             btnStartRecording.setText("Stop");
-            btnStartRecording.setTextColor(0xFFEF4444);
+            btnStartRecording.setTextColor(getResources().getColor(R.color.brand_error_solid));
             tvVoiceTitle.setText("Recording...");
             tvVoiceSub.setText("Keep talking or tap stop when done.");
             ivVoiceStatus.setImageResource(R.drawable.ic_dot_green); // Show recording dot
@@ -165,7 +204,7 @@ public class CreateGigStep2Activity extends AppCompatActivity {
         // Reset to initial state
         btnStartRecording.setVisibility(android.view.View.VISIBLE);
         btnStartRecording.setText("Start");
-        btnStartRecording.setTextColor(0xFF1D5EF3);
+        btnStartRecording.setTextColor(getResources().getColor(R.color.brand_primary));
         playerControls.setVisibility(android.view.View.GONE);
         tvVoiceTitle.setText("Record details");
         tvVoiceSub.setText("Record a 20-second voice note");

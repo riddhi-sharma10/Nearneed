@@ -108,23 +108,58 @@
                 android:scrollbars="none">
 
                 <LinearLayout
+                    android:id="@+id/photoRow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <!-- Add button -->
+                    <!-- Photo slot 1 -->
+                    <ImageView
+                        android:id="@+id/ivPhoto1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_base"
+                        android:elevation="4dp"
+                        android:visibility="gone" />
+
+                    <!-- Photo slot 2 -->
+                    <ImageView
+                        android:id="@+id/ivPhoto2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_base"
+                        android:elevation="4dp"
+                        android:visibility="gone" />
+
+                    <!-- Photo slot 3 -->
+                    <ImageView
+                        android:id="@+id/ivPhoto3"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_image_placeholder"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_card_base"
+                        android:elevation="4dp"
+                        android:visibility="gone" />
+
+                    <!-- Add button (Dashed placeholder) -->
                     <LinearLayout
                         android:id="@+id/btnAddPhoto"
-                        android:layout_width="80dp"
+                        android:layout_width="83dp"
                         android:layout_height="80dp"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:background="@drawable/bg_district_pill_input_white_stroke"
-                        android:elevation="4dp"
+                        android:background="@drawable/bg_dashed_border"
                         android:clickable="true"
-                        android:focusable="true"
-                        android:layout_marginEnd="12dp">
+                        android:focusable="true">
 
                         <ImageView
                             android:layout_width="24dp"
@@ -141,38 +176,6 @@
                             android:textSize="11sp"
                             android:layout_marginTop="4dp" />
                     </LinearLayout>
-
-                    <!-- Photo slot 1 -->
-                    <ImageView
-                        android:id="@+id/ivPhoto1"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/bg_image_placeholder"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_card_base"
-                        android:elevation="4dp" />
-
-                    <!-- Photo slot 2 -->
-                    <ImageView
-                        android:id="@+id/ivPhoto2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/bg_image_placeholder"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_card_base"
-                        android:elevation="4dp" />
-
-                    <!-- Photo slot 3 -->
-                    <ImageView
-                        android:id="@+id/ivPhoto3"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/bg_image_placeholder"
-                        android:background="@drawable/bg_card_base"
-                        android:elevation="4dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -344,7 +347,7 @@
                         android:textColor="@color/text_header"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_loc_pin_small"
-                        app:drawableTint="@color/brand_error_solid"
+                        app:drawableTint="@color/brand_primary"
                         android:drawablePadding="6dp"
                         android:gravity="center_vertical" />
 
