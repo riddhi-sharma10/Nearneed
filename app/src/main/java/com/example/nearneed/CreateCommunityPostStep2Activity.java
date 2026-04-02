@@ -7,6 +7,7 @@ import android.media.MediaRecorder;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -113,7 +115,7 @@ public class CreateCommunityPostStep2Activity extends AppCompatActivity {
 
         findViewById(R.id.cardLocation).setOnClickListener(v -> openMapPicker());
 
-        findViewById(R.id.btnPostNow).setOnClickListener(v -> navigateToSuccess());
+        findViewById(R.id.btnPostNow).setOnClickListener(v -> showPostingOptionsDialog());
 
         // Chips logic
         TextView chipToday = findViewById(R.id.chipWhenToday);
@@ -134,6 +136,47 @@ public class CreateCommunityPostStep2Activity extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    private void showPostingOptionsDialog() {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_emergency_post, null);
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.CustomDialogTheme)
+                .setView(dialogView)
+                .setCancelable(true)
+                .create();
+
+        dialogView.findViewById(R.id.btnEmergencyPost).setOnClickListener(v -> {
+            savePostAndNavigate(true);
+            dialog.dismiss();
+        });
+
+        dialogView.findViewById(R.id.btnCommunityPost).setOnClickListener(v -> {
+            savePostAndNavigate(false);
+            dialog.dismiss();
+        });
+
+        dialogView.findViewById(R.id.btnCancel).setOnClickListener(v -> dialog.dismiss());
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+        dialog.show();
+    }
+
+    private void savePostAndNavigate(boolean isEmergency) {
+        android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPosts", MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("LATEST_POST_TITLE", getIntent().getStringExtra("POST_TITLE"));
+        editor.putString("LATEST_POST_DESC", getIntent().getStringExtra("POST_DESC"));
+        editor.putString("LATEST_POST_CATEGORY", getIntent().getStringExtra("POST_CATEGORY"));
+        editor.putBoolean("LATEST_POST_IS_EMERGENCY", isEmergency);
+        editor.apply();
+
+        Intent intent = new Intent(this, CommunityPostSuccessActivity.class);
+        intent.putExtra("IS_EMERGENCY", isEmergency); // Pass to success screen as well
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
     }
 
     private void startRecording() {
@@ -222,24 +265,6 @@ public class CreateCommunityPostStep2Activity extends AppCompatActivity {
         } else {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google.com")));
         }
-    }
-
-    private void navigateToSuccess() {
-        // Save post data for dashboard display
-        android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPosts", MODE_PRIVATE);
-        android.content.SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("LATEST_POST_TITLE", getIntent().getStringExtra("POST_TITLE"));
-        editor.putString("LATEST_POST_DESC", getIntent().getStringExtra("POST_DESC"));
-        editor.putString("LATEST_POST_CATEGORY", getIntent().getStringExtra("POST_CATEGORY"));
-        editor.apply();
-
-        Intent intent = new Intent(this, CommunityPostSuccessActivity.class);
-        if (getIntent().getExtras() != null) {
-            intent.putExtras(getIntent().getExtras());
-        }
-        startActivity(intent);
-        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.fade_out);
-        finish();
     }
 
     @Override
