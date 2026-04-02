@@ -50,7 +50,7 @@
                         style="@style/AppHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_current_location"
+                        android:text="CURRENT LOCATION"
                         android:textColor="@color/text_subheadline"
                         android:textSize="11sp"
                         android:letterSpacing="0.05" />
@@ -80,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
-                            android:text="@string/txt_downtown_ny"
+                            android:text="Downtown, NY"
                             android:textColor="@color/text_header"
                             android:textSize="14sp" />
                             
@@ -130,7 +130,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_all"
+                        android:text="All"
                         android:checkable="true"
                         android:checked="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
@@ -143,7 +143,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_gigs"
+                        android:text="Gigs"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke"
@@ -155,7 +155,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_community"
+                        android:text="Community"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_pink"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke_pink"
@@ -167,7 +167,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_emergency"
+                        android:text="Emergency"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_pink"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke_pink"
@@ -179,7 +179,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_nearby"
+                        android:text="Nearby"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke"
@@ -191,7 +191,7 @@
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_my_posts"
+                        android:text="My Posts"
                         android:checkable="true"
                         app:chipBackgroundColor="@color/sel_dash_chip_bg_color"
                         app:chipStrokeColor="@color/sel_dash_chip_stroke"
@@ -246,6 +246,23 @@
                             android:importantForAccessibility="no" />
 
                         <TextView
+                            android:id="@+id/tvCountdown0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/bg_pill_pink_transparent"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="02:45:12 left"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:drawableStartCompat="@drawable/ic_clock_small"
+                            android:drawablePadding="4dp"
+                            app:tint="@color/brand_error_solid" />
+
+                        <TextView
                             android:id="@+id/c0_title"
                             style="@style/AppHeading"
                             android:layout_width="wrap_content"
@@ -255,7 +272,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c0_tag"
                             android:layout_marginTop="4dp"
-                            android:text="@string/txt_backyard_cleanup"
+                            android:text="Backyard Cleanup"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
                             android:maxLines="1"
@@ -271,7 +288,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c0_title"
                             android:layout_marginTop="2dp"
-                            android:text="@string/txt_community_project"
+                            android:text="Community Project"
                             android:textColor="@color/brand_error_text"
                             android:textSize="14sp" />
 
@@ -284,7 +301,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c0_sub"
                             android:layout_marginTop="4dp"
-                            android:text="@string/txt_c0_desc"
+                            android:text="Neighborhood cleanup project."
                             android:textColor="@color/text_subheadline"
                             android:textSize="12sp"
                             android:maxLines="2"
@@ -318,7 +335,7 @@
                                     style="@style/AppHeading"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/txt_2_of_4_volunteers"
+                                    android:text="2 of 4 volunteers"
                                     android:textColor="@color/text_subheadline"
                                     android:textSize="11sp" />
 
@@ -339,7 +356,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
-                            android:text="@string/txt_view_post"
+                            android:text="View Post"
                             android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:paddingStart="20dp"
@@ -358,7 +375,7 @@
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
-                    </RelativeLayout>fn
+                    </RelativeLayout>
                 </FrameLayout>
 
 
@@ -391,7 +408,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_toStartOf="@+id/card_img_1"
                             android:layout_marginEnd="12dp"
-                            android:text="● YOUR POST"
+                            android:text="YOUR POST"
                             android:textColor="@color/brand_primary"
                             android:textSize="12sp"
                             android:letterSpacing="0.05" />
@@ -406,7 +423,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c1_tag"
                             android:layout_marginTop="4dp"
-                            android:text="@string/txt_plumbing_repair"
+                            android:text="Plumbing Repair"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
                             android:maxLines="1"
@@ -422,7 +439,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c1_title"
                             android:layout_marginTop="2dp"
-                            android:text="@string/txt_price_400"
+                            android:text="₹400"
                             android:textColor="@color/brand_primary"
                             android:textSize="15sp" />
 
@@ -484,7 +501,7 @@
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
 
-                    </RelativeLayout>fnut>
+                    </RelativeLayout>
                 </FrameLayout>
                 
                 <!-- CARD 2: Garden Clean-up (Urgent) -->
@@ -515,13 +532,30 @@
                             android:layout_alignParentStart="true"
                             android:layout_toStartOf="@+id/card_img_2"
                             android:layout_marginEnd="12dp"
-                            android:text="@string/txt_urgent"
+                            android:text="URGENT"
                             android:textColor="@color/brand_error_solid"
                             android:textSize="12sp"
                             android:letterSpacing="0.05"
                             app:drawableStartCompat="@drawable/bg_dot_red"
                             android:drawablePadding="6dp"
                             android:gravity="center_vertical" />
+
+                        <TextView
+                            android:id="@+id/tvCountdown1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/bg_pill_pink_transparent"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="05:12:30 left"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:drawableStartCompat="@drawable/ic_clock_small"
+                            android:drawablePadding="4dp"
+                            app:tint="@color/brand_error_solid" />
 
                         <TextView
                             android:id="@+id/c2_title"
@@ -533,7 +567,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c2_tag"
                             android:layout_marginTop="4dp"
-                            android:text="@string/txt_garden_cleanup"
+                            android:text="Garden Clean-up"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
                             android:maxLines="1"
@@ -549,7 +583,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c2_title"
                             android:layout_marginTop="2dp"
-                            android:text="@string/txt_community_project"
+                            android:text="Community Project"
                             android:textColor="@color/brand_error_solid"
                             android:textSize="14sp" />
 
@@ -596,7 +630,7 @@
                                     style="@style/AppHeading"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/txt_7_10_volunteers"
+                                    android:text="7 of 10 volunteers"
                                     android:textColor="@color/text_subheadline"
                                     android:textSize="11sp" />
 
@@ -605,7 +639,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="@string/txt_70_percent"
+                                    android:text="70%"
                                     android:textColor="@color/brand_error_solid"
                                     android:textSize="11sp" />
                             </RelativeLayout>
@@ -617,7 +651,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
-                            android:text="@string/txt_volunteer"
+                            android:text="Volunteer"
                             android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:paddingStart="24dp"
@@ -636,7 +670,7 @@
                             android:background="@drawable/bg_image_placeholder"
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
-                    </RelativeLayout>fnout>
+                    </RelativeLayout>
                 </FrameLayout>
 
                 <!-- CARD 2.5: Emergency Food Delivery (Urgent) -->
@@ -667,13 +701,30 @@
                             android:layout_alignParentStart="true"
                             android:layout_toStartOf="@+id/card_img_4"
                             android:layout_marginEnd="12dp"
-                            android:text="@string/txt_urgent"
+                            android:text="URGENT"
                             android:textColor="@color/brand_error_solid"
                             android:textSize="12sp"
                             android:letterSpacing="0.05"
                             app:drawableStartCompat="@drawable/bg_dot_red"
                             android:drawablePadding="6dp"
                             android:gravity="center_vertical" />
+
+                        <TextView
+                            android:id="@+id/tvCountdown2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/bg_pill_pink_transparent"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="01:20:00 left"
+                            android:textColor="@color/brand_error_solid"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:drawableStartCompat="@drawable/ic_clock_small"
+                            android:drawablePadding="4dp"
+                            app:tint="@color/brand_error_solid" />
 
                         <TextView
                             android:id="@+id/c4_title"
@@ -749,7 +800,7 @@
                                     style="@style/AppHeading"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/txt_2_of_4_volunteers"
+                                    android:text="2 of 4 volunteers"
                                     android:textColor="@color/text_subheadline"
                                     android:textSize="11sp" />
 
@@ -770,7 +821,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
-                            android:text="@string/txt_volunteer"
+                            android:text="Volunteer"
                             android:textColor="@color/brand_error_text"
                             android:textSize="12sp"
                             android:paddingStart="24dp"
@@ -791,7 +842,7 @@
                             android:importantForAccessibility="no"
                             android:clipToOutline="true"
                             android:background="@drawable/bg_image_placeholder" />
-                    </RelativeLayout>fnout>
+                    </RelativeLayout>
                 </FrameLayout>
                 
                 <!-- CARD 3: Groceries Delivery -->
@@ -822,7 +873,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_toStartOf="@+id/card_img_3"
                             android:layout_marginEnd="12dp"
-                            android:text="@string/txt_verified"
+                            android:text="Verified"
                             android:textColor="@color/brand_primary"
                             android:textSize="12sp"
                             android:letterSpacing="0.05"
@@ -839,7 +890,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c3_tag"
                             android:layout_marginTop="4dp"
-                            android:text="@string/txt_groceries_delivery"
+                            android:text="Groceries Delivery"
                             android:textColor="@color/text_header"
                             android:textSize="18sp"
                             android:maxLines="1"
@@ -855,7 +906,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_below="@id/c3_title"
                             android:layout_marginTop="2dp"
-                            android:text="@string/txt_price_100"
+                            android:text="₹100"
                             android:textColor="@color/brand_primary"
                             android:textSize="15sp" />
 
@@ -901,7 +952,7 @@
                             android:scaleType="centerCrop"
                             android:importantForAccessibility="no" />
 
-                    </RelativeLayout>fnyout>
+                    </RelativeLayout>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
