@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -23,12 +24,14 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/tvEmergencyDialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/txt_emergency_post_title"
         android:textColor="@color/text_header"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textAlignment="center"
         style="@style/AppHeading" />
 
     <TextView
@@ -37,10 +40,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/txt_emergency_post_desc"
         android:textColor="@color/text_subheadline"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textAlignment="center"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" />
+        android:paddingHorizontal="16dp" />
 
     <View
         android:layout_width="match_parent"
@@ -49,11 +51,29 @@
         android:background="@color/divider_soft" />
 
     <TextView
-        android:id="@+id/btnYesPostNow"
+        android:id="@+id/btnEmergencyPost"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="@string/txt_btn_post_now"
+        android:text="@string/txt_btn_emergency_post"
         android:textColor="@color/brand_error_solid"
+        android:textSize="16sp"
+        style="@style/AppHeading"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_soft" />
+
+    <TextView
+        android:id="@+id/btnCommunityPost"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/txt_btn_community_post"
+        android:textColor="@color/brand_warning_solid"
         android:textSize="16sp"
         style="@style/AppHeading"
         android:gravity="center"
@@ -71,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:text="@string/txt_btn_cancel"
-        android:textColor="@color/text_subheadline"
+        android:textColor="@color/text_header"
         android:textSize="16sp"
         style="@style/AppHeading"
         android:gravity="center"
@@ -80,12 +100,3 @@
         android:background="?attr/selectableItemBackground" />
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-

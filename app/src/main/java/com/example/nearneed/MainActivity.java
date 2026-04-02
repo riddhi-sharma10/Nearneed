@@ -2,8 +2,11 @@ package com.example.nearneed;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +14,6 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,15 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout cardCommunity2 = findViewById(R.id.cardCommunity2);
         FrameLayout cardGig2 = findViewById(R.id.cardGig2);
         ChipGroup cgFilters = findViewById(R.id.cgFilters);
-        MaterialButton fabAdd = findViewById(R.id.fabAdd);
+        
+        // --- Static Community Post Countdowns ---
+        setupCountdown(findViewById(R.id.tvCountdown1), 18000000); // 5 hours
+        setupCountdown(findViewById(R.id.tvCountdown2), 3600000);  // 1 hour
+
+        // --- User's Post Logic ---
+        updateMyPostDisplayAndCountdown();
+
+        // --- Rest of Dashboard Logic ---
         View notificationPopup = findViewById(R.id.notificationPopup);
         android.widget.ImageView ivNotifications = findViewById(R.id.ivNotifications);
         ivNotifications.setOnClickListener(v -> {
@@ -38,28 +48,55 @@ public class MainActivity extends AppCompatActivity {
 
         setupNotificationInteractions(notificationPopup);
 
+        setupPostClickListeners();
+
+        // ── Bottom Navigation ────────────────────────────────────────────────
+        NavbarHelper.setup(this, NavbarHelper.TAB_HOME);
+
+        cgFilters.setOnCheckedStateChangeListener((group, checkedIds) -> {
+            if (checkedIds.isEmpty()) return;
+            int idx = group.indexOfChild(findViewById(checkedIds.get(0)));
+            updateFilterDisplay(idx, cardMyPost, cardGig1, cardGig2, cardCommunity1, cardCommunity2);
+        });
+        
+        updateFilterDisplay(0, cardMyPost, cardGig1, cardGig2, cardCommunity1, cardCommunity2);
+    }
+
+    private void setupCountdown(TextView tv, long millis) {
+        if (tv == null || millis <= 0) {
+            if (tv != null) tv.setVisibility(View.GONE);
+            return;
+        }
+        tv.setVisibility(View.VISIBLE);
+        new CountDownTimer(millis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int hours = (int) (millisUntilFinished / (1000 * 60 * 60));
+                int minutes = (int) (millisUntilFinished / (1000 * 60)) % 60;
+                int seconds = (int) (millisUntilFinished / 1000) % 60;
+                tv.setText(String.format(Locale.getDefault(), "%02d:%02d:%02d left", hours, minutes, seconds));
+            }
+            @Override
+            public void onFinish() {
+                tv.setText("Post Expired");
+            }
+        }.start();
+    }
+
+    private void setupPostClickListeners() {
         View btnVolC1 = findViewById(R.id.btnVolC1);
         if (btnVolC1 != null) {
-            btnVolC1.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, CommunityVolunteerActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            });
+            btnVolC1.setOnClickListener(v -> startActivityFade(CommunityVolunteerActivity.class));
         }
 
         View btnVolC2 = findViewById(R.id.btnVolC2);
         if (btnVolC2 != null) {
-            btnVolC2.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, CommunityVolunteerActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            });
+            btnVolC2.setOnClickListener(v -> startActivityFade(CommunityVolunteerActivity.class));
         }
 
         View btnViewC0 = findViewById(R.id.btnViewC0);
         if (btnViewC0 != null) {
-            btnViewC0.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, MyCommunityPostDetailActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            });
+            btnViewC0.setOnClickListener(v -> startActivityFade(MyCommunityPostDetailActivity.class));
         }
 
         View btnApplyGig1 = findViewById(R.id.btnApplyGig1);
@@ -74,147 +111,72 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             });
         }
+    }
 
-        View btnApplyGig2 = findViewById(R.id.btnApplyGig2);
-        if (btnApplyGig2 != null) {
-            btnApplyGig2.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, GigDetailActivity.class);
-                intent.putExtra(GigDetailActivity.EXTRA_TITLE, getString(R.string.txt_groceries_delivery));
-                intent.putExtra(GigDetailActivity.EXTRA_PRICE, getString(R.string.txt_price_100));
-                intent.putExtra(GigDetailActivity.EXTRA_DESC, "Need someone to pick up groceries from D-Mart, Sector 14.");
-                intent.putExtra(GigDetailActivity.EXTRA_DISTANCE, "0.7 km  ·  8 min ago");
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            });
+    private void startActivityFade(Class<?> activityClass) {
+        startActivity(new Intent(this, activityClass));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    private void updateFilterDisplay(int idx, View my, View g1, View g2, View c1, View c2) {
+        if (idx == 0) { // All
+            my.setVisibility(View.VISIBLE); g1.setVisibility(View.VISIBLE); g2.setVisibility(View.VISIBLE);
+            c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE);
+        } else if (idx == 1) { // Gigs
+            my.setVisibility(View.GONE); g1.setVisibility(View.VISIBLE); g2.setVisibility(View.VISIBLE);
+            c1.setVisibility(View.GONE); c2.setVisibility(View.GONE);
+        } else if (idx == 2) { // Community
+            my.setVisibility(View.VISIBLE); g1.setVisibility(View.GONE); g2.setVisibility(View.GONE);
+            c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE);
+        } else if (idx == 3) { // Emergency
+            my.setVisibility(View.GONE); g1.setVisibility(View.GONE); g2.setVisibility(View.GONE);
+            c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE);
         }
-
-        // ── Bottom Navigation ────────────────────────────────────────────────
-        NavbarHelper.setup(this, NavbarHelper.TAB_HOME);
-
-        cgFilters.setOnCheckedStateChangeListener((group, checkedIds) -> {
-            if (checkedIds.isEmpty()) return;
-            
-            int id = checkedIds.get(0);
-            
-            // Note: Since IDs are not strictly mapped in ChipGroup, we inspect the chip child index
-            int idx = group.indexOfChild(findViewById(id));
-            
-            if (idx == 0) {
-                // All
-                cardMyPost.setVisibility(View.VISIBLE);
-                cardGig1.setVisibility(View.VISIBLE);
-                cardGig2.setVisibility(View.VISIBLE);
-                cardCommunity1.setVisibility(View.VISIBLE);
-                cardCommunity2.setVisibility(View.VISIBLE);
-            } else if (idx == 1) {
-                // Gigs
-                cardMyPost.setVisibility(View.GONE);
-                cardGig1.setVisibility(View.VISIBLE);
-                cardGig2.setVisibility(View.VISIBLE);
-                cardCommunity1.setVisibility(View.GONE);
-                cardCommunity2.setVisibility(View.GONE);
-            } else if (idx == 2) {
-                // Community
-                cardMyPost.setVisibility(View.VISIBLE);
-                cardGig1.setVisibility(View.GONE);
-                cardGig2.setVisibility(View.GONE);
-                cardCommunity1.setVisibility(View.VISIBLE);
-                cardCommunity2.setVisibility(View.VISIBLE);
-            } else if (idx == 3) {
-                // Emergency (Urgent posts)
-                cardMyPost.setVisibility(View.GONE);
-                cardGig1.setVisibility(View.GONE);
-                cardGig2.setVisibility(View.GONE);
-                cardCommunity1.setVisibility(View.VISIBLE);
-                cardCommunity2.setVisibility(View.VISIBLE);
-            }
-        });
-        
-        // Initial filter state: show All
-        cardMyPost.setVisibility(View.VISIBLE);
-        cardGig1.setVisibility(View.VISIBLE);
-        cardGig2.setVisibility(View.VISIBLE);
-        cardCommunity1.setVisibility(View.VISIBLE);
-        cardCommunity2.setVisibility(View.VISIBLE);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateMyPostDisplay();
+        updateMyPostDisplayAndCountdown();
     }
 
-    private void updateMyPostDisplay() {
+    private void updateMyPostDisplayAndCountdown() {
         android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPosts", MODE_PRIVATE);
         String title = prefs.getString("LATEST_POST_TITLE", null);
-        String desc = prefs.getString("LATEST_POST_DESC", null);
-        String category = prefs.getString("LATEST_POST_CATEGORY", null);
+        boolean isEmergency = prefs.getBoolean("LATEST_POST_IS_EMERGENCY", false);
+        
+        TextView tvTitle = findViewById(R.id.c0_title);
+        TextView tvDesc = findViewById(R.id.c0_desc);
+        TextView tvCountdown = findViewById(R.id.tvCountdown0);
 
         if (title != null) {
             findViewById(R.id.cardMyPost).setVisibility(View.VISIBLE);
-            ((android.widget.TextView)findViewById(R.id.c0_title)).setText(title);
-            ((android.widget.TextView)findViewById(R.id.c0_sub)).setText(category != null ? category : "Community Project");
-            ((android.widget.TextView)findViewById(R.id.c0_desc)).setText(desc);
-            ((android.widget.TextView)findViewById(R.id.c0_tag)).setText("● YOUR POST");
-        } else {
-            // Default "Backyard Cleanup" as in XML if no real post created
-            findViewById(R.id.cardMyPost).setVisibility(View.VISIBLE); // Keep visible for demo if you want, or GONE
+            if (tvTitle != null) tvTitle.setText(title);
+            if (tvDesc != null) tvDesc.setText(prefs.getString("LATEST_POST_DESC", ""));
+            
+            // Re-trigger countdown ONLY if it's an emergency post
+            if (isEmergency) {
+                setupCountdown(tvCountdown, 10800000); // 3 hours
+                ((TextView)findViewById(R.id.c0_tag)).setText("● URGENT EMERGENCY");
+                ((TextView)findViewById(R.id.c0_sub)).setText("Emergency Food Support");
+            } else {
+                if (tvCountdown != null) tvCountdown.setVisibility(View.GONE);
+                ((TextView)findViewById(R.id.c0_tag)).setText("● YOUR POST");
+                ((TextView)findViewById(R.id.c0_sub)).setText(prefs.getString("LATEST_POST_CATEGORY", "Community Project"));
+            }
         }
     }
 
     private void setupNotificationInteractions(View popup) {
         View btnClose = findViewById(R.id.btnClosePopup);
         if (btnClose != null) btnClose.setOnClickListener(v -> popup.setVisibility(View.GONE));
-
         View btnClearAll = findViewById(R.id.btnClearAllNotifications);
         View scroll = findViewById(R.id.scrollNotifications);
         View emptyView = findViewById(R.id.empty_notif_view);
-        android.widget.LinearLayout list = findViewById(R.id.llNotificationsList);
-
         if (btnClearAll != null) {
             btnClearAll.setOnClickListener(v -> {
                 if (scroll != null) scroll.setVisibility(View.GONE);
                 if (emptyView != null) emptyView.setVisibility(View.VISIBLE);
-            });
-        }
-
-        setupNotifCard(R.id.notif_card_1, R.id.notif_desc_1, R.id.btnDeleteNotif1, list, emptyView, scroll);
-        setupNotifCard(R.id.notif_card_2, R.id.notif_desc_2, R.id.btnDeleteNotif2, list, emptyView, scroll);
-        setupNotifCard(R.id.notif_card_3, R.id.notif_desc_3, R.id.btnDeleteNotif3, list, emptyView, scroll);
-    }
-
-    private void setupNotifCard(int cardId, int descId, int delId, android.widget.LinearLayout list, View empty, View scroll) {
-        View card = findViewById(cardId);
-        android.widget.TextView desc = findViewById(descId);
-        View delete = findViewById(delId);
-
-        if (card != null && desc != null) {
-            card.setOnClickListener(v -> {
-                if (desc.getMaxLines() == 1) {
-                    desc.setMaxLines(10);
-                    desc.setEllipsize(null);
-                } else {
-                    desc.setMaxLines(1);
-                    desc.setEllipsize(android.text.TextUtils.TruncateAt.END);
-                }
-            });
-        }
-
-        if (delete != null && card != null) {
-            delete.setOnClickListener(v -> {
-                card.setVisibility(View.GONE);
-                // Check if all are hidden
-                boolean allHidden = true;
-                for (int i = 0; i < list.getChildCount(); i++) {
-                    if (list.getChildAt(i).getVisibility() == View.VISIBLE) {
-                        allHidden = false;
-                        break;
-                    }
-                }
-                if (allHidden) {
-                    if (scroll != null) scroll.setVisibility(View.GONE);
-                    if (empty != null) empty.setVisibility(View.VISIBLE);
-                }
             });
         }
     }
