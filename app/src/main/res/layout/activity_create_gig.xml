@@ -478,85 +478,20 @@
                     app:chipStrokeColor="@color/sel_chip_stroke_blue"
                     app:chipStrokeWidth="1dp"
                     android:textColor="@color/sel_chip_text_blue" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCatOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="+ Other"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    app:chipBackgroundColor="@color/sel_chip_bg_blue"
+                    app:chipStrokeColor="@color/sel_chip_stroke_blue"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/sel_chip_text_blue" />
             </com.google.android.material.chip.ChipGroup>
 
-            <!-- ── HOW MANY PEOPLE ── -->
-            <TextView
-                style="@style/AppHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="HOW MANY PEOPLE?"
-                android:textColor="@color/text_muted"
-                android:textSize="10sp"
-                android:letterSpacing="0.05" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_district_pill_input_white_stroke"
-                android:elevation="6dp"
-                android:outlineAmbientShadowColor="@color/shadow_ambient"
-                android:outlineSpotShadowColor="@color/shadow_spot"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="Number of people needed"
-                    android:textColor="@color/text_subheadline"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/btnPeopleMinus"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:text="−"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:background="@drawable/bg_card_outline"
-                        android:clickable="true"
-                        android:focusable="true" />
-
-                    <TextView
-                        android:id="@+id/tvPeopleCount"
-                        style="@style/AppHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textColor="@color/text_header"
-                        android:textSize="16sp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp" />
-
-                    <TextView
-                        android:id="@+id/btnPeoplePlus"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:text="+"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:background="@drawable/bg_counter_btn"
-                        android:clickable="true"
-                        android:focusable="true" />
-                </LinearLayout>
-            </RelativeLayout>
 
             <!-- ── PAYMENT METHOD ── -->
             <TextView
@@ -635,34 +570,7 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/payBoth"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/bg_payment_unselected"
-                    android:elevation="4dp"
-                    android:clickable="true"
-                    android:focusable="true">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_both_payment"
-                        android:importantForAccessibility="no" />
-
-                    <TextView
-                        android:id="@+id/tvPayBoth"
-                        style="@style/AppDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Both"
-                        android:textColor="@color/text_subheadline"
-                        android:textSize="13sp"
-                        android:layout_marginTop="6dp" />
-                </LinearLayout>
             </LinearLayout>
 
             <!-- ── WARNING ALERT ── -->

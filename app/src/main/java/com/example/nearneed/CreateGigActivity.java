@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.widget.SwitchCompat;
 
+import androidx.appcompat.app.AlertDialog;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateGigActivity extends AppCompatActivity {
 
     private int counterValue = 500;
-    private int peopleCount  = 1;
 
     private View     cardMaxCounter;
     private TextView btnCounterMinus;
@@ -48,22 +49,33 @@ public class CreateGigActivity extends AppCompatActivity {
             counterValue += 50; tvCounterValue.setText(String.valueOf(counterValue));
         });
 
-        // People stepper
-        TextView tvPeople = findViewById(R.id.tvPeopleCount);
-        findViewById(R.id.btnPeopleMinus).setOnClickListener(v -> {
-            if (peopleCount > 1) { peopleCount--; tvPeople.setText(String.valueOf(peopleCount)); }
-        });
-        findViewById(R.id.btnPeoplePlus).setOnClickListener(v -> {
-            peopleCount++; tvPeople.setText(String.valueOf(peopleCount));
-        });
-
         // Payment method selection
         View payUPI  = findViewById(R.id.payUPI);
         View payCash = findViewById(R.id.payCash);
-        View payBoth = findViewById(R.id.payBoth);
-        payUPI.setOnClickListener(v  -> selectPayment(payUPI,  payCash, payBoth));
-        payCash.setOnClickListener(v -> selectPayment(payCash, payUPI,  payBoth));
-        payBoth.setOnClickListener(v -> selectPayment(payBoth, payUPI,  payCash));
+        payUPI.setOnClickListener(v  -> selectPayment(payUPI,  payCash));
+        payCash.setOnClickListener(v -> selectPayment(payCash, payUPI));
+
+        // Category "Other" logic
+        com.google.android.material.chip.Chip chipOther = findViewById(R.id.chipCatOther);
+        if (chipOther != null) {
+            chipOther.setOnClickListener(v -> {
+                // Show dialog for custom category
+                android.widget.EditText editText = new android.widget.EditText(this);
+                editText.setHint("Enter category name");
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Custom Category")
+                        .setView(editText)
+                        .setPositiveButton("Add", (dialog, which) -> {
+                            String customCat = editText.getText().toString().trim();
+                            if (!customCat.isEmpty()) {
+                                chipOther.setText(customCat);
+                                chipOther.setChecked(true);
+                            }
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+            });
+        }
 
         // Continue
         findViewById(R.id.btnContinueGig).setOnClickListener(v -> {
