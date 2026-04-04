@@ -29,15 +29,6 @@
             android:textColor="@color/text_header"
             android:textSize="22sp" />
 
-        <TextView
-            style="@style/AppDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Fix leaky kitchen tap"
-            android:textColor="@color/text_subheadline"
-            android:textSize="12sp" />
-
 
         <TextView
             style="@style/AppHeading"
@@ -72,63 +63,154 @@
             android:textSize="13sp" />
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProposeDifferent"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeColor="@color/brand_primary"
-            app:strokeWidth="@dimen/stroke_width_thick">
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_standard"
+            app:strokeWidth="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    
+                    <RadioButton
+                        android:id="@+id/rbProposeDifferent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:buttonTint="#1A6FD4"
+                        android:layout_centerVertical="true" />
+                        
+                    <TextView
+                        android:id="@+id/tvProposeDifferent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/rbProposeDifferent"
+                        android:layout_marginStart="8dp"
+                        android:text="Propose a different rate"
+                        android:textColor="@color/text_header"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        style="@style/AppHeading" />
+                </RelativeLayout>
+
+                <!-- Negotiator UI -->
+                <LinearLayout
+                    android:id="@+id/llPriceNegotiator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="8dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDecreasePrice"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_minus_blue"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:cornerRadius="20dp"
+                        app:backgroundTint="@color/brand_primary"
+                        app:iconTint="@color/white"
+                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:id="@+id/tvProposedPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹ 350"
+                            android:textColor="@color/text_header"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+ ₹50 from posted price"
+                            android:textColor="@color/text_muted"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIncreasePrice"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_plus_blue"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:cornerRadius="20dp"
+                        app:backgroundTint="@color/brand_primary"
+                        app:iconTint="@color/white"
+                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAcceptPosted"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_standard"
+            app:strokeWidth="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="16dp"
-                android:orientation="horizontal">
-            <!-- Selected State -->
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:buttonTint="@color/brand_primary"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Propose a different rate"
-                android:textColor="@color/text_header"
-                android:textSize="14sp"
-                style="@style/AppHeading" />
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_check_circle_green"
-                app:tint="@color/brand_primary" />
+                android:paddingHorizontal="16dp">
+                <RadioButton
+                    android:id="@+id/rbAcceptPosted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:buttonTint="#1A6FD4" />
+                <TextView
+                    android:id="@+id/tvAcceptPostedPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Accept posted price (₹300)"
+                    android:textColor="@color/text_subheadline"
+                    android:textSize="14sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_card_outline"
-            android:gravity="center_vertical"
-            android:paddingHorizontal="16dp">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Accept posted price (₹300)"
-                android:textColor="@color/text_subheadline"
-                android:textSize="14sp" />
-        </LinearLayout>
 
         <TextView
             style="@style/AppHeading"
@@ -163,44 +245,6 @@
                 android:text="Cash"
                 android:textColor="@color/text_subheadline"
                 android:textSize="12sp" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_chip_selected"
-                android:backgroundTint="@color/brand_primary_light"
-                android:gravity="center"
-                android:text="Either"
-                android:textColor="@color/brand_primary"
-                android:textSize="12sp"
-                style="@style/AppHeading" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:background="@drawable/bg_card_outline"
-                android:gravity="center"
-                android:text="📞 Call"
-                android:textColor="@color/text_header"
-                android:textSize="14sp" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/bg_card_outline"
-                android:gravity="center"
-                android:text="✉ SMS"
-                android:textColor="@color/text_header"
-                android:textSize="14sp" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -209,15 +253,16 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="24dp"
-            android:text="Send Response →"
+            android:text="Send Response"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             app:cornerRadius="16dp"
             app:backgroundTint="@color/brand_primary" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="By applying, you agree to our Terms of Service. Payment processing may vary based on negotiation."

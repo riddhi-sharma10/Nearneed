@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -125,11 +126,102 @@ public class GigDetailActivity extends AppCompatActivity {
         View sheetView = getLayoutInflater().inflate(R.layout.dialog_apply_gig, null);
         dialog.setContentView(sheetView);
 
+        Intent intent = getIntent();
+        String postedPriceStr = intent.getStringExtra(EXTRA_PRICE);
+        if (postedPriceStr == null) postedPriceStr = "₹350";
+        
+        TextView tvAcceptLabel = sheetView.findViewById(R.id.tvAcceptPostedPrice);
+        tvAcceptLabel.setText("Accept posted price (" + postedPriceStr + ")");
+
+        // Parse numerical value (e.g. ₹350 -> 350)
+        int initialPrice = 350;
+        try {
+            initialPrice = Integer.parseInt(postedPriceStr.replaceAll("[^0-9]", ""));
+        } catch (Exception e) { /* fallback */ }
+
+        final int[] proposedPrice = {initialPrice + 50};
+        TextView tvProposedPrice = sheetView.findViewById(R.id.tvProposedPrice);
+        tvProposedPrice.setText("₹ " + proposedPrice[0]);
+        
+        final String finalPostedPriceStr = postedPriceStr;
+        RadioButton rbPropose = sheetView.findViewById(R.id.rbProposeDifferent);
+        RadioButton rbAccept = sheetView.findViewById(R.id.rbAcceptPosted);
+        TextView tvPropose = sheetView.findViewById(R.id.tvProposeDifferent);
+        TextView tvAccept = sheetView.findViewById(R.id.tvAcceptPostedPrice);
+        com.google.android.material.card.MaterialCardView cardPropose = sheetView.findViewById(R.id.cardProposeDifferent);
+        com.google.android.material.card.MaterialCardView cardAccept = sheetView.findViewById(R.id.cardAcceptPosted);
+        View negotiator = sheetView.findViewById(R.id.llPriceNegotiator);
+
+        View.OnClickListener selectPropose = v -> {
+            rbPropose.setChecked(true);
+            rbAccept.setChecked(false);
+
+            // Selected: Propose card
+            cardPropose.setStrokeColor(0xFF1A6FD4);
+            cardPropose.setStrokeWidth(3);
+            cardPropose.setCardBackgroundColor(0xFFE8F1FC);
+            tvPropose.setTextColor(0xFF1A6FD4);
+
+            // Unselected: Accept card
+            cardAccept.setStrokeColor(getResources().getColor(R.color.border_standard));
+            cardAccept.setStrokeWidth(2);
+            cardAccept.setCardBackgroundColor(0xFFFFFFFF);
+            tvAccept.setTextColor(getResources().getColor(R.color.text_subheadline));
+
+            negotiator.setVisibility(View.VISIBLE);
+            negotiator.setAlpha(1.0f);
+            negotiator.setEnabled(true);
+        };
+
+        View.OnClickListener selectAccept = v -> {
+            rbAccept.setChecked(true);
+            rbPropose.setChecked(false);
+
+            // Selected: Accept card
+            cardAccept.setStrokeColor(0xFF1A6FD4);
+            cardAccept.setStrokeWidth(3);
+            cardAccept.setCardBackgroundColor(0xFFE8F1FC);
+            tvAccept.setTextColor(0xFF1A6FD4);
+
+            // Unselected: Propose card
+            cardPropose.setStrokeColor(getResources().getColor(R.color.border_standard));
+            cardPropose.setStrokeWidth(2);
+            cardPropose.setCardBackgroundColor(0xFFFFFFFF);
+            tvPropose.setTextColor(getResources().getColor(R.color.text_header));
+
+            negotiator.setVisibility(View.GONE);
+            negotiator.setEnabled(false);
+        };
+
+        rbPropose.setOnClickListener(selectPropose);
+        cardPropose.setOnClickListener(selectPropose);
+
+        rbAccept.setOnClickListener(selectAccept);
+        cardAccept.setOnClickListener(selectAccept);
+
+        // Set initial state
+        selectAccept.onClick(null);
+
+        sheetView.findViewById(R.id.btnIncreasePrice).setOnClickListener(v1 -> {
+            if (negotiator.isEnabled()) {
+                proposedPrice[0] += 50;
+                tvProposedPrice.setText("₹ " + proposedPrice[0]);
+            }
+        });
+
+        sheetView.findViewById(R.id.btnDecreasePrice).setOnClickListener(v1 -> {
+            if (negotiator.isEnabled() && proposedPrice[0] > 50) {
+                proposedPrice[0] -= 50;
+                tvProposedPrice.setText("₹ " + proposedPrice[0]);
+            }
+        });
+
         sheetView.findViewById(R.id.btnSendResponse).setOnClickListener(v -> {
             dialog.dismiss();
             
-            // Show confirmation toast
-            Toast.makeText(this, "Application Sent!", Toast.LENGTH_SHORT).show();
+            String finalMsg = rbAccept.isChecked() ? "Application Sent at posted price: " + finalPostedPriceStr 
+                                                   : "Application Sent with proposed price: ₹" + proposedPrice[0];
+            Toast.makeText(this, finalMsg, Toast.LENGTH_SHORT).show();
             
             // Transition to Success Popup Screen
             Intent successIntent = new Intent(this, ApplySuccessActivity.class);
