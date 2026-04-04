@@ -38,30 +38,6 @@
             android:textColor="@color/text_subheadline"
             android:textSize="12sp" />
 
-        <!-- Info Banner -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/bg_card_outline"
-            android:backgroundTint="@color/brand_primary_light"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:elevation="0dp">
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_info_circle"
-                app:tint="@color/brand_primary" />
-            <TextView
-                style="@style/AppHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="You are applying for Spot 2 of 2."
-                android:textColor="@color/brand_primary"
-                android:textSize="12sp" />
-        </LinearLayout>
 
         <TextView
             style="@style/AppHeading"

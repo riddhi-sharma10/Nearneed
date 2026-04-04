@@ -440,20 +440,6 @@
                     android:text="₹300"
                     android:textColor="@color/brand_primary"
                     android:textSize="22sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1 / 2 slots filled"
-                    android:textColor="@color/text_subheadline"
-                    android:textSize="12sp" />
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="200dp"
-                    android:layout_height="6dp"
-                    android:layout_below="@+id/tvPricePreview"
-                    android:layout_marginTop="-8dp"
-                    android:progress="50"
-                    android:progressDrawable="@drawable/bg_progress_bar_blue_flat" />
             </RelativeLayout>
 
             <LinearLayout

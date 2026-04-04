@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_view_applicants"
-        android:title="View Applicants" />
-    <item
         android:id="@+id/menu_view_responses"
         android:title="View Responses" />
     <item
         android:id="@+id/menu_update_status"
         android:title="Update Status" />
-    <item
-        android:id="@+id/menu_rate_applicants"
-        android:title="Rate Applicants" />
     <!-- Existing generic options -->
     <item
         android:id="@+id/menu_save"

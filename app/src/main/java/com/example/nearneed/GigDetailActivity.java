@@ -91,24 +91,13 @@ public class GigDetailActivity extends AppCompatActivity {
 
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.menu_view_applicants) {
-                Intent intent = new Intent(this, GigApplicantsActivity.class);
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                return true;
-            } else if (id == R.id.menu_view_responses) {
-                // Link same for now
+            if (id == R.id.menu_view_responses) {
                 Intent intent = new Intent(this, GigApplicantsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.menu_update_status) {
                 Intent intent = new Intent(this, PostStatusActivity.class);
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                return true;
-            } else if (id == R.id.menu_rate_applicants) {
-                Intent intent = new Intent(this, CommunityRatingActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
