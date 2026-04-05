@@ -91,7 +91,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
-                        android:buttonTint="#1A6FD4"
+                        android:buttonTint="@color/brand_primary"
                         android:layout_centerVertical="true" />
                         
                     <TextView
@@ -150,6 +150,7 @@
                             android:textStyle="bold" />
                         
                         <TextView
+                            android:id="@+id/tvPriceDifference"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+ ₹50 from posted price"
@@ -200,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:buttonTint="#1A6FD4" />
+                    android:buttonTint="@color/brand_primary" />
                 <TextView
                     android:id="@+id/tvAcceptPostedPrice"
                     android:layout_width="wrap_content"
@@ -226,25 +227,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:orientation="horizontal">
-            <TextView
+            <LinearLayout
+                android:id="@+id/llUpiOption"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_card_outline"
                 android:gravity="center"
-                android:text="UPI"
-                android:textColor="@color/text_subheadline"
-                android:textSize="12sp" />
-            <TextView
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:id="@+id/tvUpi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UPI"
+                    android:textColor="@color/text_subheadline"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llCashOption"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/bg_card_outline"
                 android:gravity="center"
-                android:text="Cash"
-                android:textColor="@color/text_subheadline"
-                android:textSize="12sp" />
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:id="@+id/tvCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash"
+                    android:textColor="@color/text_subheadline"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton

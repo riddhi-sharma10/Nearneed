@@ -141,7 +141,9 @@ public class GigDetailActivity extends AppCompatActivity {
 
         final int[] proposedPrice = {initialPrice + 50};
         TextView tvProposedPrice = sheetView.findViewById(R.id.tvProposedPrice);
+        TextView tvPriceDifference = sheetView.findViewById(R.id.tvPriceDifference);
         tvProposedPrice.setText("₹ " + proposedPrice[0]);
+        tvPriceDifference.setText("+ ₹" + (proposedPrice[0] - initialPrice) + " from posted price");
         
         final String finalPostedPriceStr = postedPriceStr;
         RadioButton rbPropose = sheetView.findViewById(R.id.rbProposeDifferent);
@@ -206,6 +208,7 @@ public class GigDetailActivity extends AppCompatActivity {
             if (negotiator.isEnabled()) {
                 proposedPrice[0] += 50;
                 tvProposedPrice.setText("₹ " + proposedPrice[0]);
+                tvPriceDifference.setText("+ ₹" + (proposedPrice[0] - initialPrice) + " from posted price");
             }
         });
 
@@ -213,14 +216,45 @@ public class GigDetailActivity extends AppCompatActivity {
             if (negotiator.isEnabled() && proposedPrice[0] > 50) {
                 proposedPrice[0] -= 50;
                 tvProposedPrice.setText("₹ " + proposedPrice[0]);
+                tvPriceDifference.setText("+ ₹" + (proposedPrice[0] - initialPrice) + " from posted price");
             }
+        });
+
+        // Payment preference listeners
+        final String[] selectedPayment = {"UPI"};
+        View llUpiOption = sheetView.findViewById(R.id.llUpiOption);
+        View llCashOption = sheetView.findViewById(R.id.llCashOption);
+        TextView tvUpi = sheetView.findViewById(R.id.tvUpi);
+        TextView tvCash = sheetView.findViewById(R.id.tvCash);
+
+        // Set initial UPI as selected
+        llUpiOption.setBackgroundColor(0xFFE8F1FC);
+        tvUpi.setTextColor(0xFF1A6FD4);
+        llCashOption.setBackgroundColor(getResources().getColor(android.R.color.white));
+        tvCash.setTextColor(getResources().getColor(R.color.text_subheadline));
+
+        llUpiOption.setOnClickListener(v -> {
+            selectedPayment[0] = "UPI";
+            llUpiOption.setBackgroundColor(0xFFE8F1FC);
+            tvUpi.setTextColor(0xFF1A6FD4);
+            llCashOption.setBackgroundColor(getResources().getColor(android.R.color.white));
+            tvCash.setTextColor(getResources().getColor(R.color.text_subheadline));
+        });
+
+        llCashOption.setOnClickListener(v -> {
+            selectedPayment[0] = "Cash";
+            llCashOption.setBackgroundColor(0xFFE8F1FC);
+            tvCash.setTextColor(0xFF1A6FD4);
+            llUpiOption.setBackgroundColor(getResources().getColor(android.R.color.white));
+            tvUpi.setTextColor(getResources().getColor(R.color.text_subheadline));
         });
 
         sheetView.findViewById(R.id.btnSendResponse).setOnClickListener(v -> {
             dialog.dismiss();
             
-            String finalMsg = rbAccept.isChecked() ? "Application Sent at posted price: " + finalPostedPriceStr 
-                                                   : "Application Sent with proposed price: ₹" + proposedPrice[0];
+            String paymentMethod = selectedPayment[0];
+            String finalMsg = rbAccept.isChecked() ? "Application Sent at posted price: " + finalPostedPriceStr + " via " + paymentMethod
+                                                   : "Application Sent with proposed price: ₹" + proposedPrice[0] + " via " + paymentMethod;
             Toast.makeText(this, finalMsg, Toast.LENGTH_SHORT).show();
             
             // Transition to Success Popup Screen
