@@ -76,7 +76,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         TextView btnForgotPassword = findViewById(R.id.btnForgotPassword);
         if (btnForgotPassword != null) {
-            btnForgotPassword.setOnClickListener(v -> showOtpPopup());
+            btnForgotPassword.setOnClickListener(v -> showEmailPromptPopup());
         }
 
         findViewById(R.id.btnSave).setOnClickListener(v -> {
@@ -267,6 +267,29 @@ public class EditProfileActivity extends AppCompatActivity {
         } else {
             parent.addView(chip);
         }
+    }
+    
+    private void showEmailPromptPopup() {
+        BottomSheetDialog dialog = new BottomSheetDialog(this, R.style.BottomSheetDialogTheme);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_enter_email, null);
+        dialog.setContentView(dialogView);
+        
+        dialogView.findViewById(R.id.btnSendOtp).setOnClickListener(v -> {
+            EditText etEmail = dialogView.findViewById(R.id.etEmail);
+            String email = etEmail.getText().toString().trim();
+            if (email.isEmpty()) {
+                Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            dialog.dismiss();
+            showOtpPopup();
+        });
+        
+        dialog.show();
     }
 
     private void showOtpPopup() {
