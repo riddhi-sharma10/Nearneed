@@ -1,9 +1,13 @@
 package com.example.nearneed;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -12,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.example.nearneed.R;
 import com.google.android.material.button.MaterialButton;
+import java.io.IOException;
+import java.util.Locale;
 
 public class GigDetailActivity extends AppCompatActivity {
 
@@ -20,6 +26,15 @@ public class GigDetailActivity extends AppCompatActivity {
     public static final String EXTRA_DESC = "extra_desc";
     public static final String EXTRA_DISTANCE = "extra_distance";
     public static final String EXTRA_IS_OWNER = "extra_is_owner";
+
+    private MediaPlayer mediaPlayer;
+    private boolean isPlaying = false;
+    private Handler updateHandler;
+    private long gigPostTimestamp;
+    private double userLatitude = 28.6139;  // Default: Delhi coordinates
+    private double userLongitude = 77.2090;
+    private double gigLatitude = 28.6139;   // Default: Same location
+    private double gigLongitude = 77.2090;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +59,7 @@ public class GigDetailActivity extends AppCompatActivity {
 
         ImageButton btnShare = findViewById(R.id.btnShare);
         if (btnShare != null) {
-            btnShare.setOnClickListener(v -> {
-                Toast.makeText(this, "Sharing Gig details...", Toast.LENGTH_SHORT).show();
-            });
+            btnShare.setOnClickListener(v -> shareGigDetails());
         }
 
         MaterialButton btnGigAction = findViewById(R.id.btnGigAction);
@@ -79,10 +92,170 @@ public class GigDetailActivity extends AppCompatActivity {
                 TextView tvDesc = findViewById(R.id.tvGigDesc);
                 if (tvDesc != null) tvDesc.setText(desc);
             }
-            if (distance != null) {
-                TextView tvDistance = findViewById(R.id.tvGigDistance);
-                if (tvDistance != null) tvDistance.setText(distance);
+        }
+
+        // Setup audio player
+        setupAudioPlayer();
+
+        // Setup author profile interactions
+        setupAuthorProfileInteractions();
+
+        // Setup real-time updates for time and distance
+        setupRealTimeUpdates();
+    }
+
+    private void setupAuthorProfileInteractions() {
+        View cardAuthorProfile = findViewById(R.id.cardAuthorProfile);
+        View btnCallAuthor = findViewById(R.id.btnCallAuthor);
+        View btnMessageAuthor = findViewById(R.id.btnMessageAuthor);
+        
+        // Click card to view full profile
+        if (cardAuthorProfile != null) {
+            cardAuthorProfile.setOnClickListener(v -> {
+                Toast.makeText(this, "Viewing full profile of Ramesh Kumar", Toast.LENGTH_SHORT).show();
+            });
+        }
+        
+        // Call button
+        if (btnCallAuthor != null) {
+            btnCallAuthor.setOnClickListener(v -> callAuthor());
+        }
+        
+        // Message button
+        if (btnMessageAuthor != null) {
+            btnMessageAuthor.setOnClickListener(v -> messageAuthor());
+        }
+    }
+
+    private void setupRealTimeUpdates() {
+        // Set initial timestamp to current time (in production, get from server)
+        gigPostTimestamp = System.currentTimeMillis();
+        
+        // Start updating time and distance every minute
+        updateHandler = new Handler(Looper.getMainLooper());
+        updateTimeAndDistance();
+    }
+
+    private void updateTimeAndDistance() {
+        TextView tvTimeAgo = findViewById(R.id.tvTimeAgo);
+        TextView tvDistance = findViewById(R.id.tvDistance);
+        
+        if (tvTimeAgo != null) {
+            tvTimeAgo.setText(getRelativeTimeString());
+        }
+        if (tvDistance != null) {
+            tvDistance.setText(getDistanceString());
+        }
+        
+        // Update every 60 seconds
+        updateHandler.postDelayed(this::updateTimeAndDistance, 60000);
+    }
+
+    private String getRelativeTimeString() {
+        long currentTime = System.currentTimeMillis();
+        long timeDiffMs = currentTime - gigPostTimestamp;
+        long timeDiffSecs = timeDiffMs / 1000;
+        long timeDiffMins = timeDiffSecs / 60;
+        long timeDiffHours = timeDiffMins / 60;
+        long timeDiffDays = timeDiffHours / 24;
+        
+        if (timeDiffMins < 1) {
+            return "just now";
+        } else if (timeDiffMins < 60) {
+            return timeDiffMins + "m ago";
+        } else if (timeDiffHours < 24) {
+            return timeDiffHours + "h ago";
+        } else {
+            return timeDiffDays + "d ago";
+        }
+    }
+
+    private String getDistanceString() {
+        double distance = calculateDistance(userLatitude, userLongitude, gigLatitude, gigLongitude);
+        
+        if (distance < 1) {
+            return String.format(Locale.US, "%.1f m away", distance * 1000);
+        } else {
+            return String.format(Locale.US, "%.1f km away", distance);
+        }
+    }
+
+    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+        double R = 6371; // Earth's radius in kilometers
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    private void setupAudioPlayer() {
+        ImageView ivPlayPauseButton = findViewById(R.id.ivPlayPauseButton);
+        if (ivPlayPauseButton != null) {
+            ivPlayPauseButton.setOnClickListener(v -> toggleAudioPlayPause());
+        }
+    }
+
+    private void toggleAudioPlayPause() {
+        ImageView ivPlayPauseButton = findViewById(R.id.ivPlayPauseButton);
+        
+        if (!isPlaying) {
+            // Start playing
+            if (mediaPlayer == null) {
+                mediaPlayer = new MediaPlayer();
+                // Load audio file - using a raw resource or URL
+                try {
+                    // Example: mediaPlayer.setDataSource(this, Uri.parse("android.resource://" + getPackageName() + "/raw/gig_audio"));
+                    // For now, using a simple placeholder that you can replace with actual audio
+                    mediaPlayer.setOnCompletionListener(mp -> {
+                        isPlaying = false;
+                        if (ivPlayPauseButton != null) {
+                            ivPlayPauseButton.setImageResource(android.R.drawable.ic_media_play);
+                        }
+                    });
+                    mediaPlayer.prepare();
+                } catch (IOException e) {
+                    Toast.makeText(this, "Error loading audio", Toast.LENGTH_SHORT).show();
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                    return;
+                }
             }
+            mediaPlayer.start();
+            isPlaying = true;
+            if (ivPlayPauseButton != null) {
+                ivPlayPauseButton.setImageResource(android.R.drawable.ic_media_pause);
+            }
+        } else {
+            // Pause playing
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                mediaPlayer.pause();
+            }
+            isPlaying = false;
+            if (ivPlayPauseButton != null) {
+                ivPlayPauseButton.setImageResource(android.R.drawable.ic_media_play);
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        
+        // Stop real-time updates
+        if (updateHandler != null) {
+            updateHandler.removeCallbacksAndMessages(null);
+        }
+        
+        // Stop audio playback
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
     }
 
@@ -92,7 +265,12 @@ public class GigDetailActivity extends AppCompatActivity {
 
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.menu_view_responses) {
+            if (id == R.id.menu_view_volunteers) {
+                Intent intent = new Intent(this, GigApplicantsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
+            } else if (id == R.id.menu_view_responses) {
                 Intent intent = new Intent(this, GigApplicantsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -102,23 +280,75 @@ public class GigDetailActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
+            } else if (id == R.id.menu_rate_volunteers) {
+                Toast.makeText(this, "Opening Rating Interface...", Toast.LENGTH_SHORT).show();
+                return true;
             } else if (id == R.id.menu_save) {
-                Toast.makeText(this, "Gig saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Post saved successfully", Toast.LENGTH_SHORT).show();
                 return true;
             } else if (id == R.id.menu_help) {
-                Toast.makeText(this, "Opening Help...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, HelpSupportActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.menu_report) {
-                Toast.makeText(this, "Opening Report...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Opening Report Interface...", Toast.LENGTH_SHORT).show();
                 return true;
             } else if (id == R.id.menu_settings) {
-                Toast.makeText(this, "Opening Settings...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             }
             return false;
         });
 
         popup.show();
+    }
+
+    private void shareGigDetails() {
+        Intent intent = getIntent();
+        String title = intent.getStringExtra(EXTRA_TITLE);
+        String price = intent.getStringExtra(EXTRA_PRICE);
+        String desc = intent.getStringExtra(EXTRA_DESC);
+        
+        String shareText = "Check out this Gig!\n\n" +
+                "Title: " + (title != null ? title : "Gig") + "\n" +
+                "Price: " + (price != null ? price : "N/A") + "\n" +
+                "Description: " + (desc != null ? desc : "N/A") + "\n\n" +
+                "Available on NearNeed App";
+        
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out this Gig on NearNeed!");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+        
+        startActivity(Intent.createChooser(shareIntent, "Share Gig via"));
+    }
+
+    private void callAuthor() {
+        // TODO: Replace with actual phone number from user data
+        String phoneNumber = "9876543210"; // Placeholder
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(android.net.Uri.parse("tel:" + phoneNumber));
+        try {
+            startActivity(callIntent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to make call", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void messageAuthor() {
+        // TODO: Replace with actual chat implementation or SMS
+        String phoneNumber = "9876543210"; // Placeholder
+        Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+        smsIntent.setData(android.net.Uri.parse("smsto:" + phoneNumber));
+        smsIntent.putExtra("sms_body", "Hi! I'm interested in your gig.");
+        try {
+            startActivity(smsIntent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to send message", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void showApplySheet() {
