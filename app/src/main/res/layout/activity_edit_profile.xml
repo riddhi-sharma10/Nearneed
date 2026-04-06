@@ -251,7 +251,18 @@
                 android:textSize="15sp"
                 android:padding="16dp"
                 android:gravity="top|start"
+                android:maxLength="150"
                 android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/tvBioCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="end"
+                android:text="0/150"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="match_parent"

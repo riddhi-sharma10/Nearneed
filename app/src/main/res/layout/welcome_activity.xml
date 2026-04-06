@@ -9,163 +9,277 @@
 
     <!-- Top Branding Section (Re-aligned to Top-Left) -->
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.15"
-        android:rotation="30"
-        android:src="@drawable/ic_solid_plug"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:alpha="0.18"
-        android:rotation="-15"
-        android:src="@drawable/ic_solid_broom"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:alpha="0.15"
-        android:rotation="10"
-        android:src="@drawable/ic_solid_medical"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:alpha="0.15"
-        android:rotation="45"
-        android:src="@drawable/ic_solid_laptop"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_alignParentEnd="true"
-        android:alpha="0.20"
-        android:rotation="20"
-        android:src="@drawable/ic_solid_wrench"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentEnd="true"
-        android:alpha="0.18"
-        android:rotation="-10"
-        android:src="@drawable/ic_solid_sms"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:alpha="0.15"
-        android:rotation="25"
-        android:src="@drawable/ic_solid_plant"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="526dp" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.18"
-        android:rotation="-10"
-        android:src="@drawable/ic_solid_oven"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="264dp"
-        tools:layout_editor_absoluteY="-18dp" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.15"
-        android:rotation="10"
-        android:src="@drawable/ic_solid_paw"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="509dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:letterSpacing="0.2"
-        android:text="• • •"
-        android:textColor="@color/pagers_indicator_inactive"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="-18dp"
-        tools:layout_editor_absoluteY="197dp" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.12"
-        android:rotation="-40"
-        android:src="@drawable/ic_solid_firstaid"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.15"
-        android:rotation="15"
-        android:src="@drawable/ic_solid_wrench"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="161dp" />
+    <!-- Decorative Background Widgets -->
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="34dp"
         android:layout_height="34dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:alpha="0.15"
+        android:alpha="0.10"
         android:rotation="-20"
         android:src="@drawable/ic_solid_supplies"
-        app:tint="@color/decorative_tint_faint_blue"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="31dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:alpha="0.12"
+        android:rotation="30"
+        android:src="@drawable/ic_solid_plug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:alpha="0.14"
+        android:rotation="-15"
+        android:src="@drawable/ic_solid_broom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:alpha="0.10"
+        android:rotation="-10"
+        android:src="@drawable/ic_solid_bell"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:alpha="0.12"
+        android:rotation="45"
+        android:src="@drawable/ic_solid_laptop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:alpha="0.12"
+        android:rotation="15"
+        android:src="@drawable/ic_solid_car"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.188"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:alpha="0.12"
+        android:rotation="10"
+        android:src="@drawable/ic_solid_medical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:alpha="0.14"
+        android:rotation="-10"
+        android:src="@drawable/ic_solid_sms"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:alpha="0.10"
+        android:rotation="20"
+        android:src="@drawable/ic_solid_bell"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:alpha="0.15"
+        android:rotation="20"
+        android:src="@drawable/ic_solid_wrench"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:alpha="0.12"
+        android:rotation="-5"
+        android:src="@drawable/ic_solid_truck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:alpha="0.14"
+        android:rotation="-10"
+        android:src="@drawable/ic_solid_oven"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:alpha="0.12"
+        android:rotation="-15"
+        android:src="@drawable/ic_solid_car"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:alpha="0.12"
+        android:rotation="25"
+        android:src="@drawable/ic_solid_plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:alpha="0.10"
+        android:rotation="-40"
+        android:src="@drawable/ic_solid_firstaid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.90"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:alpha="0.12"
+        android:rotation="10"
+        android:src="@drawable/ic_solid_truck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:alpha="0.12"
+        android:rotation="15"
+        android:src="@drawable/ic_solid_wrench"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98"
+        app:tint="@color/decorative_tint_faint_blue" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:alpha="0.12"
+        android:rotation="10"
+        android:src="@drawable/ic_solid_paw"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92"
+        app:tint="@color/decorative_tint_faint_blue" />
 
     <LinearLayout
         android:id="@+id/llTopBranding"
