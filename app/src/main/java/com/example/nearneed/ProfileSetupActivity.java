@@ -30,13 +30,8 @@ public class ProfileSetupActivity extends AppCompatActivity {
     private ImageView ivLocationPin;
     private TextView tvDetectedLocation;
 
-    // Radius options grouping
-    private LinearLayout opt5km, opt7km, opt10km;
-    private TextView tv5kmTitle, tv5kmDesc;
-    private TextView tv7kmTitle, tv7kmDesc;
-    private TextView tv10kmTitle, tv10kmDesc;
-    
-    private int selectedRadius = 7; // default
+    // Default radius set to 10km as requested
+    private int selectedRadius = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,19 +53,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
         
         setupSearchSuggestions();
 
-        opt5km = findViewById(R.id.opt5km);
-        opt7km = findViewById(R.id.opt7km);
-        opt10km = findViewById(R.id.opt10km);
-
-        tv5kmTitle = findViewById(R.id.tv5kmTitle);
-        tv5kmDesc = findViewById(R.id.tv5kmDesc);
-        tv7kmTitle = findViewById(R.id.tv7kmTitle);
-        tv7kmDesc = findViewById(R.id.tv7kmDesc);
-        tv10kmTitle = findViewById(R.id.tv10kmTitle);
-        tv10kmDesc = findViewById(R.id.tv10kmDesc);
-
-        // Pre-select 7km explicitly
-        selectRadiusOption(7);
+        setupSearchSuggestions();
     }
 
     private void setupListeners() {
@@ -98,40 +81,22 @@ public class ProfileSetupActivity extends AppCompatActivity {
             return false;
         });
 
-        // Mutually exclusive single selection logic (radio button behavior)
-        opt5km.setOnClickListener(v -> selectRadiusOption(5));
-        opt7km.setOnClickListener(v -> selectRadiusOption(7));
-        opt10km.setOnClickListener(v -> selectRadiusOption(10));
     }
 
-    private void selectRadiusOption(int radius) {
-        selectedRadius = radius;
-
-        // Reset all states
-        setOptionState(opt5km, tv5kmTitle, tv5kmDesc, false);
-        setOptionState(opt7km, tv7kmTitle, tv7kmDesc, false);
-        setOptionState(opt10km, tv10kmTitle, tv10kmDesc, false);
-
-        // Apply active state to selected
-        if (radius == 5) {
-            setOptionState(opt5km, tv5kmTitle, tv5kmDesc, true);
-        } else if (radius == 7) {
-            setOptionState(opt7km, tv7kmTitle, tv7kmDesc, true);
-        } else if (radius == 10) {
-            setOptionState(opt10km, tv10kmTitle, tv10kmDesc, true);
-        }
-    }
 
     private void setupSearchSuggestions() {
         String[] mockLocations = {
+            "Gurugram, Haryana",
+            "Sohna Road, Gurugram",
             "BML Munjal University, Kaphera",
-            "MGF Metropolitan Mall, Gurugram",
-            "Indira Gandhi International Airport, Delhi",
+            "MG Road, Gurugram",
             "Cyber Hub, Gurugram",
-            "Connaught Place, New Delhi",
-            "Ambience Mall, Gurugram",
-            "Kingdom of Dreams, Gurugram",
-            "Huda City Centre, Gurugram"
+            "Sector 14, Gurugram",
+            "IFFCO Chowk, Gurugram",
+            "Indira Gandhi International Airport, Delhi",
+            "Vasant Kunj, New Delhi",
+            "Saket, New Delhi",
+            "Hauz Khas, New Delhi"
         };
         
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -140,34 +105,36 @@ public class ProfileSetupActivity extends AppCompatActivity {
     }
 
     private void simulateLocationDetection() {
+        // Mock permission check
+        Toast.makeText(this, "Requesting location permission...", Toast.LENGTH_SHORT).show();
+        
         btnUseLocation.setEnabled(false);
-        btnUseLocation.setText("Detecting...");
+        btnUseLocation.setText("Fetching Precise Location...");
         pbLocationDetecting.setVisibility(View.VISIBLE);
         ivLocationPin.setVisibility(View.GONE);
+        tvDetectedLocation.setText("Detecting...");
+        tvDetectedLocation.setTextColor(0xFF64748B); // Muted during detection
 
-        // Simulate network delay for location detection
+        // Multi-stage simulation for "Real Time" feel
         new Handler().postDelayed(() -> {
-            pbLocationDetecting.setVisibility(View.GONE);
-            ivLocationPin.setVisibility(View.VISIBLE);
+            tvDetectedLocation.setText("Triangulating GPS...");
             
-            btnUseLocation.setText("Location Confirmed");
-            btnUseLocation.setEnabled(false);
-            btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
-            
-            Toast.makeText(this, "Location detected successfully!", Toast.LENGTH_SHORT).show();
-            etSearchLocation.setText("");
-        }, 2000); // 2 second delay
+            new Handler().postDelayed(() -> {
+                pbLocationDetecting.setVisibility(View.GONE);
+                ivLocationPin.setVisibility(View.VISIBLE);
+                
+                String detected = "BML Munjal University, Kaphera";
+                tvDetectedLocation.setText(detected);
+                tvDetectedLocation.setTextColor(0xFF0F172A); // Back to dark
+                
+                btnUseLocation.setText("Location Confirmed");
+                btnUseLocation.setEnabled(false);
+                btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
+                
+                Toast.makeText(this, "Location set to: " + detected, Toast.LENGTH_SHORT).show();
+                etSearchLocation.setText("");
+            }, 1500);
+        }, 1000);
     }
 
-    private void setOptionState(LinearLayout container, TextView title, TextView desc, boolean isSelected) {
-        if (isSelected) {
-            container.setBackgroundResource(R.drawable.bg_radius_option_selected);
-            title.setTextColor(0xFF2563EB); // Blue
-            desc.setTextColor(0xFF3B82F6); // Lighter blue
-        } else {
-            container.setBackgroundResource(R.drawable.bg_radius_option_unselected);
-            title.setTextColor(0xFF0F172A); // Dark slate
-            desc.setTextColor(0xFF94A3B8); // Gray
-        }
-    }
 }

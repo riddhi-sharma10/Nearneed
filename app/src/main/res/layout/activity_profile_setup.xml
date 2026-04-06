@@ -42,7 +42,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Gig Mode Setup"
+                    android:text="Location Setup"
                     android:textColor="@color/text_header"
                     android:textSize="14sp" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 2/4" android:textColor="@color/text_muted" android:textSize="12sp" />
@@ -157,91 +157,33 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnUseLocation"
-                        style="@style/AppHeading"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
                         android:text="Use this location"
-                        android:textColor="@color/white"
+                        android:textColor="@color/brand_primary"
                         android:textAllCaps="false"
                         android:textSize="14sp"
-                        app:backgroundTint="@color/brand_primary"
+                        app:strokeColor="@color/brand_primary"
+                        app:strokeWidth="1dp"
                         app:cornerRadius="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="Posts will be visible within a 10km radius"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.02" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                style="@style/AppHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginHorizontal="24dp"
-                android:text="GIG/ COMMUNITY POST SCROLLING RADIUS"
-                android:textColor="@color/text_muted"
-                android:textSize="10sp"
-                android:letterSpacing="0.05" />
+            <!-- Removed Radius Options, defaulting to 10km -->
 
-            <!-- Radius Options Styled Rows -->
-            <LinearLayout
-                android:id="@+id/opt5km"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="24dp"
-                android:background="@drawable/bg_radius_option_unselected"
-                android:padding="16dp"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv5kmTitle"
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5 Kilometers"
-                    android:textColor="@color/text_header"
-                    android:textSize="16sp"/>
-                <TextView android:id="@+id/tv5kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Matches from very close neighbors." android:textColor="@color/text_muted" android:textSize="12sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/opt7km"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginHorizontal="24dp"
-                android:background="@drawable/bg_radius_option_unselected"
-                android:padding="16dp"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv7kmTitle"
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7 Kilometers"
-                    android:textColor="@color/text_header"
-                    android:textSize="16sp"/>
-                <TextView android:id="@+id/tv7kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ideal for local neighborhood connections." android:textColor="@color/text_muted" android:textSize="12sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/opt10km"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginHorizontal="24dp"
-                android:background="@drawable/bg_radius_option_unselected"
-                android:padding="16dp"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv10kmTitle"
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10 Kilometers"
-                    android:textColor="@color/text_header"
-                    android:textSize="16sp"/>
-                <TextView android:id="@+id/tv10kmDesc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wider reach across your locality." android:textColor="@color/text_muted" android:textSize="12sp"/>
-            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
