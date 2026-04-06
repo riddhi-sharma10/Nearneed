@@ -130,6 +130,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 btnUseLocation.setText("Location Confirmed");
                 btnUseLocation.setEnabled(false);
                 btnUseLocation.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF16A34A)); // Success Green
+                btnUseLocation.setTextColor(android.graphics.Color.WHITE);
                 
                 Toast.makeText(this, "Location set to: " + detected, Toast.LENGTH_SHORT).show();
                 etSearchLocation.setText("");
