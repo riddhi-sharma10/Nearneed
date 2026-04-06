@@ -80,6 +80,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Push notification when someone needs help" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
                 <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swHelpNotifications"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleX="0.75"
@@ -106,6 +107,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SMS notification to +91 99XXXXX99" android:textColor="@color/text_subheadline" android:textSize="12sp" />
                 </LinearLayout>
                 <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swSmsNotifications"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleX="0.75"
@@ -115,26 +117,7 @@
                     app:useMaterialThemeColors="false" />
             </LinearLayout>
 
-            <TextView
-                style="@style/AppHero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="Notification Radius"
-                android:textColor="@color/text_header"
-                android:textSize="24sp"
-                android:letterSpacing="-0.02" />
 
-            <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:singleSelection="true">
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="3km" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" android:checked="true"/>
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="5km" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="7km" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="48dp" android:text="10km" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-            </com.google.android.material.chip.ChipGroup>
 
             <TextView
                 style="@style/AppHero"
@@ -152,16 +135,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
-                <com.google.android.material.chip.Chip android:id="@+id/chipCar" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Car" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipMedical" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Medical" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipFirstAid" android:layout_width="wrap_content" android:layout_height="48dp" android:text="First Aid" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipWater" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Water" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
-                <com.google.android.material.chip.Chip android:id="@+id/chipFoodKit" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Food/Kit" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
-                <com.google.android.material.chip.Chip android:id="@+id/chipSupplies" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Supplies" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipShelter" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Shelter" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipTransport" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Transport" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
-                <com.google.android.material.chip.Chip android:id="@+id/chipTools" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tools" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
-                <com.google.android.material.chip.Chip android:id="@+id/chipOther" android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Other" style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
+                <com.google.android.material.chip.Chip android:id="@+id/chipCar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Car" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipMedical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Medical" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipFirstAid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Aid" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipWater" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Water" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
+                <com.google.android.material.chip.Chip android:id="@+id/chipFoodKit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Food/Kit" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
+                <com.google.android.material.chip.Chip android:id="@+id/chipSupplies" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Supplies" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipShelter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shelter" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipTransport" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transport" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red" />
+                <com.google.android.material.chip.Chip android:id="@+id/chipTools" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tools" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
+                <com.google.android.material.chip.Chip android:id="@+id/chipOther" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Other" style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_red" app:chipStrokeColor="@color/sel_chip_stroke_red" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_red"/>
             </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -189,15 +172,15 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="32dp" />
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnter"
                 style="@style/AppHeading"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="24dp"
                 android:text="Enter"
                 android:textColor="@color/white"

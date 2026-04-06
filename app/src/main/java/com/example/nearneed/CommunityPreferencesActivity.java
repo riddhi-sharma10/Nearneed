@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class CommunityPreferencesActivity extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class CommunityPreferencesActivity extends AppCompatActivity {
     private EditText etOtherSkill;
     private ImageButton btnBack;
     private MaterialButton btnEnter;
+    private MaterialSwitch swHelp, swSms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,13 @@ public class CommunityPreferencesActivity extends AppCompatActivity {
         chipOther = findViewById(R.id.chipOther);
         tilOtherSkill = findViewById(R.id.tilOtherSkill);
         etOtherSkill = findViewById(R.id.etOtherSkill);
+        swHelp = findViewById(R.id.swHelpNotifications);
+        swSms = findViewById(R.id.swSmsNotifications);
+        
+        // Load saved states
+        android.content.SharedPreferences prefs = getSharedPreferences("NearNeedPrefs", MODE_PRIVATE);
+        swHelp.setChecked(prefs.getBoolean("pref_help_notifications", true));
+        swSms.setChecked(prefs.getBoolean("pref_sms_notifications", false));
     }
 
     private void setupListeners() {
@@ -100,7 +109,11 @@ public class CommunityPreferencesActivity extends AppCompatActivity {
         }
         
         String finalCsv = android.text.TextUtils.join(",", allSkills);
-        prefs.edit().putString("user_offers_csv", finalCsv).apply();
+        prefs.edit()
+            .putString("user_offers_csv", finalCsv)
+            .putBoolean("pref_help_notifications", swHelp.isChecked())
+            .putBoolean("pref_sms_notifications", swSms.isChecked())
+            .apply();
     }
 
     private void addNewChip(ChipGroup chipGroup, String text, int bgColorId, int strokeColorId, int textColorId) {
