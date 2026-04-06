@@ -79,6 +79,24 @@ public class EditProfileActivity extends AppCompatActivity {
             btnForgotPassword.setOnClickListener(v -> showEmailPromptPopup());
         }
 
+        EditText etBio = findViewById(R.id.etBio);
+        TextView tvBioCount = findViewById(R.id.tvBioCount);
+
+        if (etBio != null && tvBioCount != null) {
+            etBio.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    tvBioCount.setText((s != null ? s.length() : 0) + "/150");
+                }
+                @Override
+                public void afterTextChanged(Editable s) {}
+            });
+            // Initial count
+            tvBioCount.setText(etBio.getText().length() + "/150");
+        }
+
         findViewById(R.id.btnSave).setOnClickListener(v -> {
             saveServices(cgServices);
             Toast.makeText(this, "Profile changes saved successfully", Toast.LENGTH_SHORT).show();
