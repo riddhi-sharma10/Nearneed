@@ -191,6 +191,7 @@
         <activity android:name=".DiscoveryMapCommunityActivity" android:exported="false" android:screenOrientation="portrait" />
 
         <activity android:name=".ResetPasswordActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".TermsConditionsActivity" android:exported="false" android:screenOrientation="portrait" />
 
     </application>
 

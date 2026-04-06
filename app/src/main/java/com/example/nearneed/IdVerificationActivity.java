@@ -3,6 +3,15 @@ package com.example.nearneed;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +29,8 @@ public class IdVerificationActivity extends AppCompatActivity {
     private MaterialButton btnSubmit;
     private TextView btnSkip;
     private android.view.View cardUploadFront, cardUploadBack;
+    private CheckBox cbTerms;
+    private TextView tvTermsLink;
     private boolean frontUploaded = false;
     private boolean backUploaded = false;
     private boolean isFullyVerified = false;
@@ -28,13 +39,9 @@ public class IdVerificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_id_verification);
+        initViews();
+        styleTermsText();
 
-        btnBack = findViewById(R.id.btnBack);
-        btnSubmit = findViewById(R.id.btnSubmit);
-        btnSkip = findViewById(R.id.btnSkip);
-        cardUploadFront = findViewById(R.id.cardUploadFront);
-        cardUploadBack = findViewById(R.id.cardUploadBack);
-        
         if (getIntent().getBooleanExtra("HIDE_SKIP", false)) {
             btnSkip.setVisibility(View.GONE);
         }
@@ -46,11 +53,53 @@ public class IdVerificationActivity extends AppCompatActivity {
         setupListeners();
     }
 
+    private void initViews() {
+        btnBack = findViewById(R.id.btnBack);
+        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSkip = findViewById(R.id.btnSkip);
+        cardUploadFront = findViewById(R.id.cardUploadFront);
+        cardUploadBack = findViewById(R.id.cardUploadBack);
+        cbTerms = findViewById(R.id.cbTerms);
+        tvTermsLink = findViewById(R.id.tvTermsLink);
+    }
+
+    private void styleTermsText() {
+        String fullText = "I agree to the Terms, Conditions and Guidelines";
+        SpannableString spannableString = new SpannableString(fullText);
+        int start = fullText.indexOf("Terms");
+        int end = fullText.length();
+
+        // Specific blue for links
+        int linkColor = 0xFF2563EB;
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(android.view.View widget) {
+                startActivity(new Intent(IdVerificationActivity.this, TermsConditionsActivity.class));
+            }
+
+            @Override
+            public void updateDrawState(android.text.TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(true);
+                ds.setColor(linkColor);
+                ds.setFakeBoldText(true);
+            }
+        };
+
+        spannableString.setSpan(clickableSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        tvTermsLink.setText(spannableString);
+        tvTermsLink.setMovementMethod(LinkMovementMethod.getInstance());
+        // Remove the general onClickListener to avoid double triggers
+    }
+
     private void setupListeners() {
         btnBack.setOnClickListener(v -> onBackPressed());
 
         cardUploadFront.setOnClickListener(v -> openImagePicker(REQUEST_PICK_FRONT));
         cardUploadBack.setOnClickListener(v  -> openImagePicker(REQUEST_PICK_BACK));
+        cbTerms.setOnCheckedChangeListener((bv, checked) -> checkReadyToSubmit());
 
         btnSubmit.setOnClickListener(v -> {
             btnSubmit.setEnabled(false);
@@ -124,12 +173,16 @@ public class IdVerificationActivity extends AppCompatActivity {
             fDesc.setText("Extracting security features...");
             fIcon.setImageResource(R.drawable.ic_search_grey);
             fIcon.setColorFilter(0xFF2563EB); // Blue
+            fIcon.setPadding(0, 0, 0, 0);
+            fIcon.setBackground(null);
 
             // Step 2: Final State after simulation
             new android.os.Handler().postDelayed(() -> {
                 card.setBackgroundResource(R.drawable.bg_id_uploaded);
-                fIcon.setImageResource(R.drawable.ic_checked_blue);
-                fIcon.setColorFilter(null); // Use resource color
+                fIcon.setImageResource(R.drawable.ic_checked_blue_white_circle);
+                fIcon.setBackground(null);
+                fIcon.setPadding(0, 0, 0, 0); // No padding needed since it's already in layer list
+                fIcon.setColorFilter(null);
                 fTitle.setText(side + " verified");
                 fTitle.setTextColor(0xFF1D5EF3); // Blue
                 fDesc.setText("Data extracted successfully");
@@ -144,10 +197,14 @@ public class IdVerificationActivity extends AppCompatActivity {
     }
 
     private void checkReadyToSubmit() {
-        if (frontUploaded && backUploaded) {
+        if (frontUploaded && backUploaded && cbTerms.isChecked()) {
             btnSubmit.setEnabled(true);
             btnSubmit.setAlpha(1.0f);
             btnSubmit.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF1D5EF3)); // Brand blue
+        } else {
+            btnSubmit.setEnabled(false);
+            btnSubmit.setAlpha(0.6f);
+            btnSubmit.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFFACB0C0)); // Muted grey/blue
         }
     }
 }
