@@ -15,6 +15,7 @@ public class OtpEnterActivity extends AppCompatActivity {
     private ImageButton btnBack;
     private MaterialButton btnSendOtp;
     private EditText etPhone;
+    private android.view.View vPhoneUnderline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class OtpEnterActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnSendOtp = findViewById(R.id.btnSendOtp);
         etPhone = findViewById(R.id.etPhone);
+        vPhoneUnderline = findViewById(R.id.vPhoneUnderline);
 
         setupListeners();
     }
@@ -31,10 +33,23 @@ public class OtpEnterActivity extends AppCompatActivity {
     private void setupListeners() {
         btnBack.setOnClickListener(v -> onBackPressed());
 
+        etPhone.addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                vPhoneUnderline.setBackgroundColor(androidx.core.content.ContextCompat.getColor(OtpEnterActivity.this, R.color.border_standard));
+            }
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {}
+        });
+
         btnSendOtp.setOnClickListener(v -> {
             String phone = etPhone.getText().toString().trim();
             if (phone.length() < 10) {
-                Toast.makeText(this, getString(R.string.txt_please_enter_a_valid_10_digit), Toast.LENGTH_SHORT).show();
+                vPhoneUnderline.setBackgroundColor(0xFFEF4444); // Red error underline
                 return;
             }
 

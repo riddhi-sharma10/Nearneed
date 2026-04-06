@@ -156,7 +156,7 @@ public class GigApplicantsActivity extends AppCompatActivity {
 
 
     private void showCounterOfferDialog(String applicantName, int originalPrice) {
-        BottomSheetDialog dialog = new BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme);
+        BottomSheetDialog dialog = new BottomSheetDialog(this, R.style.BottomSheetDialogTheme);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_counter_offer, null);
         dialog.setContentView(dialogView);
 

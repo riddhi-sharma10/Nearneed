@@ -112,7 +112,7 @@
             </LinearLayout>
 
             <!-- Front Side Upload -->
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/cardUploadFront"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
@@ -120,23 +120,41 @@
                 android:background="@drawable/bg_dashed_border"
                 android:elevation="4dp"
                 android:outlineAmbientShadowColor="@color/shadow_subtle"
-                android:outlineSpotShadowColor="@color/shadow_subtle"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="@color/brand_primary" />
-                <TextView 
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content" 
-                    android:layout_height="wrap_content" 
-                    android:text="Front of ID" 
-                    android:textColor="@color/text_header" 
-                    android:textSize="14sp" 
-                    android:layout_marginTop="4dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, no light reflections." android:textColor="@color/text_muted" android:textSize="12sp" />
-            </LinearLayout>
+                android:outlineSpotShadowColor="@color/shadow_subtle">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView android:tag="center_icon" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="@color/brand_primary" />
+                    <TextView 
+                        android:tag="title_text"
+                        style="@style/AppHeading"
+                        android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" 
+                        android:text="Front of ID" 
+                        android:textColor="@color/text_header" 
+                        android:textSize="14sp" 
+                        android:layout_marginTop="4dp"/>
+                    <TextView android:tag="desc_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, no light reflections." android:textColor="@color/text_muted" android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:tag="verified_badge"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_verified_badge"
+                    app:tint="@color/brand_primary"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:visibility="gone" />
+            </RelativeLayout>
 
             <!-- Back Side Upload -->
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/cardUploadBack"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
@@ -144,20 +162,38 @@
                 android:background="@drawable/bg_dashed_border"
                 android:elevation="4dp"
                 android:outlineAmbientShadowColor="@color/shadow_subtle"
-                android:outlineSpotShadowColor="@color/shadow_subtle"
-                android:gravity="center"
-                android:orientation="vertical">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="@color/brand_primary" />
-                <TextView 
-                    style="@style/AppHeading"
-                    android:layout_width="wrap_content" 
-                    android:layout_height="wrap_content" 
-                    android:text="Back of ID" 
-                    android:textColor="@color/text_header" 
-                    android:textSize="14sp" 
-                    android:layout_marginTop="4dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, horizontally held." android:textColor="@color/text_muted" android:textSize="12sp" />
-            </LinearLayout>
+                android:outlineSpotShadowColor="@color/shadow_subtle">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView android:tag="center_icon" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_id_camera" app:tint="@color/brand_primary" />
+                    <TextView 
+                        android:tag="title_text"
+                        style="@style/AppHeading"
+                        android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" 
+                        android:text="Back of ID" 
+                        android:textColor="@color/text_header" 
+                        android:textSize="14sp" 
+                        android:layout_marginTop="4dp"/>
+                    <TextView android:tag="desc_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clear picture, horizontally held." android:textColor="@color/text_muted" android:textSize="12sp" />
+                </LinearLayout>
+                
+                <ImageView
+                    android:tag="verified_badge"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_verified_badge"
+                    app:tint="@color/brand_primary"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:visibility="gone" />
+            </RelativeLayout>
             
             <LinearLayout
                 android:layout_width="match_parent"
@@ -170,6 +206,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:button="@drawable/sel_custom_checkbox"
+                    app:buttonTint="@null"
+                    android:buttonTint="@null"
                     android:padding="0dp"
                     android:layout_gravity="center_vertical" />
                 <TextView 
@@ -177,7 +215,7 @@
                     android:layout_width="wrap_content" 
                     android:layout_height="wrap_content" 
                     android:layout_marginStart="4dp" 
-                    android:text="I agree to the Terms, Conditions and Guidelines" 
+                    android:text="I agree to the Terms &amp; Conditions" 
                     android:textColor="@color/text_subheadline" 
                     android:textSize="12sp" />
             </LinearLayout>

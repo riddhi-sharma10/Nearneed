@@ -48,6 +48,7 @@
 
         <!-- District-Style 6 OTP Underlines -->
         <LinearLayout
+            android:id="@+id/llOtpContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -63,6 +64,7 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
@@ -77,6 +79,7 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
@@ -91,6 +94,7 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
@@ -105,6 +109,7 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
@@ -119,6 +124,7 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
@@ -132,12 +138,21 @@
                 android:background="@drawable/sel_otp_district_under"
                 android:gravity="center"
                 android:inputType="number"
+                android:digits="0123456789"
                 android:maxLength="1"
                 android:textColor="@color/text_header"
                 android:textSize="26sp"
                 style="@style/AppFormText" />
 
         </LinearLayout>
+
+        <View
+            android:id="@+id/vOtpUnderline"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="#EF4444"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/btnResend"

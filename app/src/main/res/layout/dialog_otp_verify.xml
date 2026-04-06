@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Enter the 4-digit code sent to your email to reset your password."
+        android:text="Enter the 6-digit code sent to your email to reset your password."
         android:textColor="@color/text_subheadline"
         android:textSize="14sp" />
 
@@ -36,12 +36,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="6">
 
-        <EditText android:id="@+id/otp1" android:layout_width="56dp" android:layout_height="64dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
-        <EditText android:id="@+id/otp2" android:layout_width="56dp" android:layout_height="64dp" android:layout_marginStart="12dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
-        <EditText android:id="@+id/otp3" android:layout_width="56dp" android:layout_height="64dp" android:layout_marginStart="12dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
-        <EditText android:id="@+id/otp4" android:layout_width="56dp" android:layout_height="64dp" android:layout_marginStart="12dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp5" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
+        <EditText android:id="@+id/otp6" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:background="@drawable/bg_otp_box_grey" android:gravity="center" android:inputType="number" android:digits="0123456789" android:maxLength="1" android:textSize="24sp" android:textColor="@color/text_header" style="@style/AppHeading"/>
 
     </LinearLayout>
 

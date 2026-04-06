@@ -64,7 +64,7 @@ public class IdVerificationActivity extends AppCompatActivity {
     }
 
     private void styleTermsText() {
-        String fullText = "I agree to the Terms, Conditions and Guidelines";
+        String fullText = "I agree to the Terms & Conditions";
         SpannableString spannableString = new SpannableString(fullText);
         int start = fullText.indexOf("Terms");
         int end = fullText.length();
@@ -146,28 +146,12 @@ public class IdVerificationActivity extends AppCompatActivity {
     }
 
     private void setCardUploadedState(android.view.View card, String side) {
-        // Find views in the card
-        android.widget.ImageView icon = null;
-        TextView title = null;
-        TextView desc = null;
+        final android.widget.ImageView fIcon = card.findViewWithTag("center_icon");
+        final TextView fTitle = card.findViewWithTag("title_text");
+        final TextView fDesc = card.findViewWithTag("desc_text");
+        final android.widget.ImageView fBadge = card.findViewWithTag("verified_badge");
 
-        if (card instanceof android.view.ViewGroup) {
-            android.view.ViewGroup group = (android.view.ViewGroup) card;
-            for (int i = 0; i < group.getChildCount(); i++) {
-                android.view.View child = group.getChildAt(i);
-                if (child instanceof android.widget.ImageView) icon = (android.widget.ImageView) child;
-                if (child instanceof android.widget.TextView) {
-                    if (title == null) title = (android.widget.TextView) child;
-                    else desc = (android.widget.TextView) child;
-                }
-            }
-        }
-
-        if (icon != null && title != null && desc != null) {
-            final android.widget.ImageView fIcon = icon;
-            final TextView fTitle = title;
-            final TextView fDesc = desc;
-
+        if (fIcon != null && fTitle != null && fDesc != null && fBadge != null) {
             // Step 1: Processing
             fTitle.setText("Scanning ID...");
             fDesc.setText("Extracting security features...");
@@ -179,10 +163,8 @@ public class IdVerificationActivity extends AppCompatActivity {
             // Step 2: Final State after simulation
             new android.os.Handler().postDelayed(() -> {
                 card.setBackgroundResource(R.drawable.bg_id_uploaded);
-                fIcon.setImageResource(R.drawable.ic_checked_blue_white_circle);
-                fIcon.setBackground(null);
-                fIcon.setPadding(0, 0, 0, 0); // No padding needed since it's already in layer list
-                fIcon.setColorFilter(null);
+                fIcon.setVisibility(View.GONE);
+                fBadge.setVisibility(View.VISIBLE);
                 fTitle.setText(side + " verified");
                 fTitle.setTextColor(0xFF1D5EF3); // Blue
                 fDesc.setText("Data extracted successfully");

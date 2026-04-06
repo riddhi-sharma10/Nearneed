@@ -52,7 +52,22 @@ public class OtpVerifyActivity extends AppCompatActivity {
     private void setupListeners() {
         btnBack.setOnClickListener(v -> onBackPressed());
 
+        final android.view.View vOtpUnderline = findViewById(R.id.vOtpUnderline);
+
         btnVerify.setOnClickListener(v -> {
+            boolean isValid = true;
+            for (EditText box : otpBoxes) {
+                if (box.getText().toString().trim().isEmpty()) {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                if (vOtpUnderline != null) vOtpUnderline.setVisibility(android.view.View.VISIBLE);
+                return;
+            }
+
             boolean isSignup = getIntent().getBooleanExtra("IS_SIGNUP", false);
             Intent intent;
             if (isSignup) {
@@ -82,6 +97,9 @@ public class OtpVerifyActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    android.view.View vOtpUnderline = findViewById(R.id.vOtpUnderline);
+                    if (vOtpUnderline != null) vOtpUnderline.setVisibility(android.view.View.INVISIBLE);
+
                     if (s.length() == 1 && currentIndex < otpBoxes.length - 1) {
                         otpBoxes[currentIndex + 1].requestFocus();
                     } else if (s.length() == 0 && currentIndex > 0) {
