@@ -34,15 +34,16 @@
                     android:textSize="16sp" />
             </RelativeLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:orientation="horizontal" android:weightSum="1" android:gravity="center_vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView
                     style="@style/AppHeading"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Step 3/4"
+                    android:text="Preferences"
                     android:textColor="@color/text_header"
                     android:textSize="14sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 3/4" android:textColor="@color/text_muted" android:textSize="12sp" />
             </LinearLayout>
             <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="8dp" android:progress="75" android:max="100" android:progressDrawable="@drawable/bg_progress_bar_blue_flat" />
 
@@ -63,42 +64,42 @@
                 android:layout_marginTop="16dp">
                 
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="House Help"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="House Help"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Plumbing"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plumbing"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Electrical"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Electrical"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cleaning"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cleaning"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cooking"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cooking"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Gardening"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gardening"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Pet Sitting"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pet Sitting"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Photography"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Photography"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tutor"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tutor"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Elderly Care"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Elderly Care"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Babysitting"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Babysitting"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipOtherNeed"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Other"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Other"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
             </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -141,48 +142,48 @@
                 android:layout_marginTop="16dp">
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_househelp"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="House Help"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="House Help"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_plumbing"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Plumbing"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plumbing"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_electrical"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Electrical"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Electrical"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_cleaning"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cleaning"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cleaning"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue" />
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_cooking"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Cooking"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cooking"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_techsupport"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tech Support"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tech Support"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_carwash"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Car Wash"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Car Wash"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_personaltraining"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Personal Training"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Personal Training"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_eventhelp"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Event Help"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Event Help"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/pref_offer_tutor"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tutor"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tutor"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipOtherOffer"
-                    android:layout_width="wrap_content" android:layout_height="48dp" android:text="+ Other"
-                    style="@style/Widget.MaterialComponents.Chip.Choice" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Other"
+                    style="@style/AppPreferenceChip" app:chipBackgroundColor="@color/sel_chip_bg_blue" app:chipStrokeColor="@color/sel_chip_stroke_blue" app:chipStrokeWidth="1dp" android:textColor="@color/sel_chip_text_blue"/>
             </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -208,24 +209,25 @@
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="40dp" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnter"
                 style="@style/AppHeading"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:layout_marginTop="24dp"
+                android:elevation="0dp"
                 android:text="Enter"
-                android:textColor="@color/white"
                 android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="16dp"
-                android:elevation="0dp" />
+                app:cornerRadius="16dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="40dp" />
 
         </LinearLayout>
     </ScrollView>

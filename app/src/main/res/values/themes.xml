@@ -33,4 +33,14 @@
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="AppPreferenceChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipMinHeight">48dp</item>
+        <item name="chipCornerRadius">24dp</item>
+        <item name="chipStartPadding">12dp</item>
+        <item name="chipEndPadding">12dp</item>
+        <item name="textStartPadding">4dp</item>
+        <item name="textEndPadding">4dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
