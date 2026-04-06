@@ -164,7 +164,7 @@
                 app:boxStrokeColor="@color/border_standard"
                 app:boxStrokeWidth="1dp"
                 app:hintEnabled="false"
-                app:passwordToggleEnabled="true">
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
