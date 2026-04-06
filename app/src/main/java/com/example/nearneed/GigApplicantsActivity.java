@@ -8,99 +8,105 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.transition.TransitionManager;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import android.view.View;
 
 public class GigApplicantsActivity extends AppCompatActivity {
+
+    private boolean isSlotFilled = false;
+    private TextView tvSpotsFilled;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gig_applicants);
 
+        // ── UI Components ──────────────────────────────────────────────────
+        tvSpotsFilled = findViewById(R.id.tvSpotsFilled);
+        progressBar = findViewById(R.id.progressBar);
+        
+        // ── Card Containers ────────────────────────────────────────────────
+        CardView cardRahul = findViewById(R.id.cardRahul);
+        CardView cardPriya = findViewById(R.id.cardPriya);
+        CardView cardAnika = findViewById(R.id.cardAnika);
+
+        // ── Expandable Layouts ─────────────────────────────────────────────
+        LinearLayout llRahulDetails = findViewById(R.id.llRahulDetails);
+        LinearLayout llPriyaDetails = findViewById(R.id.llPriyaDetails);
+        LinearLayout llAnikaDetails = findViewById(R.id.llAnikaDetails);
+
+        // ── Toggle Logic ───────────────────────────────────────────────────
+        if (cardRahul != null) cardRahul.setOnClickListener(v -> toggleDetails(llRahulDetails));
+        if (cardPriya != null) cardPriya.setOnClickListener(v -> toggleDetails(llPriyaDetails));
+        if (cardAnika != null) cardAnika.setOnClickListener(v -> toggleDetails(llAnikaDetails));
+
         // ── Back ──────────────────────────────────────────────────────────────
         ImageButton btnBack = findViewById(R.id.btnBack);
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-        // ── Rahul S. applicant buttons (EXPANDED) ────────────────────────────
+        // ── Rahul S. applicant buttons ───────────────────────────────────────
         MaterialButton btnAcceptRahul = findViewById(R.id.btnAcceptRahul);
         MaterialButton btnCounterRahul = findViewById(R.id.btnCounterRahul);
         MaterialButton btnDeclineRahul = findViewById(R.id.btnDeclineRahul);
         MaterialButton btnChatRahul = findViewById(R.id.btnChatRahul);
 
         if (btnAcceptRahul != null)
-            btnAcceptRahul.setOnClickListener(v -> {
-                startActivity(new Intent(this, PaymentActivity.class));
-            });
+            btnAcceptRahul.setOnClickListener(v -> handleAccept("Rahul S.", 250));
 
         if (btnCounterRahul != null)
             btnCounterRahul.setOnClickListener(v -> showCounterOfferDialog("Rahul S.", 250));
 
         if (btnDeclineRahul != null)
-            btnDeclineRahul.setOnClickListener(v -> {
-                CardView cardRahul = findViewById(R.id.cardRahul);
-                if (cardRahul != null) {
-                    cardRahul.setVisibility(View.GONE);
-                }
-                Toast.makeText(this, "Declined Rahul's application.", Toast.LENGTH_SHORT).show();
-            });
+            btnDeclineRahul.setOnClickListener(v -> handleDecline(cardRahul, "Rahul S."));
 
         if (btnChatRahul != null)
             btnChatRahul.setOnClickListener(v -> openChat("Rahul S.", "rahul_id", "+919876543210"));
 
-        // ── Priya M. Card (EXPANDED) ──────────────────────────────────────────
+        // ── Priya M. applicant buttons ───────────────────────────────────────
         MaterialButton btnAcceptPriya = findViewById(R.id.btnAcceptPriya);
         MaterialButton btnCounterPriya = findViewById(R.id.btnCounterPriya);
         MaterialButton btnDeclinePriya = findViewById(R.id.btnDeclinePriya);
         MaterialButton btnChatPriya = findViewById(R.id.btnChatPriya);
-        CardView cardPriya = findViewById(R.id.cardPriya);
 
         if (btnAcceptPriya != null)
-            btnAcceptPriya.setOnClickListener(v -> {
-                Toast.makeText(this, "Accepted Priya's offer of ₹250", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, PaymentActivity.class));
-            });
+            btnAcceptPriya.setOnClickListener(v -> handleAccept("Priya M.", 250));
 
         if (btnCounterPriya != null)
             btnCounterPriya.setOnClickListener(v -> showCounterOfferDialog("Priya M.", 250));
 
         if (btnDeclinePriya != null)
-            btnDeclinePriya.setOnClickListener(v -> {
-                if (cardPriya != null) cardPriya.setVisibility(View.GONE);
-                Toast.makeText(this, "Declined Priya's application.", Toast.LENGTH_SHORT).show();
-            });
+            btnDeclinePriya.setOnClickListener(v -> handleDecline(cardPriya, "Priya M."));
 
         if (btnChatPriya != null)
             btnChatPriya.setOnClickListener(v -> openChat("Priya M.", "priya_id", "+919876543211"));
 
-        // ── Anika R. Card (EXPANDED) ───────────────────────────────────────────
+        // ── Anika R. applicant buttons ────────────────────────────────────────
         MaterialButton btnAcceptAnika = findViewById(R.id.btnAcceptAnika);
         MaterialButton btnCounterAnika = findViewById(R.id.btnCounterAnika);
         MaterialButton btnDeclineAnika = findViewById(R.id.btnDeclineAnika);
         MaterialButton btnChatAnika = findViewById(R.id.btnChatAnika);
-        CardView cardAnika = findViewById(R.id.cardAnika);
 
         if (btnAcceptAnika != null)
-            btnAcceptAnika.setOnClickListener(v -> {
-                Toast.makeText(this, "Accepted Anika's offer of ₹250", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, PaymentActivity.class));
-            });
+            btnAcceptAnika.setOnClickListener(v -> handleAccept("Anika R.", 250));
 
         if (btnCounterAnika != null)
             btnCounterAnika.setOnClickListener(v -> showCounterOfferDialog("Anika R.", 250));
 
         if (btnDeclineAnika != null)
-            btnDeclineAnika.setOnClickListener(v -> {
-                if (cardAnika != null) cardAnika.setVisibility(View.GONE);
-                Toast.makeText(this, "Declined Anika's application.", Toast.LENGTH_SHORT).show();
-            });
+            btnDeclineAnika.setOnClickListener(v -> handleDecline(cardAnika, "Anika R."));
 
         if (btnChatAnika != null)
             btnChatAnika.setOnClickListener(v -> openChat("Anika R.", "anika_id", "+919876543212"));
@@ -109,198 +115,48 @@ public class GigApplicantsActivity extends AppCompatActivity {
         NavbarHelper.setup(this, NavbarHelper.TAB_HOME);
     }
 
-    private void expandApplicantCard(CardView card, String name, double rating, String userId, String userPhone,
-                                      int proposedPrice, String fullMessage) {
-        // Remove the collapsed preview
-        card.removeAllViews();
+    private void toggleDetails(View detailsLayout) {
+        if (detailsLayout == null) return;
+        
+        ViewGroup parent = (ViewGroup) detailsLayout.getParent();
+        if (parent != null) {
+            TransitionManager.beginDelayedTransition(parent);
+        }
 
-        // Create expanded content
-        LinearLayout expandedContent = new LinearLayout(this);
-        expandedContent.setOrientation(LinearLayout.VERTICAL);
-        expandedContent.setPadding(48, 48, 48, 48);
-
-        // Avatar + Name + Rating row
-        RelativeLayout header = new RelativeLayout(this);
-        header.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        ));
-
-        ImageView avatar = new ImageView(this);
-        avatar.setId(View.generateViewId());
-        avatar.setLayoutParams(new RelativeLayout.LayoutParams(80, 80));
-        avatar.setBackgroundResource(R.drawable.bg_circle_light_blue);
-        avatar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        header.addView(avatar);
-        avatar.setOnClickListener(v -> openUserProfile(name, userId, rating, userPhone));
-
-        LinearLayout nameRatingGroup = new LinearLayout(this);
-        nameRatingGroup.setOrientation(LinearLayout.VERTICAL);
-
-        TextView nameView = new TextView(this);
-        nameView.setText(name);
-        nameView.setTextSize(18);
-        nameView.setTextColor(getColor(R.color.text_header));
-        nameView.setTypeface(null, android.graphics.Typeface.BOLD);
-        nameRatingGroup.addView(nameView);
-
-        LinearLayout ratingRow = new LinearLayout(this);
-        ratingRow.setOrientation(LinearLayout.HORIZONTAL);
-        ratingRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
-        LinearLayout.LayoutParams ratingRowLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        ratingRowLp.topMargin = 4;
-        nameRatingGroup.addView(ratingRow, ratingRowLp);
-
-        ImageView starIcon = new ImageView(this);
-        starIcon.setLayoutParams(new LinearLayout.LayoutParams(16, 16));
-        starIcon.setImageResource(R.drawable.ic_star_yellow);
-        ratingRow.addView(starIcon);
-
-        TextView ratingView = new TextView(this);
-        ratingView.setText("★ " + rating);
-        ratingView.setTextSize(14);
-        ratingView.setTextColor(getColor(R.color.brand_warning_solid));
-        ratingView.setTypeface(null, android.graphics.Typeface.BOLD);
-        LinearLayout.LayoutParams ratingLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        ratingLp.leftMargin = 4;
-        ratingRow.addView(ratingView, ratingLp);
-
-        RelativeLayout.LayoutParams groupLp = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
-        );
-        groupLp.addRule(RelativeLayout.RIGHT_OF, avatar.getId());
-        groupLp.addRule(RelativeLayout.CENTER_VERTICAL);
-        groupLp.leftMargin = 20;
-        header.addView(nameRatingGroup, groupLp);
-
-        LinearLayout.LayoutParams headerLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        headerLp.bottomMargin = 24;
-        expandedContent.addView(header, headerLp);
-
-        // Full message
-        TextView messageView = new TextView(this);
-        messageView.setText(fullMessage);
-        messageView.setTextSize(14);
-        messageView.setTextColor(getColor(R.color.text_subheadline));
-        messageView.setLineSpacing(1.5f, 1f);
-        LinearLayout.LayoutParams messageLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        messageLp.bottomMargin = 24;
-        expandedContent.addView(messageView, messageLp);
-
-        // Proposed price chip
-        RelativeLayout priceChip = new RelativeLayout(this);
-        priceChip.setBackgroundResource(R.drawable.bg_alert_yellow);
-        priceChip.setPadding(16, 16, 16, 16);
-        LinearLayout.LayoutParams priceLp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        priceLp.bottomMargin = 24;
-        expandedContent.addView(priceChip, priceLp);
-
-        ImageView priceIcon = new ImageView(this);
-        priceIcon.setId(View.generateViewId());
-        priceIcon.setLayoutParams(new RelativeLayout.LayoutParams(20, 20));
-        priceIcon.setImageResource(R.drawable.ic_cash_icon);
-        priceIcon.setColorFilter(getColor(R.color.brand_warning_solid));
-        priceChip.addView(priceIcon);
-
-        TextView priceText = new TextView(this);
-        priceText.setText("Proposed ₹" + proposedPrice + " (you posted ₹300)");
-        priceText.setTextSize(14);
-        priceText.setTextColor(getColor(R.color.brand_warning_text));
-        priceText.setTypeface(null, android.graphics.Typeface.BOLD);
-        RelativeLayout.LayoutParams priceTxtLp = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
-        );
-        priceTxtLp.addRule(RelativeLayout.RIGHT_OF, priceIcon.getId());
-        priceTxtLp.addRule(RelativeLayout.CENTER_VERTICAL);
-        priceTxtLp.leftMargin = 12;
-        priceChip.addView(priceText, priceTxtLp);
-
-        // Action buttons row 1: Accept + Counter
-        LinearLayout buttonRow1 = new LinearLayout(this);
-        buttonRow1.setOrientation(LinearLayout.HORIZONTAL);
-        buttonRow1.setWeightSum(2);
-        LinearLayout.LayoutParams btnRow1Lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        btnRow1Lp.bottomMargin = 12;
-        expandedContent.addView(buttonRow1, btnRow1Lp);
-
-        MaterialButton acceptBtn = new MaterialButton(this);
-        acceptBtn.setText("Accept ₹" + proposedPrice);
-        acceptBtn.setTextSize(13);
-        acceptBtn.setBackgroundColor(getColor(R.color.brand_success_alt));
-        LinearLayout.LayoutParams acceptLp = new LinearLayout.LayoutParams(0,
-                LinearLayout.LayoutParams.WRAP_CONTENT, 1);
-        acceptLp.setMargins(0, 0, 12, 0);
-        buttonRow1.addView(acceptBtn, acceptLp);
-        acceptBtn.setOnClickListener(v -> {
-            Toast.makeText(this, "Accepted " + name + "'s offer", Toast.LENGTH_SHORT).show();
-            card.setVisibility(View.GONE);
-        });
-
-        MaterialButton counterBtn = new MaterialButton(this);
-        counterBtn.setText("Counter");
-        counterBtn.setTextSize(13);
-        counterBtn.setBackgroundColor(getColor(R.color.brand_primary));
-        LinearLayout.LayoutParams counterLp = new LinearLayout.LayoutParams(0,
-                LinearLayout.LayoutParams.WRAP_CONTENT, 1);
-        buttonRow1.addView(counterBtn, counterLp);
-        counterBtn.setOnClickListener(v -> showCounterOfferDialog(name, proposedPrice));
-
-        // Action buttons row 2: Decline + Chat
-        LinearLayout buttonRow2 = new LinearLayout(this);
-        buttonRow2.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams btnRow2Lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        expandedContent.addView(buttonRow2, btnRow2Lp);
-
-        MaterialButton declineBtn = new MaterialButton(this);
-        declineBtn.setText("Decline");
-        declineBtn.setTextSize(13);
-        declineBtn.setBackgroundColor(getColor(R.color.divider_soft));
-        LinearLayout.LayoutParams declineLp = new LinearLayout.LayoutParams(0,
-                LinearLayout.LayoutParams.WRAP_CONTENT, 0.65f);
-        declineLp.setMargins(0, 0, 12, 0);
-        buttonRow2.addView(declineBtn, declineLp);
-        declineBtn.setOnClickListener(v -> {
-            card.setVisibility(View.GONE);
-            Toast.makeText(this, "Declined " + name + "'s application.", Toast.LENGTH_SHORT).show();
-        });
-
-        MaterialButton chatBtn = new MaterialButton(this);
-        chatBtn.setBackgroundColor(getColor(R.color.brand_primary_light));
-        chatBtn.setIcon(getDrawable(R.drawable.ic_chat_outline));
-        LinearLayout.LayoutParams chatLp = new LinearLayout.LayoutParams(0,
-                LinearLayout.LayoutParams.WRAP_CONTENT, 0.35f);
-        buttonRow2.addView(chatBtn, chatLp);
-        chatBtn.setOnClickListener(v -> openChat(name, userId, userPhone));
-
-        // Add to card
-        card.addView(expandedContent);
+        if (detailsLayout.getVisibility() == View.VISIBLE) {
+            detailsLayout.setVisibility(View.GONE);
+        } else {
+            detailsLayout.setVisibility(View.VISIBLE);
+        }
     }
 
+    private void handleAccept(String name, int price) {
+        if (isSlotFilled) {
+            Toast.makeText(this, "Gig is already closed. Slot is filled.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        isSlotFilled = true;
+        if (tvSpotsFilled != null) tvSpotsFilled.setText("1 of 1 slots filled");
+        if (progressBar != null) {
+            progressBar.setProgress(1);
+            progressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.brand_success_alt)));
+        }
+        
+        Toast.makeText(this, "Accepted " + name + "'s offer of ₹" + price + ". Gig is now closed.", Toast.LENGTH_LONG).show();
+        
+        // Optionally redirect to payment
+        startActivity(new Intent(this, PaymentActivity.class));
+    }
+
+    private void handleDecline(View card, String name) {
+        if (card != null) card.setVisibility(View.GONE);
+        Toast.makeText(this, "Declined " + name + "'s application.", Toast.LENGTH_SHORT).show();
+    }
+
+
     private void showCounterOfferDialog(String applicantName, int originalPrice) {
-        Dialog dialog = new Dialog(this);
+        BottomSheetDialog dialog = new BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_counter_offer, null);
         dialog.setContentView(dialogView);
 

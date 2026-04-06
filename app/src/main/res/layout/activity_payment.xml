@@ -91,7 +91,7 @@
                                 android:textColor="@color/text_subheadline"
                                 android:textSize="16sp"
                                 android:layout_marginStart="12dp" />
-                            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:layout_marginStart="6dp" android:src="@drawable/ic_verified_blue" />
+                            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:layout_marginStart="6dp" android:src="@drawable/ic_verified_badge" />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">

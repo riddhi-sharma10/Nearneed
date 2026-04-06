@@ -233,11 +233,6 @@
                                 android:layout_marginStart="12dp"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -245,12 +240,6 @@
                                         android:textColor="@color/text_header"
                                         android:textSize="16sp"
                                         style="@style/AppHeading" />
-                                    <ImageView
-                                        android:layout_width="16dp"
-                                        android:layout_height="16dp"
-                                        android:layout_marginStart="4dp"
-                                        android:src="@drawable/ic_verified_blue" />
-                                </LinearLayout>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -454,26 +443,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="12dp"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
-                                    <TextView
+                                android:orientation="vertical">                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Sarah K."
                                         android:textColor="@color/text_header"
                                         android:textSize="16sp"
                                         style="@style/AppHeading" />
-                                    <ImageView
-                                        android:layout_width="16dp"
-                                        android:layout_height="16dp"
-                                        android:layout_marginStart="4dp"
-                                        android:src="@drawable/ic_verified_blue" />
-                                </LinearLayout>
+t>
 
                                 <TextView
                                     android:layout_width="wrap_content"
